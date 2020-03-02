@@ -37,7 +37,7 @@
         </div>
         <div class="row">
             <h1>Kepala Seksi</h1>
-            <form action="<?= base_url('bidang/insert_kasi'); ?>" method="post">
+            <form action="<?= base_url('seksi/insert_kasi'); ?>" method="post">
             <select name="seksi" id="seksi">
                 <?php foreach($data_seksi as $row){ ?>
                 <option value="<?php echo $row->id_seksi; ?>"><?=$row->nama_bidang," - ",$row->nama_seksi; ?></option>

@@ -18,7 +18,7 @@ class Seksi extends CI_Controller {
     public function index()
     {
         $context['data_bidang'] = $this->bidang_model->select();
-        $context['data_kasi'] = $this->kasi_model->select_join_seksi_pengguna();
+        $context['data_kasi'] = $this->kasi_model->select_join_bidang_seksi_pengguna();
         $context['data_pengguna'] = $this->pengguna_model->select();
         $context['data_seksi'] = $this->seksi_model->select_join_bidang();
         $this->load->view('v_seksi', $context);
@@ -47,7 +47,7 @@ class Seksi extends CI_Controller {
 
         $result = $this->kasi_model->insert($object);
         
-        redirect('bidang','refresh');
+        redirect('seksi','refresh');
     }
 
 }
