@@ -13,6 +13,7 @@ class Pengguna extends CI_Controller {
         $this->load->model('jabatan_model');
         $this->load->model('kualifikasi_model');
         $this->load->model('pengguna_model');
+        $this->load->model('seksi_model');
         $this->load->model('staf_model');
         
 
@@ -24,6 +25,8 @@ class Pengguna extends CI_Controller {
         $context['data_jabatan'] = $this->jabatan_model->select();
         $context['data_kualifikasi'] = $this->kualifikasi_model->select_join_pendidikan_jurusan();
         $context['data_pengguna'] = $this->pengguna_model->select();
+        $context['data_seksi'] = $this->seksi_model->select();
+        $context['data_staf'] = $this->staf_model->select_join_jabatan_pengguna_seksi();
         $this->load->view('v_pengguna', $context);
     }
 
@@ -39,7 +42,7 @@ class Pengguna extends CI_Controller {
             'nama_pengguna' => $this->input->post('nama'),
             'nik_pengguna' => $this->input->post('nik'),
             'nip_pengguna' => $this->input->post('nip'),
-            'password_pengguna' => $this->input->post('password'),
+            'password_pengguna' => password_hash($this->input->post('password'), PASSWORD_ARGON2I),
             'status_pengguna' => '1',      
             'tanggal_lahir_pengguna' => $this->input->post('bday'),
             'telepon_pengguna' => $this->input->post('telepon'),
@@ -54,6 +57,18 @@ class Pengguna extends CI_Controller {
         );     
 
         $result = $this->staf_model->insert($object2);
+        redirect('pengguna','refresh');
+        
+    }
+
+    public function update_staf()
+    {
+        $where = $this->input->post('staf');
+        $object = array(
+            'id_seksi' => $this->input->post('seksi')
+        );
+        $this->staf_model->update($object, $where);
+        
         redirect('pengguna','refresh');
         
     }

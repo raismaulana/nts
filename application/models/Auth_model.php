@@ -14,7 +14,7 @@ class Auth_model extends CI_Model {
             
             $row = $query->row();
 
-			if ($pwd == $row->password_pengguna) {
+			if (password_verify($pwd, $row->password_pengguna)) {
                 if($row->status_pengguna == '1'){
                     $sess = array(
                         'id' => $row->id_pengguna,
@@ -72,7 +72,12 @@ class Auth_model extends CI_Model {
         }
     }
 
-
+    public function is_login()
+    {
+        if($this->session->userdata('username')){
+            redirect('home', 'refresh');
+        }
+    }
 
 }
 

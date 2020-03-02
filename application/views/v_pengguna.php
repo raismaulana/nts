@@ -82,6 +82,48 @@
             <button type="submit">KIRIM</button>
             </form>        
         </div>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Pengguna</th>
+                        <th>Jabatan</th>
+                        <th>Seksi</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php $i=1; foreach($data_staf as $row){ ?>
+                    <tr>
+                        <td scope="row"><?= $i++; ?></td>
+                        <td><?= $row->nama_pengguna; ?></td>
+                        <td><?= $row->nama_jabatan; ?></td>
+                        <td><?= $row->nama_seksi; ?></td>
+                        <td><a name="edit" id="edit" class="btn btn-dark" href="#" role="button">Edit</a></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <h1>Staf</h1>
+            <form action="<?= base_url('pengguna/update_staf'); ?>" method="post">
+            <select name="staf" id="staf">
+                <?php foreach($data_staf as $row){ ?>
+                <option value="<?php echo $row->id_staf; ?>"><?=$row->nama_pengguna, " (",$row->nama_pengguna,")"; ?></option>
+                <?php } ?>
+            </select>
+            <select name="seksi" id="seksi">
+                <?php foreach($data_seksi as $row){ ?>
+                <option value="<?php echo $row->id_seksi; ?>"><?=$row->nama_seksi; ?></option>
+                <?php } ?>
+            </select>
+            <button type="submit">KIRIM</button>
+            </form>        
+        </div>
     </div>
     
 </body>
