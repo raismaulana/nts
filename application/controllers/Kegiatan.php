@@ -11,8 +11,11 @@ class Kegiatan extends CI_Controller {
         
     }
 
-    public function index()
+    public function index($id)
     {
+        $context = $this->kegiatan_model->select_where($id);
+
+        $this->load->view('v_kegiatan', $context);
         
     }
 

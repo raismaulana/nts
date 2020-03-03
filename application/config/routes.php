@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route["laporan/(:num)"] = "laporan/index/$1";
+$route["kegiatan/(:num)"] = "kegiatan/index/$1";

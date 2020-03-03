@@ -12,7 +12,13 @@ class Kegiatan_model extends CI_Model {
             'tabel' => 'kegiatan'
         );
     }
-    
+
+    public function select_where($where)
+    {
+        $this->db->where('id_laporan', $where);
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }    
 
 }
 
