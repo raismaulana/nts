@@ -11,7 +11,7 @@
     <!-- Favicon icon -->
     <title>Beranda Uji Coba</title>
     <!-- Custom CSS -->
-    <link href="<?php echo base_url('assets/css/style.min.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/style.min.css') ?>" rel="stylesheet">
 </head>
 
 <body class="skin-blue fixed-header">
@@ -21,7 +21,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Pencatatan Kegiatan Harian</p>
+            <p class="loader__label">Dasbor</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -36,7 +36,7 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-header"> 
+                <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
                         <b>
@@ -48,10 +48,10 @@
                         </b>&nbsp;&nbsp;
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
-                         <!-- dark Logo text -->
-                         <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->    
-                         <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" class="light-logo" alt="homepage" /></span> </a>
+                            <!-- dark Logo text -->
+                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo text -->
+                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -64,7 +64,7 @@
                         <!-- This is  -->
                         <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
-                        <!-- ============================================================== -->                        
+                        <!-- ============================================================== -->
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -109,13 +109,15 @@
                                             <a href="javascript:void(0)">
                                                 <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
                                                 <div class="mail-contnet">
-                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </div>
+                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span>
+                                                </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="javascript:void(0)">
                                                 <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
                                                 <div class="mail-contnet">
-                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                                </div>
                                             </a>
                                         </div>
                                     </li>
@@ -154,14 +156,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Pegawai Sesuai Seksi</h4>
+                        <h4 class="text-themecolor">Dasbor</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li>
-                                <li class="breadcrumb-item active">Seksi</li>
+                                <!--<li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li>-->
+                                <li class="breadcrumb-item active">Beranda</li>
                             </ol>
                         </div>
                     </div>
@@ -169,18 +171,201 @@
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
+                <!-- Info box -->
                 <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                Halaman contoh aja yaa ini.......
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-screen-desktop"></i></h3>
+                                            <p class="text-muted">LAPORAN STAF BULAN INI</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-primary">148</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-note"></i></h3>
+                                            <p class="text-muted">DITERIMA</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-cyan">68</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-cyan" role="progressbar" style="width: 68%; height: 6px;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-doc"></i></h3>
+                                            <p class="text-muted">MENUNGGU</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-purple">22</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-purple" role="progressbar" style="width: 22%; height: 6px;" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-bag"></i></h3>
+                                            <p class="text-muted">DITOLAK</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-success">10</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 10%; height: 6px;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- End Info box -->
+                <!-- ============================================================== -->
+                <!-- Over Visitor, Our income , slaes different and  sales prediction -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-md-9">
+                        <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Data Laporan Kegiatan Harian Terakhir</h5>
+                            </div>
+                        <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Tanggal</th>
+                                            <th>Nama</th>
+                                            <th>Uraian</th>
+                                            <th>Kuantitas Hasil</th>
+                                            <th>Jabatan</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="javascript:void(0)" class="link"> Order #53431</a></td>
+                                            <td>Steve N. Horton</td>
+                                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 22, 2014</span></td>
+                                            <td>$45.00</td>
+                                            <td>$45.00</td>
+                                            <td class="text-center">
+                                                <div class="label label-table label-success">Paid</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="javascript:void(0)" class="link"> Order #53432</a></td>
+                                            <td>Charles S Boyle</td>
+                                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 24, 2014</span></td>
+                                            <td>$245.30</td>
+                                            <td>$45.00</td>
+                                            <td class="text-center">
+                                                <div class="label label-table label-info">Shipped</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="javascript:void(0)" class="link"> Order #53433</a></td>
+                                            <td>Lucy Doe</td>
+                                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 24, 2014</span></td>
+                                            <td>$38.00</td>
+                                            <td>$45.00</td>
+                                            <td class="text-center">
+                                                <div class="label label-table label-info">Shipped</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-3">
+                        <div class="card">
+                            <ul class="country-state slimscrollcountry">
+                                <li>
+                                    <h2>50</h2> <small>LAPORAN KASI BULAN INI</small>
+                                    <div class="pull-right">100% <i class="fa fa-level-up text-success"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width:100%; height: 6px;"> <span class="sr-only">100%</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>20</h2> <small>DITERIMA</small>
+                                    <div class="pull-right">40% <i class="fa fa-level-up text-success"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="50" style="width:40%; height: 6px;"> <span class="sr-only">40%</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>28</h2> <small>MENUNGGU</small>
+                                    <div class="pull-right">56% <i class="fa fa-level-down text-danger"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="50" style="width:56%; height: 6px;"> <span class="sr-only">56%</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>2</h2> <small>DITOLAK</small>
+                                    <div class="pull-right">48% <i class="fa fa-level-up text-success"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="50" style="width:4%; height: 6px;"> <span class="sr-only">4%</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -226,7 +411,7 @@
     <script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
 </body>
 
-    <!--
+<!--
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -249,8 +434,8 @@
             <h1>Seksi</h1>
             <form action="<?= base_url('home/insert_seksi'); ?>" method="post">
             <select name="bidang" id="bidang">
-                <?php foreach($data_bidang as $row){ ?>
-                <option value="<?php echo $row->id_bidang; ?>"><?=$row->nama_bidang; ?></option>
+                <?php foreach ($data_bidang as $row) { ?>
+                <option value="<?php echo $row->id_bidang; ?>"><?= $row->nama_bidang; ?></option>
                 <?php } ?>
             </select>
             <input type="text" name="nama" id="nama">
@@ -261,8 +446,8 @@
             <h1>Jabatan Staf</h1>
             <form action="<?= base_url('home/insert_jabatan'); ?>" method="post">
             <select name="seksi" id="seksi">
-                <?php foreach($data_seksi as $row){ ?>
-                <option value="<?php echo $row->id_seksi; ?>"><?=$row->nama_seksi; ?></option>
+                <?php foreach ($data_seksi as $row) { ?>
+                <option value="<?php echo $row->id_seksi; ?>"><?= $row->nama_seksi; ?></option>
                 <?php } ?>
             </select>
             <input type="text" name="nama" id="nama">
@@ -280,8 +465,8 @@
             <h1>Jurusan</h1>
             <form action="<?= base_url('home/insert_jurusan'); ?>" method="post">
             <select name="jurusan" id="jurusan">
-                <?php foreach($data_pendidikan as $row){ ?>
-                <option value="<?php echo $row->id_pendidikan; ?>"><?=$row->nama_pendidikan; ?></option>
+                <?php foreach ($data_pendidikan as $row) { ?>
+                <option value="<?php echo $row->id_pendidikan; ?>"><?= $row->nama_pendidikan; ?></option>
                 <?php } ?>
             </select>
             <input type="text" name="nama" id="nama">
@@ -292,13 +477,13 @@
             <h1>Pengguna</h1>
             <form action="<?= base_url('home/insert_pengguna'); ?>" method="post">
             <select name="jabatan" id="jabatan">
-                <?php foreach($data_jabatan as $row){ ?>
-                <option value="<?php echo $row->id_jabatan; ?>"><?=$row->nama_jabatan; ?></option>
+                <?php foreach ($data_jabatan as $row) { ?>
+                <option value="<?php echo $row->id_jabatan; ?>"><?= $row->nama_jabatan; ?></option>
                 <?php } ?>
             </select>
             <select name="jurusan" id="jurusan">
-                <?php foreach($data_jurusan as $row){ ?>
-                <option value="<?php echo $row->id_jurusan; ?>"><?=$row->nama_jurusan; ?></option>
+                <?php foreach ($data_jurusan as $row) { ?>
+                <option value="<?php echo $row->id_jurusan; ?>"><?= $row->nama_jurusan; ?></option>
                 <?php } ?>
             </select>
             <input type="text" name="username" id="username">
@@ -320,13 +505,13 @@
             <h1>Kabid</h1>
             <form action="<?= base_url('home/insert_kabid'); ?>" method="post">
             <select name="bidang" id="bidang">
-                <?php foreach($data_bidang as $row){ ?>
-                <option value="<?php echo $row->id_bidang; ?>"><?=$row->nama_bidang; ?></option>
+                <?php foreach ($data_bidang as $row) { ?>
+                <option value="<?php echo $row->id_bidang; ?>"><?= $row->nama_bidang; ?></option>
                 <?php } ?>
             </select>
             <select name="nama" id="nama">
-                <?php foreach($data_pengguna as $row){ ?>
-                <option value="<?php echo $row->id_pengguna; ?>"><?=$row->nama_pengguna; ?></option>
+                <?php foreach ($data_pengguna as $row) { ?>
+                <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna; ?></option>
                 <?php } ?>
             </select>
             <button type="submit">KIRIM</button>
@@ -337,13 +522,13 @@
             <h1>Kasi</h1>
             <form action="<?= base_url('home/insert_kasi'); ?>" method="post">
             <select name="seksi" id="seksi">
-                <?php foreach($data_seksi as $row){ ?>
-                <option value="<?php echo $row->id_seksi; ?>"><?=$row->nama_seksi; ?></option>
+                <?php foreach ($data_seksi as $row) { ?>
+                <option value="<?php echo $row->id_seksi; ?>"><?= $row->nama_seksi; ?></option>
                 <?php } ?>
             </select>
             <select name="nama" id="nama">
-                <?php foreach($data_pengguna as $row){ ?>
-                <option value="<?php echo $row->id_pengguna; ?>"><?=$row->nama_pengguna; ?></option>
+                <?php foreach ($data_pengguna as $row) { ?>
+                <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna; ?></option>
                 <?php } ?>
             </select>
             <button type="submit">KIRIM</button>
@@ -354,13 +539,13 @@
             <h1>Staf</h1>
             <form action="<?= base_url('home/insert_staf'); ?>" method="post">
             <select name="jabatan" id="jabatan">
-                <?php foreach($data_jabatan as $row){ ?>
-                <option value="<?php echo $row->id_jabatan; ?>"><?=$row->nama_jabatan; ?></option>
+                <?php foreach ($data_jabatan as $row) { ?>
+                <option value="<?php echo $row->id_jabatan; ?>"><?= $row->nama_jabatan; ?></option>
                 <?php } ?>
             </select>
             <select name="nama" id="nama">
-                <?php foreach($data_pengguna as $row){ ?>
-                <option value="<?php echo $row->id_pengguna; ?>"><?=$row->nama_pengguna; ?></option>
+                <?php foreach ($data_pengguna as $row) { ?>
+                <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna; ?></option>
                 <?php } ?>
             </select>
             <button type="submit">KIRIM</button>
@@ -370,4 +555,5 @@
     
 </body>
                 -->
+
 </html>
