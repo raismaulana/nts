@@ -10,6 +10,9 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <title>Beranda Uji Coba</title>
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/vendor/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/css/style.min.css') ?>" rel="stylesheet">
 </head>
@@ -278,53 +281,11 @@
                     <!-- Column -->
                     <div class="col-md-9">
                         <div class="card">
-                        <div class="card-body">
+                            <div class="card-body">
                                 <h5 class="card-title">Data Laporan Kegiatan Harian Terakhir</h5>
                             </div>
-                        <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Tanggal</th>
-                                            <th>Nama</th>
-                                            <th>Uraian</th>
-                                            <th>Kuantitas Hasil</th>
-                                            <th>Jabatan</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><a href="javascript:void(0)" class="link"> Order #53431</a></td>
-                                            <td>Steve N. Horton</td>
-                                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 22, 2014</span></td>
-                                            <td>$45.00</td>
-                                            <td>$45.00</td>
-                                            <td class="text-center">
-                                                <div class="label label-table label-success">Paid</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="javascript:void(0)" class="link"> Order #53432</a></td>
-                                            <td>Charles S Boyle</td>
-                                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 24, 2014</span></td>
-                                            <td>$245.30</td>
-                                            <td>$45.00</td>
-                                            <td class="text-center">
-                                                <div class="label label-table label-info">Shipped</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="javascript:void(0)" class="link"> Order #53433</a></td>
-                                            <td>Lucy Doe</td>
-                                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 24, 2014</span></td>
-                                            <td>$38.00</td>
-                                            <td>$45.00</td>
-                                            <td class="text-center">
-                                                <div class="label label-table label-info">Shipped</div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                            <div class="table-responsive m-t-4">
+                                <table id="table_data_terakhir" class="table table-striped" data-page-size="8">
                                 </table>
                             </div>
                         </div>
@@ -407,8 +368,46 @@
     <!--stickey kit -->
     <script src="<?php echo base_url('assets/vendor/sticky-kit-master/dist/sticky-kit.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/vendor/sparkline/jquery.sparkline.min.js'); ?>"></script>
+    <!-- This is data table -->
+    <script src="<?php echo base_url() . 'assets/vendor/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/vendor/datatables.net-bs4/js/dataTables.responsive.min.js' ?>"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
+    <script>
+        var dataset = [["A","B","C","D","E","F"],
+                    ["D","S","W","O","D","S"],
+                    ["R","X","E","L","E","D"],
+                    ["W","Y","K","S","W","P"],
+                    ["G","J","O","T","Z","F"]];
+        $(document).ready(function(){
+            $('#table_data_terakhir').DataTable({
+                data:dataset,
+                columns:[
+                    { title: "Tanggal" },
+                    { title: "Nama" },
+                    { title: "Uraian" },
+                    { title: "Kuantitan Hasil" },
+                    { title: "Jabatan" },
+                    { title: "Status" }
+                    /*Format untuk data dari server nantinya dengan tipe data array $datas = array("data" => $data);
+                    ajax: {
+                        "url": "http://localhost/",
+                        "method": "GET"
+                    },
+                    columns: [{
+                            "data": "tanggal",
+                            "width": "10%"
+                        },
+                        {
+                            "data": "nama",
+                            "width": "40%"
+                        }
+                    ]
+                    */
+                ]
+            });
+        });
+    </script>
 </body>
 
 <!--
