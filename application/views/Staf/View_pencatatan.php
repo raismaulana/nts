@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Pencatatan Kegiatan Harian</title>
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
@@ -26,14 +26,14 @@
 <![endif]-->
 </head>
 
-<body class="fixed-layout skin-blue mini-sidebar">
+<body class="skin-blue fixed-layout">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Pencatatan Data Pegawai</p>
+            <p class="loader__label">Pencatatan Data Kegiatan Harian Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -149,7 +149,7 @@
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('v_sidebar')
+        $this->load->view('Staf/View_sidebar')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -167,14 +167,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Pegawai</h4>
+                        <h4 class="text-themecolor">Data Pencatatan Kegiatan Harian Staf</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
-                                <li class="breadcrumb-item active">Data Pegawai</li>
+                                <li class="breadcrumb-item active">Pencatatan Kegiatan Harian</li>
                             </ol>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
                             <div class="card-body">
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Pegawai</h4>
+                                        <h4 class="card-title">Daftar Data Kegiatan Harian</h4>
                                     </div>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="float-right mr-4"><a href="javascript:void(0);" class="btn waves-effect waves-light btn-primary" data-toggle="modal" data-target="#Modal_Tambah"><span class="fa fa-plus"></span> Tambah Data</a></div>
@@ -203,12 +203,15 @@
                                     <table id="" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Tanggal</th>
                                                 <th>Nama</th>
-                                                <th>Alamat</th>
-                                                <th>No.Telp</th>
-                                                <th>NIK</th>
-                                                <th>NIP</th>
-                                                <th>Golongan</th>
+                                                <th>Jabatan</th>
+                                                <th>Uraian Aktivitas</th>
+                                                <th>Kuantitas Output</th>
+                                                <th>Waktu Mulai</th>
+                                                <th>Waktu Selesai</th>
+                                                <th>Status</th>
+                                                <th>Waktu Upload</th>
                                                 <th>#</th>
                                             </tr>
                                         </thead>
@@ -231,7 +234,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pengawai</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kegiatan</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -239,37 +242,55 @@
                                 <div class="modal-body">
                                     <div id="pesan-error-tmbh" class="alert alert-danger" hidden></div>
                                     <div class="form-group row">
+                                        <label class="col-md-2 col-form-label">Tanggal</label>
+                                        <div class="col-md-10">
+                                            <input type="" name="" id="" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-md-2 col-form-label">Nama</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Alamat</label>
+                                        <label class="col-md-2 col-form-label">Jabatan</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">No.Telp</label>
+                                        <label class="col-md-2 col-form-label">Uraian Aktivitas</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">NIK</label>
+                                        <label class="col-md-2 col-form-label">Kuantitas Output</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">NIP</label>
+                                        <label class="col-md-2 col-form-label">Waktu Mulai</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Golongan</label>
+                                        <label class="col-md-2 col-form-label">Waktu Selesai</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="" id="" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label">Status</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="" id="" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label">Waktu Upload</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
                                         </div>
