@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
-    <title>Data Kepala Seksi</title>
+    <title>Data Kegiatan Harian Staf</title>
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
@@ -33,7 +33,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Data Kepala Seksi</p>
+            <p class="loader__label">Data Kegiatan Harian Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -167,14 +167,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Kepala Seksi</h4>
+                        <h4 class="text-themecolor">Data Kegiatan Harian Staf</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
-                                <li class="breadcrumb-item active">Data Kepala Seksi</li>
+                                <li class="breadcrumb-item active">Data Kegiatan Harian Staf</li>
                             </ol>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
                             <div class="card-body">
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Kepala Seksi</h4>
+                                        <h4 class="card-title">Daftar Data Kegiatan Harian Staf</h4>
                                     </div>
                                 </div>
 
@@ -200,10 +200,13 @@
                                     <table id="" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>NIP</th>
-                                                <th>Nama</th>
-                                                <th>Golongan</th>
-                                                <th>Seksi</th>
+                                              <th>Nama Staf</th>
+                                              <th>Jabatan</th>
+                                              <th>Seksi</th>
+                                              <th>Aktivitas Kegiatan</th>
+                                              <th>Tanggal Mulai Kegiatan</th>
+                                              <th>Kuantitas Hasil</th>
+                                              <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>

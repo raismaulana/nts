@@ -6,6 +6,6 @@ class Data_staf extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('KABID/v_data_staf');
+		$this->load->view('KABID/v_kabid_data_staf');
 	}
 }

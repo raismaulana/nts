@@ -200,15 +200,13 @@
                                     <table id="" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                              <th>Tanggal</th>
-                                              <th>Nama</th>
+                                              <th>Nama Staf</th>
                                               <th>Jabatan</th>
-                                              <th>Uraian Aktivitas</th>
-                                              <th>Kuantitas Output</th>
-                                              <th>Waktu Mulai</th>
-                                              <th>Waktu Selesai</th>
+                                              <th>Seksi</th>
+                                              <th>Aktivitas Kegiatan</th>
+                                              <th>Tanggal Mulai Kegiatan</th>
+                                              <th>Kuantitas Hasil</th>
                                               <th>Status</th>
-                                              <th>Waktu Upload</th>
                                             </tr>
                                         </thead>
                                         <tbody>

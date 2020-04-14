@@ -172,9 +172,9 @@
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Data Kegiatan Harian Staf</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
-                                <li class="breadcrumb-item active">Data Kegiatan Harian Staf</li>
+                                <li class="breadcrumb-item active">Detail Data Kegiatan Harian Staf</li>
                             </ol>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
                             <div class="card-body">
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Kegiatan Harian Staf</h4>
+                                        <h4 class="card-title">Detail Data Kegiatan Harian Staf</h4>
                                     </div>
                                 </div>
 
@@ -200,18 +200,18 @@
                                     <table id="" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                              <th>Tanggal</th>
-                                              <th>Nama</th>
-                                              <th>Jabatan</th>
-                                              <th>Uraian Aktivitas</th>
-                                              <th>Kuantitas Output</th>
-                                              <th>Waktu Mulai</th>
-                                              <th>Waktu Selesai</th>
-                                              <th>Status</th>
-                                              <th>Waktu Upload</th>
+                                                <th>Nama Staf</th>
+                                                <th>Jabatan</th>
+                                                <th>Seksi</th>
+                                                <th>Aktivitas Kegiatan</th>
+                                                <th>Kuantitas Hasil</th>
+                                                <th>Tanggal Mulai Kegiatan</th>
+                                                <th>Status</th>
+                                                <th>Tanggal Selesai Kegiatan</th>
+                                                <th>Durasi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="">
 
                                         </tbody>
                                     </table>
@@ -222,8 +222,6 @@
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
-                <!-- ============================================================== -->
-
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->

@@ -20,6 +20,6 @@ class Kegiatan_staf extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('KABID/v_kegiatan_staf');
+		$this->load->view('KABID/v_kabid_kegiatan_staf');
 	}
 }

@@ -6,6 +6,6 @@ class Data_kasi extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('KABID/v_data_kasi');
+		$this->load->view('KABID/v_kabid_data_kasi');
 	}
 }
