@@ -9,21 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Beranda Uji Coba</title>
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url('assets/css/style.min.css')?>" rel="stylesheet">
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
-    <!-- Bootstrap Switch -->
-    <link href="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.css' ?>" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?php echo base_url() . 'assets/dist/css/style.min.css' ?>" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 
 <body class="fixed-layout skin-blue mini-sidebar">
@@ -33,7 +24,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Pencatatan Data Pegawai</p>
+            <p class="loader__label">Pencatatan Kegiatan Harian</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -141,7 +132,6 @@
                 </div>
             </nav>
         </header>
-    
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -167,14 +157,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Pegawai</h4>
+                        <h4 class="text-themecolor">Data Pencatatan Kegiatan Harian</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
-                                <li class="breadcrumb-item active">Data Pegawai</li>
+                                <li class="breadcrumb-item active">Pencatatan Kegiatan Harian</li>
                             </ol>
                         </div>
                     </div>
@@ -185,35 +175,29 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <!--data kegiatan kabid-->
                 <div class="row">
                     <div class="col-12">
-                        <!-- Column -->
                         <div class="card">
                             <div class="card-body">
-                                <div class="row show-grid">
-                                    <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Pegawai</h4>
-                                    </div>
-                                    <div class="col-xs-6 col-md-4">
-                                        <div class="float-right mr-4"><a href="javascript:void(0);" class="btn waves-effect waves-light btn-primary" data-toggle="modal" data-target="#Modal_Tambah"><span class="fa fa-plus"></span> Tambah Data</a></div>
-                                    </div>
-                                </div>
-
-                                <div class="table-responsive m-t-4">
-                                    <table id="" class="table table-bordered table-striped">
+                                <h4 class="card-title">Data Kegiatan Kepala Bidang</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Nama Lengkap</th>
-                                                <th>Alamat</th>
-                                                <th>No.Telp</th>
-                                                <th>NIK</th>
-                                                <th>NIP</th>
-                                                <th>Golongan</th>
+                                                <th>Tanggal</th>
+                                                <th>Nama</th>
+                                                <th>Jabatan</th>
+                                                <th>Uraian Aktivitas</th>
+                                                <th>Kuantitas Output</th>
+                                                <th>Waktu Mulai</th>
+                                                <th>Waktu Selesai</th>
+                                                <th>Status</th>
                                                 <th>#</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="">
-
+                                        <tbody>
+                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -221,107 +205,68 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                
-                <!-- MODAL ADD -->
-                <form id="form_tambah" type="POST" enctype="multipart/form-data">
-                    <div class="modal fade" id="Modal_Tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pengawai</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="pesan-error-tmbh" class="alert alert-danger" hidden></div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Nama Lengkap</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">NIK</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">NIP</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Alamat</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Email</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Golongan</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Tanggal Lahir</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">No.Telp</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Jabatan</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Seksi</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Bidang</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                                    <button type="button" type="submit" id="btn_simpan" class="btn btn-primary">Simpan</button>
+                <!--data kegiatan kasi-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Data Kegiatan Kepala Seksi</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Tanggal</th>
+                                                <th>Nama</th>
+                                                <th>Jabatan</th>
+                                                <th>Uraian Aktivitas</th>
+                                                <th>Kuantitas Output</th>
+                                                <th>Waktu Mulai</th>
+                                                <th>Waktu Selesai</th>
+                                                <th>Status</th>
+                                                <th>Waktu Upload</th>
+                                                <th>#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
-                <!--END MODAL ADD-->
-
-                <!--MODAL DELETE-->
-                
-                <!-- END MODAL DELETE -->
-
-                <!-- MODAL EDIT -->
-                
-                <!--END MODAL EDIT-->
+                </div>
+                <!-- data kegiatan harian staf-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"> Detail Data Kegiatan Staf</h4>
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Tanggal</th>
+                                                <th>Nama Staf</th>
+                                                <th>Jabatan</th>
+                                                <th>Seksi</th>
+                                                <th>Aktivitas Kegiatan</th>
+                                                <th>Kuantitas Hasil</th>
+                                                <th>Tanggal Mulai Kegiatan</th>
+                                                <th>Status</th>
+                                                <th>Tanggal Selesai Kegiatan</th>
+                                                <th>Durasi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -350,31 +295,24 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url() . 'assets/node_modules/jquery/jquery-3.2.1.min.js' ?>"></script>
+    <script src="<?php echo base_url('assets/vendor /jquery/jquery-3.2.1.min.js'); ?>"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url() . 'assets/node_modules/popper/popper.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap/dist/js/bootstrap.min.js' ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/popper/popper.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/bootstrap/dist/js/bootstrap.min.js'); ?>"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url() . 'assets/dist/js/perfect-scrollbar.jquery.min.js' ?>"></script>
+    <script src="<?php echo base_url('assets/js/perfect-scrollbar.jquery.min.js'); ?>"></script>
     <!--Wave Effects -->
-    <script src="<?php echo base_url() . 'assets/dist/js/waves.js' ?>"></script>
+    <script src="<?php echo base_url('assets/js/waves.js'); ?>"></script>
     <!--Menu sidebar -->
-    <script src="<?php echo base_url() . 'assets/dist/js/sidebarmenu.js' ?>"></script>
+    <script src="<?php echo base_url('assets/js/sidebarmenu.js'); ?>"></script>
     <!--stickey kit -->
-    <script src="<?php echo base_url() . 'assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/node_modules/sparkline/jquery.sparkline.min.js' ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/sticky-kit-master/dist/sticky-kit.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/sparkline/jquery.sparkline.min.js'); ?>"></script>
     <!--Custom JavaScript -->
-    <script src="<?php echo base_url() . 'assets/dist/js/custom.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/dist/js/pages/validation.js' ?>"></script>
-    <!-- This is data table -->
-    <script src="<?php echo base_url() . 'assets/node_modules/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
+    <script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
+     <!-- This is data table -->
+     <script src="<?php echo base_url() . 'assets/node_modules/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js' ?>"></script>
-    <!-- Sweetalert 2 -->
-    <script src="<?php echo base_url() . 'assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
-    <!-- bt-switch -->
-    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
-    <!-- Javascript -->
+
     
 </body>
-
-</html>
