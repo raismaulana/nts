@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
-    <title>Data Staf</title>
+    <title>Data Kegiatan Harian Staf</title>
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
@@ -33,7 +33,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Data Staf</p>
+            <p class="loader__label">Data Kegiatan Harian Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -149,7 +149,7 @@
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('KABID/v_sidebar_kabid')
+        $this->load->view('KASI/v_sidebar_kasi')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -167,14 +167,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Staf</h4>
+                        <h4 class="text-themecolor">Data Kegiatan Harian Staf</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Data Kegiatan Harian Staf</a></li>
                                 <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
-                                <li class="breadcrumb-item active">Data Staf</li>
+                                <li class="breadcrumb-item active">Detail Data Kegiatan Harian Staf</li>
                             </ol>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
                             <div class="card-body">
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Staf</h4>
+                                        <h4 class="card-title">Detail Data Kegiatan Harian Staf</h4>
                                     </div>
                                 </div>
 
@@ -200,13 +200,18 @@
                                     <table id="" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                              <th>NIP</th>
-                                              <th>Nama</th>
-                                              <th>Jabatan</th>
-                                              <th>Seksi</th>
+                                                <th>Nama Staf</th>
+                                                <th>Jabatan</th>
+                                                <th>Seksi</th>
+                                                <th>Aktivitas Kegiatan</th>
+                                                <th>Kuantitas Hasil</th>
+                                                <th>Tanggal Mulai Kegiatan</th>
+                                                <th>Status</th>
+                                                <th>Tanggal Selesai Kegiatan</th>
+                                                <th>Durasi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="">
 
                                         </tbody>
                                     </table>
@@ -217,8 +222,6 @@
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
-                <!-- ============================================================== -->
-
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->

@@ -176,17 +176,7 @@
                 <!-- ============================================================== -->
                 <!-- Row -->
                 <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card"> <img class="card-img" src="../assets/images/users/5.jpg" height="456" alt="Card image">
-                            <div class="card-img-overlay card-inverse text-white social-profile d-flex justify-content-center">
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                    <div class="col-12">
                         <div class="card">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs profile-tab" role="tablist">
@@ -203,13 +193,19 @@
                                         </div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Alamat</strong>
+                                            <div class="col-md-3 col-xs-6"> <strong>NIK</strong>
                                                 <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>No.Telp</strong>
+                                            <div class="col-md-3 col-xs-6"> <strong>NIP</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Alamat</strong>
                                                 <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
@@ -221,12 +217,37 @@
                                         </div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Bidang</strong>
+                                            <div class="col-md-3 col-xs-6"> <strong>Golongan</strong>
                                                 <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Tanggal Lahir</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>No.Telp</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Jabatan</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6"> <strong>Seksi</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Bidang</strong>
                                                 <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
