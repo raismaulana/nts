@@ -9,15 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/favicon.png'?>">
     <title>Data Staf</title>
-    <!-- Datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
-    <!-- Bootstrap Switch -->
-    <link href="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.css' ?>" rel="stylesheet">
+    <!-- Page CSS -->
+    <link href="<?php echo base_url() .'assets/dist/css/pages/contact-app-page.css'?>" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo base_url() . 'assets/dist/css/style.min.css' ?>" rel="stylesheet">
+    <link href="<?php echo base_url() .'assets/dist/css/style.min.css'?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -60,10 +57,10 @@
                         </b>&nbsp;&nbsp;
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
-                         <!-- dark Logo text -->
-                         <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->
-                         <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" class="light-logo" alt="homepage" /></span> </a>
+                            <!-- dark Logo text -->
+                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo text -->
+                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -89,14 +86,6 @@
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="mdi mdi-account-circle mdi-24px"></span> &nbsp;<span class="hidden-md-down">Mark &nbsp;<i class="ti-angle-down"></i></span> </a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <!-- text-->
-                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> Profil Saya</a>
-                                <!-- text-->
-                                <div class="dropdown-divider"></div>
-                                <!-- text-->
-                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Pengaturan Akun</a>
-                                <!-- text-->
-                                <div class="dropdown-divider"></div>
-                                <!-- text-->
                                 <a href="login.html" class="dropdown-item"><i class="ti-power-off"></i> Keluar</a>
                                 <!-- text-->
                             </div>
@@ -121,13 +110,15 @@
                                             <a href="javascript:void(0)">
                                                 <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
                                                 <div class="mail-contnet">
-                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </div>
+                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span>
+                                                </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="javascript:void(0)">
                                                 <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
                                                 <div class="mail-contnet">
-                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                                </div>
                                             </a>
                                         </div>
                                     </li>
@@ -141,7 +132,6 @@
                 </div>
             </nav>
         </header>
-
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -173,7 +163,6 @@
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Data Staf</a></li>
-                                <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
                                 <li class="breadcrumb-item active">Detail Data Staf</li>
                             </ol>
                         </div>
@@ -185,45 +174,104 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <!-- Row -->
                 <div class="row">
                     <div class="col-12">
-                        <!-- Column -->
                         <div class="card">
-                            <div class="card-body">
-                                <div class="row show-grid">
-                                    <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Detail Data Staf</h4>
+                            <!-- Nav tabs -->
+                            <!-- <ul class="nav nav-tabs profile-tab" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Data Kegiatan Harian Staf</a> </li>
+                            </ul> -->
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Data Staf</h4>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Nama Lengkap</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>NIK</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>NIP</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Alamat</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Email</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Golongan</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Tanggal Lahir</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>No Telepon</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Jabatan</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Seksi</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Bidang</strong>
+                                                <p class="text-muted"></p>
+                                            </div>
+                                        </div>
+                                        <hr>
                                     </div>
-                                </div>
-
-                                <div class="table-responsive m-t-4">
-                                    <table id="" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                              <th>Nama Lengkap</th>
-                                              <th>NIK</th>
-                                              <th>NIP</th>
-                                              <th>Alamat</th>
-                                              <th>Email</th>
-                                              <th>Golongan</th>
-                                              <th>Tanggal Lahir</th>
-                                              <th>No.Telp</th>
-                                              <th>Jabatan</th>
-                                              <th>Seksi</th>
-                                              <th>Bidang</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="">
-
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Column -->
                 </div>
+                <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -249,31 +297,21 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url() . 'assets/node_modules/jquery/jquery-3.2.1.min.js' ?>"></script>
+    <script src="<?php echo base_url() .'assets/node_modules/jquery/jquery-3.2.1.min.js'?>"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url() . 'assets/node_modules/popper/popper.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap/dist/js/bootstrap.min.js' ?>"></script>
+    <script src="<?php echo base_url() .'assets/node_modules/popper/popper.min.js'?>"></script>
+    <script src="<?php echo base_url() .'assets/node_modules/bootstrap/dist/js/bootstrap.min.js'?>"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url() . 'assets/dist/js/perfect-scrollbar.jquery.min.js' ?>"></script>
+    <script src="<?php echo base_url() .'assets/dist/js/perfect-scrollbar.jquery.min.js'?>"></script>
     <!--Wave Effects -->
-    <script src="<?php echo base_url() . 'assets/dist/js/waves.js' ?>"></script>
+    <script src="<?php echo base_url() .'assets/dist/js/waves.js'?>"></script>
     <!--Menu sidebar -->
-    <script src="<?php echo base_url() . 'assets/dist/js/sidebarmenu.js' ?>"></script>
+    <script src="<?php echo base_url() .'assets/dist/js/sidebarmenu.js'?>"></script>
     <!--stickey kit -->
-    <script src="<?php echo base_url() . 'assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/node_modules/sparkline/jquery.sparkline.min.js' ?>"></script>
+    <script src="<?php echo base_url() .'assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js'?>"></script>
+    <script src="<?php echo base_url() .'assets/node_modules/sparkline/jquery.sparkline.min.js'?>"></script>
     <!--Custom JavaScript -->
-    <script src="<?php echo base_url() . 'assets/dist/js/custom.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/dist/js/pages/validation.js' ?>"></script>
-    <!-- This is data table -->
-    <script src="<?php echo base_url() . 'assets/node_modules/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js' ?>"></script>
-    <!-- Sweetalert 2 -->
-    <script src="<?php echo base_url() . 'assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
-    <!-- bt-switch -->
-    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
-    <!-- Javascript -->
-
+    <script src="<?php echo base_url() .'assets/dist/js/custom.min.js'?>"></script>
 </body>
 
 </html>
