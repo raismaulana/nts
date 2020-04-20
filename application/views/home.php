@@ -10,6 +10,10 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <title>Beranda Uji Coba</title>
+    <!--c3 CSS -->
+    <link href="<?php echo base_url('assets/css/pages/easy-pie-chart.css') ?>" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="<?php echo base_url('assets/node_modules/select2/dist/css/select2.min.css') ?>" rel="stylesheet" type="text/css" />
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/vendor/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
@@ -183,8 +187,8 @@
                                 <div class="col-md-12">
                                     <div class="d-flex no-block align-items-center">
                                         <div>
-                                            <h3><i class="icon-screen-desktop"></i></h3>
-                                            <p class="text-muted">LAPORAN STAF BULAN INI</p>
+                                            <h3><i class="icon-docs"></i></h3>
+                                            <p class="text-muted">DATA KEGIATAN STAF</p>
                                         </div>
                                         <div class="ml-auto">
                                             <h2 class="counter text-primary">148</h2>
@@ -207,7 +211,7 @@
                                 <div class="col-md-12">
                                     <div class="d-flex no-block align-items-center">
                                         <div>
-                                            <h3><i class="icon-note"></i></h3>
+                                            <h3><i class="icon-check"></i></h3>
                                             <p class="text-muted">DITERIMA</p>
                                         </div>
                                         <div class="ml-auto">
@@ -231,7 +235,7 @@
                                 <div class="col-md-12">
                                     <div class="d-flex no-block align-items-center">
                                         <div>
-                                            <h3><i class="icon-doc"></i></h3>
+                                            <h3><i class="icon-clock"></i></h3>
                                             <p class="text-muted">MENUNGGU</p>
                                         </div>
                                         <div class="ml-auto">
@@ -255,7 +259,7 @@
                                 <div class="col-md-12">
                                     <div class="d-flex no-block align-items-center">
                                         <div>
-                                            <h3><i class="icon-bag"></i></h3>
+                                            <h3><i class="icon-close"></i></h3>
                                             <p class="text-muted">DITOLAK</p>
                                         </div>
                                         <div class="ml-auto">
@@ -282,7 +286,7 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Data Laporan Kegiatan Harian Terakhir</h5>
+                                <h5 class="card-title">Data Laporan Kegiatan Harian Staf Terakhir</h5>
                             </div>
                             <div class="table-responsive m-t-4">
                                 <table id="table_data_terakhir" class="table table-striped" data-page-size="8">
@@ -293,35 +297,39 @@
                     <!-- Column -->
                     <div class="col-md-3">
                         <div class="card">
-                            <ul class="country-state slimscrollcountry">
-                                <li>
-                                    <h2>50</h2> <small>LAPORAN KASI BULAN INI</small>
-                                    <div class="pull-right">100% <i class="fa fa-level-up text-success"></i></div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width:100%; height: 6px;"> <span class="sr-only">100%</span></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h2>20</h2> <small>DITERIMA</small>
-                                    <div class="pull-right">40% <i class="fa fa-level-up text-success"></i></div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="50" style="width:40%; height: 6px;"> <span class="sr-only">40%</span></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h2>28</h2> <small>MENUNGGU</small>
-                                    <div class="pull-right">56% <i class="fa fa-level-down text-danger"></i></div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="50" style="width:56%; height: 6px;"> <span class="sr-only">56%</span></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h2>2</h2> <small>DITOLAK</small>
-                                    <div class="pull-right">48% <i class="fa fa-level-up text-success"></i></div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="50" style="width:4%; height: 6px;"> <span class="sr-only">4%</span></div>
-                                    </div>
-                                </li>
+                            <div class="card-body">
+                                <h5 class="card-title">Progres Laporan Staf</h5>
+                            </div>
+                            <ul class="country-state">
+                                <h5 class="m-t-30">Pilih Bidang</h5>
+                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                    <option>Pilih salah satu bidang</option>
+                                    <option value="AK">ARA</option>
+                                    <option value="HI">BARA</option>
+                                    <option value="HI">CBAR</option>
+                                    <option value="HI">DCBA</option>
+                                    <option value="HI">ERA</option>
+                                    <option value="HI">FBAR</option>
+                                </select>
+                                <h5 class="m-t-30">Pilih Seksi</h5>
+                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                    <option>Pilih salah satu seksi</option>
+                                    <option value="AK">ARA</option>
+                                    <option value="HI">BARA</option>
+                                    <option value="HI">CBAR</option>
+                                    <option value="HI">DCBA</option>
+                                    <option value="HI">ERA</option>
+                                    <option value="HI">FBAR</option>
+                                </select>
+                                <div class="chart easy-pie-chart-2" data-percent="75"> <span class="percent">75</span>
+                                    <h4>Diterima</h4>
+                                </div>
+                                <div class="chart easy-pie-chart-1" data-percent="65"> <span class="percent">75</span>
+                                    <h4>Menunggu</h4>
+                                </div>
+                                <div class="chart easy-pie-chart-3" data-percent="25"> <span class="percent">75</span>
+                                    <h4>Ditolak</h4>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -371,24 +379,43 @@
     <!-- This is data table -->
     <script src="<?php echo base_url() . 'assets/vendor/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/vendor/datatables.net-bs4/js/dataTables.responsive.min.js' ?>"></script>
+    <!-- EASY PIE CHART JS -->
+    <script src="<?php echo base_url() . 'assets/vendor/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/vendor/jquery.easy-pie-chart/easy-pie-chart.init.js' ?>"></script>
+    <!-- Select2 -->
+    <script src="<?php echo base_url() . 'assets/node_modules/select2/dist/js/select2.full.min.js' ?>" type="text/javascript"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
     <script>
-        var dataset = [["A","B","C","D","E","F"],
-                    ["D","S","W","O","D","S"],
-                    ["R","X","E","L","E","D"],
-                    ["W","Y","K","S","W","P"],
-                    ["G","J","O","T","Z","F"]];
-        $(document).ready(function(){
+        var dataset = [
+            ["A", "B", "C", "D", "E", "F"],
+            ["D", "S", "W", "O", "D", "S"],
+            ["R", "X", "E", "L", "E", "D"],
+            ["W", "Y", "K", "S", "W", "P"],
+            ["G", "J", "O", "T", "Z", "F"]
+        ];
+        $(document).ready(function() {
+            $(".select2").select2();
             $('#table_data_terakhir').DataTable({
-                data:dataset,
-                columns:[
-                    { title: "Tanggal" },
-                    { title: "Nama" },
-                    { title: "Uraian" },
-                    { title: "Kuantitan Hasil" },
-                    { title: "Jabatan" },
-                    { title: "Status" }
+                data: dataset,
+                columns: [{
+                        title: "Tanggal"
+                    },
+                    {
+                        title: "Nama"
+                    },
+                    {
+                        title: "Uraian"
+                    },
+                    {
+                        title: "Kuantitan Hasil"
+                    },
+                    {
+                        title: "Jabatan"
+                    },
+                    {
+                        title: "Status"
+                    }
                     /*Format untuk data dari server nantinya dengan tipe data array $datas = array("data" => $data);
                     ajax: {
                         "url": "http://localhost/",
@@ -409,150 +436,5 @@
         });
     </script>
 </body>
-
-<!--
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-    <link rel="stylesheet" href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
-</head>
-<body>
-    <nav class="nav justify-content-end">
-      <a class="nav-link" href="<?= base_url('auth/logout'); ?>">Logout</a>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <h1>Bidang</h1>
-            <form action="<?= base_url('home/insert_bidang'); ?>" method="post">
-            <input type="text" name="nama" id="nama">
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-        <div class="row">
-            <h1>Seksi</h1>
-            <form action="<?= base_url('home/insert_seksi'); ?>" method="post">
-            <select name="bidang" id="bidang">
-                <?php foreach ($data_bidang as $row) { ?>
-                <option value="<?php echo $row->id_bidang; ?>"><?= $row->nama_bidang; ?></option>
-                <?php } ?>
-            </select>
-            <input type="text" name="nama" id="nama">
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-        <div class="row">
-            <h1>Jabatan Staf</h1>
-            <form action="<?= base_url('home/insert_jabatan'); ?>" method="post">
-            <select name="seksi" id="seksi">
-                <?php foreach ($data_seksi as $row) { ?>
-                <option value="<?php echo $row->id_seksi; ?>"><?= $row->nama_seksi; ?></option>
-                <?php } ?>
-            </select>
-            <input type="text" name="nama" id="nama">
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-        <div class="row">
-            <h1>Pendidikan</h1>
-            <form action="<?= base_url('home/insert_pendidikan'); ?>" method="post">
-            <input type="text" name="nama" id="nama">
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-        <div class="row">
-            <h1>Jurusan</h1>
-            <form action="<?= base_url('home/insert_jurusan'); ?>" method="post">
-            <select name="jurusan" id="jurusan">
-                <?php foreach ($data_pendidikan as $row) { ?>
-                <option value="<?php echo $row->id_pendidikan; ?>"><?= $row->nama_pendidikan; ?></option>
-                <?php } ?>
-            </select>
-            <input type="text" name="nama" id="nama">
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-        <div class="row">
-            <h1>Pengguna</h1>
-            <form action="<?= base_url('home/insert_pengguna'); ?>" method="post">
-            <select name="jabatan" id="jabatan">
-                <?php foreach ($data_jabatan as $row) { ?>
-                <option value="<?php echo $row->id_jabatan; ?>"><?= $row->nama_jabatan; ?></option>
-                <?php } ?>
-            </select>
-            <select name="jurusan" id="jurusan">
-                <?php foreach ($data_jurusan as $row) { ?>
-                <option value="<?php echo $row->id_jurusan; ?>"><?= $row->nama_jurusan; ?></option>
-                <?php } ?>
-            </select>
-            <input type="text" name="username" id="username">
-            <input type="password" name="password" id="password">
-            <input type="email" name="email" id="email">
-            <input type="text" name="nama" id="nama">
-            <input type="date" name="bday" id="bday">
-            <input type="text" name="alamat" id="alamat">
-            <input type="text" name="golongan" id="golongan">
-            <input type="text" name="level" id="level">
-            <input type="text" name="nik" id="nik">
-            <input type="text" name="nip" id="nip">
-            <input type="text" name="telepon" id="telepon">
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-
-        <div class="row">
-            <h1>Kabid</h1>
-            <form action="<?= base_url('home/insert_kabid'); ?>" method="post">
-            <select name="bidang" id="bidang">
-                <?php foreach ($data_bidang as $row) { ?>
-                <option value="<?php echo $row->id_bidang; ?>"><?= $row->nama_bidang; ?></option>
-                <?php } ?>
-            </select>
-            <select name="nama" id="nama">
-                <?php foreach ($data_pengguna as $row) { ?>
-                <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna; ?></option>
-                <?php } ?>
-            </select>
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-
-        <div class="row">
-            <h1>Kasi</h1>
-            <form action="<?= base_url('home/insert_kasi'); ?>" method="post">
-            <select name="seksi" id="seksi">
-                <?php foreach ($data_seksi as $row) { ?>
-                <option value="<?php echo $row->id_seksi; ?>"><?= $row->nama_seksi; ?></option>
-                <?php } ?>
-            </select>
-            <select name="nama" id="nama">
-                <?php foreach ($data_pengguna as $row) { ?>
-                <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna; ?></option>
-                <?php } ?>
-            </select>
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-
-        <div class="row">
-            <h1>Staf</h1>
-            <form action="<?= base_url('home/insert_staf'); ?>" method="post">
-            <select name="jabatan" id="jabatan">
-                <?php foreach ($data_jabatan as $row) { ?>
-                <option value="<?php echo $row->id_jabatan; ?>"><?= $row->nama_jabatan; ?></option>
-                <?php } ?>
-            </select>
-            <select name="nama" id="nama">
-                <?php foreach ($data_pengguna as $row) { ?>
-                <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna; ?></option>
-                <?php } ?>
-            </select>
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-    </div>
-    
-</body>
-                -->
 
 </html>
