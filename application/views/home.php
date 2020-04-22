@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <title>Beranda Uji Coba</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/logo.png' ?>">
+    <title>Beranda Admin</title>
     <!--c3 CSS -->
     <link href="<?php echo base_url('assets/css/pages/easy-pie-chart.css') ?>" rel="stylesheet">
     <!-- Select2 -->
@@ -92,7 +93,7 @@
                                 <!-- text-->
                                 <div class="dropdown-divider"></div>
                                 <!-- text-->
-                                <a href="login.html" class="dropdown-item"><i class="ti-power-off"></i> Keluar</a>
+                                <a href="<?= base_url('auth/logout'); ?>" class="dropdown-item"><i class="ti-power-off"></i> Keluar</a>
                                 <!-- text-->
                             </div>
                         </li>
