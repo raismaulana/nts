@@ -11,24 +11,36 @@ class Jabatan extends CI_Controller {
 
     }
 
-    public function index()
-    {
-        $context['data_jabatan'] = $this->jabatan_model->select();
-        $this->load->view('v_jabatan', $context);
-        
+    public function index(){
+        $this->load->view('v_jabatan');
     }
 
-    public function insert_jabatan()
-    {
-        $object = array(
-            'nama_jabatan' => $this->input->post('nama')
-        );
-
-        $result = $this->jabatan_model->insert($object);
-
-        redirect('jabatan','refresh');
-        
+    function data_jabatan(){
+        $data=$this->jabatan_model->jabatan_list();
+        echo json_encode($data);
     }
+
+    
+ 
+
+    // public function index()
+    // {
+    //     $context['data_jabatan'] = $this->jabatan_model->select();
+    //     $this->load->view('v_jabatan', $context);
+        
+    // }
+
+    // public function insert_jabatan()
+    // {
+    //     $object = array(
+    //         'nama_jabatan' => $this->input->post('nama')
+    //     );
+
+    //     $result = $this->jabatan_model->insert($object);
+
+    //     redirect('jabatan','refresh');
+        
+    // }
 
 }
 
