@@ -339,6 +339,23 @@
  
             });
         }
+
+        $('#btn_simpan').on('click',function(){
+            var jabat=$('#nama_jabatan').val();
+            $.ajax({
+                type : "POST",
+                url  : "<?php echo base_url('jabatan/simpan_jabatan')?>",
+                dataType : "JSON",
+                data : {jabat:jabat },
+                success: function(data){
+                    $('[name="jabat"]').val("");
+                    
+                    $('#ModalaAdd').modal('hide');
+                    tampil_data();
+                }
+            });
+            return false;
+        });
     });
     </script>
 </body>

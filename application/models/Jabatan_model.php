@@ -8,7 +8,15 @@ class Jabatan_model extends CI_Model {
         return $hasil->result();
     }
 
-    
+    function simpan_jabatan($jabat){
+        $hasil=$this->db->query("insert into jabatan (nama_jabatan)values('$jabat')");
+        return $hasil;
+    }
+
+    // function update_barang($jabat){
+    //     $hasil=$this->db->query("update jabatan set nama_jabatan='$jabat'");
+    //     return $hasil;
+    // }
 
 
     // var $context;

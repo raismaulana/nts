@@ -20,7 +20,25 @@ class Jabatan extends CI_Controller {
         echo json_encode($data);
     }
 
-    
+    function simpan_jabatan(){
+        $jabat = $this ->input->post('jabat');
+        $data=$this->jabatan_model->simpan_jabatan($jabat);
+        echo json_encode($data);
+
+    }
+
+    function update_jabatan(){
+        $jabat=$this->input->post('jabat');
+        $data=$this->jabatan_model->update_jabatan($jabat);
+        echo json_encode($data);
+
+    }
+
+    function hapus_jabatan(){
+        $jabat=$this->input->post('jabatan');
+        $data=$this->jabatan_model->hapus_jabatan($jabat);
+        echo json_encode($data);
+    }
  
 
     // public function index()
