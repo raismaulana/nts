@@ -189,24 +189,46 @@
                         <!-- Column -->
                         <div class="card">
                             <div class="card-body">
+                            <form action="<?= base_url('jabatan/insert_jabatan'); ?>" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Jabatan</label>
+                                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Jabatan">
+                                        <br>
+                                        <br>
+                                        <button type="submit">KIRIM</button>
+                                    </div>  
+                                </div>
+                                </form>
+                                </div>
+                                <hr>
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
                                         <h4 class="card-title">Daftar Data Jabatan</h4>
                                     </div>
-                                    <div class="col-xs-6 col-md-4">
-                                        <div class="float-right mr-4"><a href="javascript:void(0);" class="btn waves-effect waves-light btn-primary" data-toggle="modal" data-target="#Modal_Tambah"><span class="fa fa-plus"></span> Tambah Data</a></div>
-                                    </div>
+                                    
                                 </div>
 
                                 <div class="table-responsive m-t-4">
                                     <table id="mydata" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Jabatan</th>
-                                                <th>Aksi</th>
+                                                <th>#</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="show_data">
+                                        <tbody id="">
+                                        <?php $i=1; foreach($data_jabatan as $row){ ?>
+                                            <tr>
+                                                <td scope="row"><?= $i++; ?></td>
+                                                <td><?= $row->nama_jabatan; ?></td>
+                                                <td><a name="edit" id="edit" class="btn btn-info" href="#" role="button">Edit</a>
+                                                    <a name="edit" id="edit" class="btn btn-danger" href="#" role="button">Hapus</a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
 
                                         </tbody>
                                     </table>
@@ -218,46 +240,7 @@
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
-                <!--MODAL DELETE-->
-                
-                <!-- END MODAL DELETE -->
-                <!-- MODAL EDIT -->
-                
-                <!--END MODAL EDIT-->
-                <!-- MODAL ADD -->
-                <form id="form_tambah" type="POST" enctype="multipart/form-data">
-                    <div class="modal fade" id="Modal_Tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Penyakit</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="pesan-error-tmbh" class="alert alert-danger" hidden></div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Jabatan</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="jabat" id="nama_jabatan" class="form-control" placeholder="jabatan">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                                    <button type="button" type="submit" id="btn_simpan" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!--END MODAL ADD-->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                
+               
                 <!-- ============================================================== -->
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
@@ -309,55 +292,7 @@
     <!-- bt-switch -->
     <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
     <!-- Javascript -->
-    <script>
-        $(document).ready(function(){
-        tampil_data();   //pemanggilan fungsi tampil jabatan.
-         
-        $('#mydata').dataTable();
-          
-        //fungsi tampil jabatan
-        function tampil_data(){
-            $.ajax({
-                type  : 'ajax',
-                url   : '<?php echo base_url()?>jabatan/data_jabatan',
-                async : false,
-                dataType : 'json',
-                success : function(data){
-                    var html = '';
-                    var i;
-                    for(i=0; i<data.length; i++){
-                        html += '<tr>'+
-                                '<td>'+data[i].nama_jabatan+'</td>'+
-                                '<td style= "text-align:right;">'+
-                                    '<a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit"  data-product_name="'+data[i].nama_jabatan+'" >Edit</a>'+' '+
-                                    '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="'+data[i].id+'">Hapus</a>'+
-                                '</td>'+
-                                '</tr>';
-                    }
-                    $('#show_data').html(html);
-                }
- 
-            });
-        }
-
-        $('#btn_simpan').on('click',function(){
-            var jabat=$('#nama_jabatan').val();
-            $.ajax({
-                type : "POST",
-                url  : "<?php echo base_url('jabatan/simpan_jabatan')?>",
-                dataType : "JSON",
-                data : {jabat:jabat },
-                success: function(data){
-                    $('[name="jabat"]').val("");
-                    
-                    $('#ModalaAdd').modal('hide');
-                    tampil_data();
-                }
-            });
-            return false;
-        });
-    });
-    </script>
+    
 </body>
 
 </html>
