@@ -26,7 +26,7 @@
 <![endif]-->
 </head>
 
-<body class="fixed-layout skin-blue mini-sidebar">
+<body class="fixed-layout skin-megna-dark mini-sidebar">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->

@@ -24,13 +24,7 @@ class Home extends CI_Controller {
 
     public function index()
     {
-        $context['data_bidang'] = $this->bidang_model->select();
-        $context['data_seksi'] = $this->seksi_model->select();
-        $context['data_jabatan'] = $this->jabatan_model->select();
-        $context['data_jurusan'] = $this->jurusan_model->select();
-        $context['data_pendidikan'] = $this->pendidikan_model->select();
-        $context['data_pengguna'] = $this->pengguna_model->select();
-        $this->load->view('home', $context, FALSE);
+        $this->load->view('home', FALSE);
     }
 
     public function insert_bidang()
