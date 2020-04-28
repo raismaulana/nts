@@ -8,11 +8,11 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() . 'Pencatatan' ?>" aria-expanded="false"><i class="ti-pencil-alt"></i><span class="hide-menu">Data Kegiatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Harian Staf</span></a>
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">Data Pegawai</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">Data Pegawai</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Data Staf</a></li>
-                                <li><a href="#">Data KASI</a></li>
-                                <li><a href="#">Data KABID</a></li>
+                                <li><a href="<?php echo base_url() . 'Data_Staf' ?>">Data Staf</a></li>
+                                <li><a href="<?php echo base_url() . 'Data_Kasi' ?>">Data KASI</a></li>
+                                <li><a href="<?php echo base_url() . 'Data_Kabid' ?>">Data KABID</a></li>
                             </ul>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-doc"></i><span class="hide-menu">Laporan Kegiatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Harian Staf</span></a>
