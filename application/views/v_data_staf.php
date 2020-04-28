@@ -287,6 +287,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label class="col-md-2 col-form-label">Pendidikan</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="" id="" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-md-2 col-form-label">Jabatan</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
@@ -294,12 +300,6 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-2 col-form-label">Seksi</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="" id="" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-2 col-form-label">Bidang</label>
                                         <div class="col-md-10">
                                             <input type="text" name="" id="" class="form-control" placeholder="">
                                         </div>
