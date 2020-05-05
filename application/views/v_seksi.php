@@ -33,7 +33,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Pencatatan Data Seksi</p>
+            <p class="loader__label">Data Seksi</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -48,7 +48,7 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-header"> 
+                <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
                         <b>
@@ -62,7 +62,7 @@
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
                          <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->    
+                         <!-- Light Logo text -->
                          <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
@@ -76,7 +76,7 @@
                         <!-- This is  -->
                         <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
-                        <!-- ============================================================== -->                        
+                        <!-- ============================================================== -->
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -184,134 +184,40 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <!-- Kepala Seksi -->
                 <div class="row">
                     <div class="col-12">
                         <!-- Column -->
                         <div class="card">
                             <div class="card-body">
-                            <form action="<?= base_url('seksi/insert_kasi'); ?>" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label class="control-label">Bidang - Seksi</label>
-                                    <select name="seksi" id="seksi" class="form-control custom-select" data-placeholder="Pilih seksi" tabindex="1">
-                                        <?php foreach($data_seksi as $row){ ?>
-                                        <option value="<?php echo $row->id_seksi; ?>"><?=$row->nama_bidang," - ",$row->nama_seksi; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <br>
-                                    <br>
-                                    <select name="pengguna" id="pengguna">
-                                        <?php foreach($data_pengguna as $row){ ?>
-                                        <option value="<?php echo $row->id_pengguna; ?>"><?=$row->nama_pengguna,"(",$row->username_pengguna,")"; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                        <br>
-                                        <br>
-                                        <button type="submit">KIRIM</button>
-                                    </div>  
-                                </div>
-                                </form>
-                                </div>
-                                       
-                                <hr>
-                                <div class="row show-grid">
-                                    <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Kepala Seksi</h4>
-                                    </div>
-                                </div>
-                                
-                                <div class="table-responsive m-t-4">
-                                    <table id="mydata" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No.</th>
-                                                <th>Bidang</th>
-                                                <th>Seksi</th>
-                                                <th>Kepala Seksi</th>
-                                                <th>#</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="">
-                                        <?php $i=1; foreach($data_kasi as $row){ ?>
-                                            <tr>
-                                                <td scope="row"><?= $i++; ?></td>
-                                                <td><?= $row->nama_bidang; ?></td>
-                                                <td><?= $row->nama_seksi; ?></td>
-                                                <td><?= $row->nama_pengguna; ?></td>
-                                                <td><a name="edit" id="edit" class="btn btn-info" href="#" role="button">Edit</a>
-                                                    <a name="hapus" id="hapus" class="btn btn-danger" href="#" role="button">Hapus</a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-
-                <!-- ============================================================== -->
-                <!-- Seksi -->
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Column -->
-                        <div class="card">
-                            <div class="card-body">
-                            <form action="<?= base_url('seksi/insert_seksi'); ?>" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Seksi</label>
-                                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Seksi">
-                                        <br>
-                                        <br>
-
-                                        <label class="control-label">Bidang</label>
-                                        <select name="bidang" id="bidang" class="form-control custom-select" data-placeholder="Pilih Bidang" tabindex="1">
-                                            <?php foreach($data_bidang as $row){ ?>
-                                            <option value="<?php echo $row->id_bidang; ?>"><?=$row->nama_bidang; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                        <br>
-                                        <br>
-                                        <button type="submit">KIRIM</button>
-                                    </div>  
-                                </div>
-                                </form>
-                                </div>
-                                       
-                                <hr>
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
                                         <h4 class="card-title">Daftar Data Seksi</h4>
                                     </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="float-right mr-4"><a href="javascript:void(0);" class="btn waves-effect waves-light btn-primary" data-toggle="modal" data-target="#Modal_Tambah"><span class="fa fa-plus"></span> Tambah Data</a></div>
+                                    </div>
                                 </div>
-                                
+
                                 <div class="table-responsive m-t-4">
                                     <table id="mydata" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Seksi</th>
-                                                <th>Bidang</th>
-                                                <th>#</th>
+                                              <th>No.</th>
+                                              <th>Seksi</th>
+                                              <th>Bidang</th>
+                                              <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="">
-                                            <?php $i=1; foreach($data_seksi as $row){ ?>
-                                                <tr>
-                                                    <td scope="row"><?= $i++; ?></td>
-                                                    <td><?= $row->nama_seksi; ?></td>
-                                                    <td><?= $row->nama_bidang; ?></td>
-                                                    <td><a name="edit" id="edit" class="btn btn-info" href="#" role="button">Edit</a>
-                                                        <a name="hapus" id="hapus" class="btn btn-danger" href="#" role="button">Hapus</a>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
+                                          <?php $i=1; foreach($data_seksi as $row){ ?>
+                                              <tr>
+                                                  <td scope="row"><?= $i++; ?></td>
+                                                  <td><?= $row->nama_seksi; ?></td>
+                                                  <td><?= $row->nama_bidang; ?></td>
+                                                  <td ><a name="edit" id="edit" class="btn btn-info" href="#" role="button">Edit</a>
+                                                  <a name="hapus" id="hapus" class="btn btn-danger" href="#" role="button">Hapus</a></td>
+                                              </tr>
+                                          <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -319,7 +225,159 @@
                         </div>
                     </div>
                 </div>
-               
+
+                <!-- MODAL ADD -->
+                <form action="<?= base_url('seksi/insert_seksi'); ?>" method="post">
+                <form id="form_tambah" type="POST" enctype="multipart/form-data">
+                    <div class="modal fade" id="Modal_Tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Seksi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="pesan-error-tmbh" class="alert alert-danger" hidden></div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 col-form-label">Seksi</label>
+                                        <div class="col-md-10">
+                                            <input type="text" name="nama" id="nama" class="form-control" placeholder="Seksi">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label class="col-md-2 col-form-label" for="bidang">Bidang</label>
+                                      <div class="col-md-10">
+                                      <select class="custom-select col-12" name="bidang" id="bidang">
+                                          <?php foreach($data_bidang as $row){ ?>
+                                            <option value="<?php echo $row->id_bidang; ?>"><?=$row->nama_bidang; ?></option>
+                                          <?php } ?>
+                                      </select>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+                                    <button type="submit" id="btn_simpan" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </form>
+                <!--END MODAL ADD-->
+
+                <!--MODAL DELETE-->
+
+                <!-- END MODAL DELETE -->
+
+                <!-- MODAL EDIT -->
+
+                <!--END MODAL EDIT-->
+                <!-- ============================================================== -->
+                <!--Kepala Bidang-->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Column -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row show-grid">
+                                    <div class="col-xs-12 col-md-8">
+                                        <h4 class="card-title">Daftar Data Kepala Seksi</h4>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="float-right mr-4"><a href="javascript:void(0);" class="btn waves-effect waves-light btn-primary" data-toggle="modal" data-target="#Modal_Tambah_Kabid"><span class="fa fa-plus"></span> Tambah Data</a></div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive m-t-4">
+                                    <table id="mydata" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                              <th>No.</th>
+                                              <th>Bidang</th>
+                                              <th>Seksi</th>
+                                              <th>Kepala Seksi</th>
+                                              <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="">
+                                          <?php $i=1; foreach($data_kasi as $row){ ?>
+                                              <tr>
+                                                  <td scope="row"><?= $i++; ?></td>
+                                                  <td><?= $row->nama_bidang; ?></td>
+                                                  <td><?= $row->nama_seksi; ?></td>
+                                                  <td><?= $row->nama_pengguna; ?></td>
+                                                  <td style="text-align:right;"><a name="edit" id="edit" class="btn btn-info" href="#" role="button">Edit</a>
+                                                  <a name="hapus" id="hapus" class="btn btn-danger" href="#" role="button">Hapus</a></td>
+                                              </tr>
+                                          <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODAL ADD -->
+                <form action="<?= base_url('seksi/insert_kasi'); ?>" method="post">
+                <form id="form_tambah" type="POST" enctype="multipart/form-data">
+                    <div class="modal fade" id="Modal_Tambah_Kabid" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kepala Seksi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="pesan-error-tmbh" class="alert alert-danger" hidden></div>
+                                    <div class="form-group row">
+                                      <label class="col-md-2 col-form-label" for="bidang">Bidang - Seksi</label>
+                                      <div class="col-md-10">
+                                      <select class="custom-select col-12" name="seksi" id="seksi">
+                                        <?php foreach($data_seksi as $row){ ?>
+                                        <option value="<?php echo $row->id_seksi; ?>"><?=$row->nama_bidang," - ",$row->nama_seksi; ?></option>
+                                        <?php } ?>
+                                      </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label class="col-md-2 col-form-label" for="pengguna">Pengguna</label>
+                                      <div class="col-md-10">
+                                      <select class="custom-select col-12" name="pengguna" id="pengguna">
+                                        <?php foreach($data_pengguna as $row){ ?>
+                                        <option value="<?php echo $row->id_pengguna; ?>"><?=$row->nama_pengguna,"(",$row->username_pengguna,")"; ?></option>
+                                        <?php } ?>
+                                      </select>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+                                    <button type="submit" id="btn_simpan" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </form>
+                <!--END MODAL ADD-->
+
+                <!--MODAL DELETE-->
+
+                <!-- END MODAL DELETE -->
+
+                <!-- MODAL EDIT -->
+
+                <!--END MODAL EDIT-->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -368,114 +426,7 @@
     <script src="<?php echo base_url() . 'assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
     <!-- bt-switch -->
     <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
-    <!-- Javascript -->
-    
+
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-    <link rel="stylesheet" href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </div>
-  </div>
-</nav>
-    <nav class="nav justify-content-end">
-      <a class="nav-link" href="<?= base_url('auth/logout'); ?>">Logout</a>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Bidang</th>
-                        <th>Seksi</th>
-                        <th>Kepala Seksi</th>
-                        <th>#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php $i=1; foreach($data_kasi as $row){ ?>
-                    <tr>
-                        <td scope="row"><?= $i++; ?></td>
-                        <td><?= $row->nama_bidang; ?></td>
-                        <td><?= $row->nama_seksi; ?></td>
-                        <td><?= $row->nama_pengguna; ?></td>
-                        <td><a name="edit" id="edit" class="btn btn-dark" href="#" role="button">Edit</a></td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-        </div>
-        <div class="row">
-            <h1>Kepala Seksi</h1>
-            <form action="<?= base_url('seksi/insert_kasi'); ?>" method="post">
-            <select name="seksi" id="seksi">
-                <?php foreach($data_seksi as $row){ ?>
-                <option value="<?php echo $row->id_seksi; ?>"><?=$row->nama_bidang," - ",$row->nama_seksi; ?></option>
-                <?php } ?>
-            </select>
-            <select name="pengguna" id="pengguna">
-                <?php foreach($data_pengguna as $row){ ?>
-                <option value="<?php echo $row->id_pengguna; ?>"><?=$row->nama_pengguna,"(",$row->username_pengguna,")"; ?></option>
-                <?php } ?>
-            </select>
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-        <div class="row">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Seksi</th>
-                        <th>Bidang</th>
-                        <th>#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php $i=1; foreach($data_seksi as $row){ ?>
-                    <tr>
-                        <td scope="row"><?= $i++; ?></td>
-                        <td><?= $row->nama_seksi; ?></td>
-                        <td><?= $row->nama_bidang; ?></td>
-                        <td><a name="edit" id="edit" class="btn btn-dark" href="#" role="button">Edit</a></td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-        </div>
-        <div class="row">
-            <h1>Seksi</h1>
-            <form action="<?= base_url('seksi/insert_seksi'); ?>" method="post">
-            <select name="bidang" id="bidang">
-                <?php foreach($data_bidang as $row){ ?>
-                <option value="<?php echo $row->id_bidang; ?>"><?=$row->nama_bidang; ?></option>
-                <?php } ?>
-            </select>
-            <input type="text" name="nama" id="nama">
-            <button type="submit">KIRIM</button>
-            </form>        
-        </div>
-    </div>
-    
-</body>
-</html> -->
