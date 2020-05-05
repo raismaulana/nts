@@ -9,7 +9,9 @@ class Alamat_model extends CI_Model {
     {
         parent::__construct();
         $this->context = array(
-            'tabel' => 'kecamatan'
+            'kec' => 'kecamatan',
+            'kab' => 'kabupaten',
+            'prov' => 'provinsi'
         );
     }
 
@@ -24,7 +26,14 @@ class Alamat_model extends CI_Model {
         $this->db->select('kecamatan.id_kecamatan, kecamatan.nama_kecamatan, kabupaten.id_kabupaten, kabupaten.nama_kabupaten, provinsi.id_provinsi, provinsi.nama_provinsi');
         $this->db->join('kabupaten', 'kecamatan.id_kabupaten = kabupaten.id_kabupaten', 'left');
         $this->db->join('provinsi', 'kabupaten.id_provinsi = provinsi.id_provinsi', 'left');
-        return $this->db->get($this->context['tabel'])->result();
+        return $this->db->get($this->context['kec'])->result();
+        
+    }
+
+    public function select_kab()
+    {
+        $this->db->select('nama_provinsi');
+        return $this->db->get($this->context['prov'])->result();
         
     }
     

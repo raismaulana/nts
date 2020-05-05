@@ -21,6 +21,13 @@ class Bidang_model extends CI_Model {
     public function select()
     {
         return $this->db->get('bidang')->result();
+        
+    }
+
+    public function select_where()
+    {
+        
+        return $this->db->query("SELECT * FROM `bidang` WHERE NOT id_bidang IN (SELECT id_bidang FROM kabid)")->result();
     }
 }
 
