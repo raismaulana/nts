@@ -240,13 +240,13 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Nama Lengkap</label>
                                             <div class="col-md-10 controls">
-                                                <input type="text" name="input_nama_staf" id="input_nama_staf" class="form-control" placeholder="" class="form-control" required data-validation-required-message="Harap isi nama lengkap KABID">
+                                                <input type="text" name="input_nama_staf" id="input_nama_staf" class="form-control" placeholder="" class="form-control" required data-validation-required-message="Harap isi nama lengkap Staf">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">NIK</label>
                                             <div class="col-md-10 controls">
-                                                <input type="text" name="input_nik_staf" id="input_nik_staf" class="form-control" placeholder="" required data-validation-containsnumber-regex="(\d)+" data-validation-containsnumber-message="Harus berupa angka, tidak boleh karakter" data-validation-required-message="Harap isi NIK dari KABID" minlength="16" maxlength="16">
+                                                <input type="text" name="input_nik_staf" id="input_nik_staf" class="form-control" placeholder="" required data-validation-containsnumber-regex="(\d)+" data-validation-containsnumber-message="Harus berupa angka, tidak boleh karakter" data-validation-required-message="Harap isi NIK dari Staf" minlength="16" maxlength="16">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -259,13 +259,13 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Alamat</label>
                                             <div class="col-md-10 controls">
-                                                <input type="text" name="input_alamat_staf" id="input_alamat_staf" class="form-control" placeholder="Tulis alamat lengkap seperti nama jalan, gedung dan lain-lain" required data-validation-required-message="Harap isi detail alamat dari KABID">
+                                                <input type="text" name="input_alamat_staf" id="input_alamat_staf" class="form-control" placeholder="Tulis alamat lengkap seperti nama jalan, gedung dan lain-lain" required data-validation-required-message="Harap isi detail alamat dari Staf">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label"></label>
                                             <div class="col-md-10 controls">
-                                                <select class="select2 form-control custom-select" required data-validation-required-message="Harap pilih alamat lengkap dari KABID" name="input_kecamatan_staf" id="input_kecamatan_staf" style="width: 100%; height:36px;">
+                                                <select class="select2 form-control custom-select" required data-validation-required-message="Harap pilih alamat lengkap dari Staf" name="input_kecamatan_staf" id="input_kecamatan_staf" style="width: 100%; height:36px;">
                                                     <option></option>
                                                     <?php foreach ($data_alamat as $row) { ?>
                                                         <option value="<?php echo $row->id_kecamatan; ?>"><?= $row->nama_kecamatan, ", ", $row->nama_kabupaten, ", ", $row->nama_provinsi; ?></option>
@@ -277,7 +277,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Email</label>
                                             <div class="col-md-10 controls">
-                                                <input type="email" name="input_email_staf" id="input_email_staf" class="form-control" placeholder="" required data-validation-required-message="Harap isi email dari KABID">
+                                                <input type="email" name="input_email_staf" id="input_email_staf" class="form-control" placeholder="" required data-validation-required-message="Harap isi email dari Staf">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -309,25 +309,25 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-md-10 controls">
-                                                <input type="date" name="input_tgl_lahir_staf" id="input_tgl_lahir_staf" class="form-control" placeholder="" required data-validation-required-message="Harap isi email dari KABID">
+                                                <input type="date" name="input_tgl_lahir_staf" id="input_tgl_lahir_staf" class="form-control" placeholder="" required data-validation-required-message="Harap isi email dari Staf">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">No.Telp</label>
                                             <div class="col-md-10 controls">
-                                                <input type="text" name="input_no_telp_staf" id="input_no_telp_staf" class="form-control" placeholder="" required data-validation-containsnumber-regex="(\d)+" data-validation-containsnumber-message="Harus berupa angka, tidak boleh karakter" data-validation-required-message="Harap isi nomor telepon dari KABID">
+                                                <input type="text" name="input_no_telp_staf" id="input_no_telp_staf" class="form-control" placeholder="" required data-validation-containsnumber-regex="(\d)+" data-validation-containsnumber-message="Harus berupa angka, tidak boleh karakter" data-validation-required-message="Harap isi nomor telepon dari Staf">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Pendidikan</label>
                                             <div class="col-md-10 controls">
-                                                <input type="text" name="input_pendidikan_staf" id="input_pendidikan_staf" class="form-control" placeholder='Tulis pendidikan terakhir, seperti "SMK jurusan Mesin" atau "D4 Kesehatan"' required data-validation-required-message="Harap isi pendidikan terakhir dari KABID">
+                                                <input type="text" name="input_pendidikan_staf" id="input_pendidikan_staf" class="form-control" placeholder='Tulis pendidikan terakhir, seperti "SMK jurusan Mesin" atau "D4 Kesehatan"' required data-validation-required-message="Harap isi pendidikan terakhir dari Staf">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Jabatan</label>
                                             <div class="col-md-10 controls">
-                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="input_jabatan_staf" id="input_jabatan_staf" required data-validation-required-message="Harap pilih bidang yang dikepalai oleh KABID">
+                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="input_jabatan_staf" id="input_jabatan_staf" required data-validation-required-message="Harap pilih bidang yang dikepalai oleh Staf">
                                                     <option></option>
                                                     <?php foreach ($data_jabatan as $row) { ?>
                                                         <option value="<?php echo $row->id_jabatan; ?>"><?= $row->nama_jabatan; ?></option>
@@ -338,7 +338,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Seksi</label>
                                             <div class="col-md-10 controls">
-                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="input_seksi_kasi" id="input_seksi_kasi" required data-validation-required-message="Harap pilih bidang yang dikepalai oleh KABID">
+                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="input_seksi_kasi" id="input_seksi_kasi" required data-validation-required-message="Harap pilih bidang yang dikepalai oleh Staf">
                                                     <option></option>
                                                     <?php foreach ($data_seksi as $row) { ?>
                                                         <option value="<?php echo $row->id_seksi; ?>"><?= $row->nama_seksi; ?></option>
@@ -349,13 +349,13 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Username</label>
                                             <div class="col-md-10 controls">
-                                                <input type="text" name="input_username_staf" id="input_username_staf" class="form-control" placeholder='' required data-validation-required-message="Harap isi username dari KABID">
+                                                <input type="text" name="input_username_staf" id="input_username_staf" class="form-control" placeholder='' required data-validation-required-message="Harap isi username dari Staf">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Password</label>
                                             <div class="col-md-10 controls">
-                                                <input type="password" name="input_password_staf" id="input_password_staf" class="form-control" placeholder='' required data-validation-required-message="Harap isi password dari KABID">
+                                                <input type="password" name="input_password_staf" id="input_password_staf" class="form-control" placeholder='' required data-validation-required-message="Harap isi password dari Staf">
                                             </div>
                                         </div>
                                     </div>
