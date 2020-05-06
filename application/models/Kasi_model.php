@@ -9,13 +9,16 @@ class Kasi_model extends CI_Model {
     {
         parent::__construct();
         $this->context = array(
-            'tabel' => 'kasi'
+            'tabel' => 'kasi',
+            'peng' => 'pengguna'
         );
     }
 
     public function select()
     {
-        return $this->db->get($this->context['tabel'])->result();
+        $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna');
+        $this->db->where('level_pengguna','2');
+        return $this->db->get($this->context['peng'])->result();
         
     }
 

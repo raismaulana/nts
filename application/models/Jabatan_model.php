@@ -23,6 +23,12 @@ class Jabatan_model extends CI_Model {
         return $this->db->insert($this->context['tabel'], $object);
     }
 
+    public function select_where()
+    {
+        
+        return $this->db->query("SELECT * FROM `jabatan` WHERE NOT id_jabatan IN (SELECT id_jabatan FROM staf)")->result();
+    }
+
 }
 
 /* End of file Jabatan_model.php */
