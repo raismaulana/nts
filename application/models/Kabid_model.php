@@ -21,10 +21,11 @@ class Kabid_model extends CI_Model {
         
     }
 
-    public function select_join_bidang_pengguna()
+    public function select_join_bidang_pengguna($where)
     {
-        $this->db->select('kabid.id_kabid, kabid.id_bidang, bidang.nama_bidang, kabid.id_pengguna, pengguna.nama_pengguna');
-        $this->db->join('bidang', 'kabid.id_bidang = bidang.id_bidang', 'left');
+        $this->db->select();
+        $this->db->where('pengguna.id_pengguna', $where);
+        $this->db->join('bidang', 'kabid.id_bidang = bidang.id_bidang', 'inner');
         $this->db->join('pengguna', 'kabid.id_pengguna = pengguna.id_pengguna', 'left');
         return $this->db->get($this->context['tabel'])->result();
         
@@ -33,6 +34,13 @@ class Kabid_model extends CI_Model {
     public function insert($object)
     {
         return $this->db->insert($this->context['tabel'], $object);
+    }
+
+    public function delete($where,$table)
+    {
+        $this->db->where($where);
+        return $this->db->delete($table);
+        
     }
 
 }
