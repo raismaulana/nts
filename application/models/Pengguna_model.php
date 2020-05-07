@@ -86,14 +86,6 @@ class Pengguna_model extends CI_Model {
         
     }
 
-    public function update($data,$where)
-    {
-        $this->db->where($where);
-        
-        return $this->db->update($this->context['tabel'], $data);
-        
-    }
-
 }
 
 /* End of file Pengguna_model.php */

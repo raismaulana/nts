@@ -26,12 +26,6 @@ class Seksi_model extends CI_Model {
         
     }
 
-    public function select_where($id_seksi)
-    {
-        $this->db->where('id_seksi', $id_seksi);
-        return $this->db->get($this->context['tabel'])->row();
-    }
-
     public function insert($object)
     {
         return $this->db->insert($this->context['tabel'], $object);

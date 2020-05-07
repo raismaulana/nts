@@ -52,12 +52,6 @@ class Staf_model extends CI_Model {
 
     }
 
-    public function delete($where, $table)
-    {
-        $this->db->where($where);
-        return $this->db->delete($table);
-    }
-
 }
 
 /* End of file Staf_model.php */
