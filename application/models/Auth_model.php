@@ -28,8 +28,17 @@ class Auth_model extends CI_Model {
     
                     if ($lvl == '1') {
                         //staf
+                        $this->db->select('pengguna.id_pengguna, staf.id_staf, staf.id_jabatan');
+                        $this->db->join('staf', 'pengguna.id_pengguna = staf.id_pengguna', 'left');
+                        $this->db->where('pengguna.id_pengguna', $id);
+                        $staf = $this->db->get('pengguna')->row();
+                        $sess_staf = array(
+                            'id_staf' => $staf->id_staf,
+                            'id_jabatan' => $staf->id_jabatan
+                        );
+                        $this->session->set_userdata($sess_staf);
                         
-                        redirect('home','refresh');
+                        redirect('staf/beranda','refresh');
                         
                     } else if ($lvl == '2') {
                         //kasi
@@ -43,7 +52,7 @@ class Auth_model extends CI_Model {
                         );
                         $this->session->set_userdata($sess_kasi);
                         
-                        redirect('home','refresh');
+                        redirect('kasi/beranda_kasi','refresh');
                         
                     } else if ($lvl == '3') {
                         //kabid
@@ -57,14 +66,24 @@ class Auth_model extends CI_Model {
                         );
                         $this->session->set_userdata($sess_kabid);
 
-                        redirect('home','refresh');
+                        redirect('kabid/beranda_kabid','refresh');
                         
                     } else if ($lvl == '4') {
                         //admin
-                        
+                        $this->db->select('pengguna.id_pengguna');
+                        $this->db->where('pengguna.id_pengguna', $id);
+                        $admin = $this->db->get('pengguna')->row();
+                        $sess_admin = array(
+                            'id_admin' => $admin->id_pengguna
+                        );
+                        $this->session->set_userdata($sess_admin);
+
                         redirect('home','refresh');
                         
                     }
+                } else {
+                    $this->session->set_flashdata('info', 'Akun tidak aktif');
+				    redirect ('auth');
                 }
 			} else {
 				$this->session->set_flashdata('info', 'Username atau Password Salah');
@@ -93,10 +112,62 @@ class Auth_model extends CI_Model {
     public function is_login()
     {
         if($this->session->userdata('username')){
-            redirect('home', 'refresh');
+
+            if ($this->session->userdata('id_staf')) {
+                
+                redirect('staf/beranda','refresh');
+                
+            } else if ($this->session->userdata('id_kasi')){
+                
+                redirect('kasi/beranda_kasi','refresh');
+                
+            } else if ($this->session->userdata('id_kabid')) {
+                
+                redirect('kabid/beranda_kabid','refresh');
+                
+            } else if ($this->session->userdata('id_admin')) {
+                
+                redirect('home','refresh');
+                
+            }
+        }
+    }
+    
+    public function can_staf()
+    {
+        if (!$this->session->userdata('id_staf')) {
+            
+            redirect('auth','refresh');
+            
         }
     }
 
+    public function can_kasi()
+    {
+        if (!$this->session->userdata('id_kasi')) {
+            
+            redirect('auth','refresh');
+            
+        }
+    }
+
+    public function can_kabid()
+    {
+        if (!$this->session->userdata('id_kabid')) {
+            
+            redirect('auth','refresh');
+            
+        }
+    }
+
+    public function can_admin()
+    {
+        if (!$this->session->userdata('id_admin')) {
+            
+            redirect('auth','refresh');
+            
+        }
+    }
 }
 
 /* End of file Login_model.php */
