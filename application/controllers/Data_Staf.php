@@ -52,6 +52,32 @@ class Data_Staf extends CI_Controller {
 		redirect('data_staf', 'refersh');
 	}
 
+	public function update_pengguna()
+	{
+		$object = array(
+			'nama_pengguna' => $this->input->post('edt_nama_staf'),
+			'nik_pengguna' => $this->input->post('edt_nik_staf'),
+			'nip_pengguna' => $this->input->post('edt_nip_staf'),
+			'alamat_pengguna' => $this->input->post('edt_alamat_staf'),
+			'id_kecamatan' => $this->input->post('edt_kecamatan_staf'),
+			'email_pengguna' => $this->input->post('edt_email_staf'),
+			'golongan_pengguna' => $this->input->post('edt_gol_staf'),
+			'tanggal_lahir_pengguna' => $this->input->post('edt_tgl_lahir_staf'),
+			'telepon_pengguna' => $this->input->post('edt_no_telp_staf'),
+			'pendidikan' => $this->input->post('edt_pendidikan_staf'),
+			'username_pengguna' => $this->input->post('edt_username_staf'),
+			'password_pengguna' => password_hash($this->input->post('edt_password_staf'), PASSWORD_ARGON2I)
+		);
+
+		$where = array(
+			'id_pengguna' => $this->input->post('edt_id_pengguna')
+
+		);
+
+		$result = $this->pengguna_model->update($object, $where);
+		redirect('data_staf', 'refresh');
+	}
+
 	public function select_all()
 	{
 		$data = $this->staf_model->select();
@@ -59,5 +85,28 @@ class Data_Staf extends CI_Controller {
 			'data' => $data
 		);
 		echo json_encode($datas);
+	}
+
+	public function get_where()
+	{
+
+		$dataf = $this->staf_model->select_join_jabatan_pengguna_seksi($this->input->post('id_pengguna'));
+
+		echo json_encode($dataf);
+	}
+
+	public function delete_pengguna()
+	{
+		$where = array(
+			'id_pengguna' => $this->input->post('del_id_pengguna')
+		);
+
+		//hapus di tabel staf dulu
+		if ($this->staf_model->delete($where, 'staf')) {
+			if ($this->staf_model->delete($where, 'pengguna')) {
+
+				redirect('data_staf', 'refresh');
+			}
+		}
 	}
 }

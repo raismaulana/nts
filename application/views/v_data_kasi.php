@@ -214,6 +214,9 @@
                                                 <th> # </th>
                                             </tr>
                                         </thead>
+                                        <tbody id="data_kasi">
+
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -359,11 +362,162 @@
                 </div>
                 <!--END MODAL ADD-->
 
-                <!--MODAL DELETE-->
-
+                 <!--MODAL DELETE-->
+                 <div class="modal fade" id="Modal_Hapus" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Hapus Data KASI</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="<?= base_url('Data_Kasi/delete_pengguna'); ?>" method="post">
+                                <form id="form_hapus" type="POST" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <label><strong>Apakah anda yakin akan menghapus data kasi tersebut?</strong></label>
+                                        <input type="text" name="delete_id_pengguna" id="delete_id_pengguna" hidden>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-info">Kirim</button>
+                                        <button type="reset" class="btn btn-inverse">Batal</button>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <!-- END MODAL DELETE -->
 
                 <!-- MODAL EDIT -->
+                <div class="modal fade" id="Modal_Edit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit Data KASI</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="<?= base_url('Data_Kasi/update_pengguna'); ?>" method="post">
+                                <form id="form_edit" type="POST" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <input type="text" name="edit_id_pengguna" id="edit_id_pengguna">
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Nama Lengkap</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" name="edit_nama_kasi" id="edit_nama_kasi" class="form-control" placeholder="" class="form-control" required data-validation-required-message="Harap isi nama lengkap KASI">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">NIK</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" name="edit_nik_kasi" id="edit_nik_kasi" class="form-control" placeholder="" required data-validation-containsnumber-regex="(\d)+" data-validation-containsnumber-message="Harus berupa angka, tidak boleh karakter" data-validation-required-message="Harap isi NIK dari KASI" minlength="16" maxlength="16">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">NIP</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" name="edit_nip_kasi" id="edit_nip_kasi" class="form-control" placeholder="" data-validation-containsnumber-regex="(\d)+" data-validation-containsnumber-message="Harus berupa angka, tidak boleh karakter" minlength="18" maxlength="18">
+                                                <div class="form-control-feedback"><small>Tidak perlu diisi jika bukan PNS</small></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Alamat</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" name="edit_alamat_kasi" id="edit_alamat_kasi" class="form-control" placeholder="Tulis alamat lengkap seperti nama jalan, gedung dan lain-lain" required data-validation-required-message="Harap isi detail alamat dari KASI">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label"></label>
+                                            <div class="col-md-10 controls">
+                                                <select class="select2 form-control custom-select" required data-validation-required-message="Harap pilih alamat lengkap dari KASI" name="edit_kecamatan_kasi" id="edit_kecamatan_kasi" style="width: 100%; height:36px;">
+                                                    <option></option>
+                                                    <?php foreach ($data_alamat as $row) { ?>
+                                                        <option value="<?php echo $row->id_kecamatan; ?>"><?= $row->nama_kecamatan, ", ", $row->nama_kabupaten, ", ", $row->nama_provinsi; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <div class="form-control-feedback"><small>Pilih kecamatan, kabupaten dan provinsi</small></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Email</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="email" name="edit_email_kasi" id="edit_email_kasi" class="form-control" placeholder="" required data-validation-required-message="Harap isi email dari KASI">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Golongan</label>
+                                            <div class="col-md-10 controls">
+                                                <select class="select2 form-control custom-select" name="edit_gol_kasi" id="edit_gol_kasi" style="width: 100%; height:36px;">
+                                                    <option></option>
+                                                    <option value="Juru Muda (Gol. I a)">Juru Muda (Gol. I a)</option>
+                                                    <option value="Juru Muda Tingkat I (Gol. I b)">Juru Muda Tingkat I (Gol. I b)</option>
+                                                    <option value="Juru (Gol. I c)">Juru (Gol. I c)</option>
+                                                    <option value="Juru Tingkat I (Gol. I d)">Juru Tingkat I (Gol. I d)</option>
+                                                    <option value="Pengatur Muda(Gol. II a)">Pengatur Muda(Gol. II a)</option>
+                                                    <option value="Pengatur Muda Tingkat I (Gol. II b)">Pengatur Muda Tingkat I (Gol. II b)</option>
+                                                    <option value="Pengatur (Gol. II c)">Pengatur (Gol. II c)</option>
+                                                    <option value="Pengatur Tingkat I(Gol. II d)">Pengatur Tingkat I(Gol. II d)</option>
+                                                    <option value="Penata Muda (Gol. III a)">Penata Muda (Gol. III a)</option>
+                                                    <option value="Penata Muda Tingkat I(Gol. III b)">Penata Muda Tingkat I(Gol. III b)</option>
+                                                    <option value="Penata (Gol. III c)">Penata (Gol. III c)</option>
+                                                    <option value="Penata Tingkat I(Gol. III d)">Penata Tingkat I(Gol. III d)</option>
+                                                    <option value="Pembina (Gol. IV a)">Pembina (Gol. IV a)</option>
+                                                    <option value="Pembina Tingkat I (Gol. IV b)">Pembina Tingkat I (Gol. IV b)</option>
+                                                    <option value="Pembina Utama Muda (Gol. IV c)">Pembina Utama Muda (Gol. IV c)</option>
+                                                    <option value="Pembina Utama Madya (Gol. IV d)">Pembina Utama Madya (Gol. IV d)</option>
+                                                    <option value="Pembina Utama (Gol. IV e)">Pembina Utama (Gol. IV e)</option>
+                                                </select>
+                                                <div class="form-control-feedback"><small>Tidak perlu dipilih jika bukan PNS</small></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Tanggal Lahir</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="date" name="edit_tgl_lahir_kasi" id="edit_tgl_lahir_kasi" class="form-control" placeholder="" required data-validation-required-message="Harap isi email dari KASI">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">No.Telp</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" name="edit_no_telp_kasi" id="edit_no_telp_kasi" class="form-control" placeholder="" required data-validation-containsnumber-regex="(\d)+" data-validation-containsnumber-message="Harus berupa angka, tidak boleh karakter" data-validation-required-message="Harap isi nomor telepon dari KASI">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Pendidikan</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" name="edit_pendidikan_kasi" id="edit_pendidikan_kasi" class="form-control" placeholder='Tulis pendidikan terakhir, seperti "SMK jurusan Mesin" atau "D4 Kesehatan"' required data-validation-required-message="Harap isi pendidikan terakhir dari KASI">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Seksi</label>
+                                            <div class="col-md-10 controls">
+                                                <input class="form-control" name="edit_seksi_kasi" id="edit_seksi_kasi" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Username</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" name="edit_username_kasi" id="edit_username_kasi" class="form-control" placeholder='' required data-validation-required-message="Harap isi username dari KASI">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Password</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="password" name="edit_password_kasi" id="edit_password_kasi" class="form-control" placeholder='' required data-validation-required-message="Harap isi password dari KASI">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-info">Kirim</button>
+                                        <button type="reset" class="btn btn-inverse">Batal</button>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
                 <!--END MODAL EDIT-->
                 <!-- ============================================================== -->
@@ -421,22 +575,51 @@
     <script src="<?php echo base_url() . 'assets/node_modules/select2/dist/js/select2.full.min.js' ?>" type="text/javascript"></script>
     <!-- Javascript -->
     <script>
-        var dataset = [
-            ["A", "B", "C", "D", "E", "F", "F"],
-            ["D", "S", "W", "O", "D", "S", "F"],
-            ["R", "X", "E", "L", "E", "D", "F"],
-            ["W", "Y", "K", "S", "W", "P", "F"],
-            ["G", "J", "O", "T", "Z", "F", "F"]
-        ];
-        ! function(window, document, $) {
-            "use strict";
-            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
-        }(window, document, jQuery);
-
         $(document).ready(function() {
+            ! function(window, document, $) {
+                "use strict";
+                $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+            }(window, document, jQuery);
             $(".select2").select2({
                 placeholder: "Pilih salah satu"
             });
+
+            $('#data_kasi').on('click', '.item_edit', function() {
+                $.ajax({
+                    url: "<?php echo base_url('Data_Kasi/get_where'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_pengguna: $(this).data('product_code')
+                    },
+                    success: function(dataf) {
+                        $('[name="edit_id_pengguna"]').val(dataf[0].id_pengguna);
+                        $('[name="edit_nama_kasi"]').val(dataf[0].nama_pengguna);
+                        $('[name="edit_nik_kasi"]').val(dataf[0].nik_pengguna);
+                        $('[name="edit_nip_kasi"]').val(dataf[0].nip_pengguna);
+                        $('[name="edit_alamat_kasi"]').val(dataf[0].alamat_pengguna);
+                        $('[name="edit_email_kasi"]').val(dataf[0].email_pengguna);
+                        $('[name="edit_tgl_lahir_kasi"]').val(dataf[0].tanggal_lahir_pengguna);
+                        $('[name="edit_no_telp_kasi"]').val(dataf[0].telepon_pengguna);
+                        $('[name="edit_pendidikan_kasi"]').val(dataf[0].pendidikan);
+                        $('[name="edit_seksi_kasi"]').val(dataf[0].nama_seksi);
+                        $('[name="edit_username_kasi"]').val(dataf[0].username_pengguna);
+
+                        // Set selected 
+                        $('#edit_kecamatan_kasi').val(dataf[0].id_kecamatan);
+                        $('#edit_kecamatan_kasi').select2().trigger('change');
+
+                        $('#edit_gol_kasi').val(dataf[0].golongan_pengguna);
+                        $('#edit_gol_kasi').select2().trigger('change');
+                    }
+                })
+            });
+
+            $('#data_kasi').on('click','.item_delete', function(){
+                let product_code = $(this).data('product_code');
+                $('[name="delete_id_pengguna"]').val(product_code);
+            })
+
             $('#tabel_data_kasi').DataTable({
                 "ajax": {
                     "url": "http://localhost/nts/data_kasi/select_all",
@@ -462,13 +645,14 @@
                         "data": "id_pengguna",
                         "width": "16%",
                         render: function(data, type, row) {
-                            return '<a href="javascript:void(0);" data-toggle="modal" data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
+                            return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
                                 '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>';
                         },
                         "orderable": false
                     }
                 ]
             });
+
         });
     </script>
 
