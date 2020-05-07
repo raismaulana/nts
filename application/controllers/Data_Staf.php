@@ -5,11 +5,11 @@ class Data_Staf extends CI_Controller {
 
 	public function __construct(){
 		parent:: __construct();
-		$this->load->model('alamat_model');	
-		$this->load->model('staf_model');	
-		$this->load->model('pengguna_model');	
-		$this->load->model('jabatan_model');	
-		$this->load->model('seksi_model');	
+		$this->load->model('alamat_model');
+		$this->load->model('staf_model');
+		$this->load->model('pengguna_model');
+		$this->load->model('jabatan_model');
+		$this->load->model('seksi_model');
 	}
 
 	public function index()
@@ -27,8 +27,8 @@ class Data_Staf extends CI_Controller {
 			'nik_pengguna' => $this->input->post('input_nik_staf'),
 			'nip_pengguna' => $this->input->post('input_nip_staf'),
 			'alamat_pengguna' => $this->input->post('input_alamat_staf'),
-            'id_kecamatan' => $this->input->post('input_kecamatan_staf'),
-            'email_pengguna' => $this->input->post('input_email_staf'),
+      'id_kecamatan' => $this->input->post('input_kecamatan_staf'),
+      'email_pengguna' => $this->input->post('input_email_staf'),
 			'golongan_pengguna' => $this->input->post('input_gol_staf'),
 			'tanggal_lahir_pengguna' => $this->input->post('input_tgl_lahir_staf'),
 			'telepon_pengguna' => $this->input->post('input_no_telp_staf'),
@@ -36,14 +36,14 @@ class Data_Staf extends CI_Controller {
 			'username_pengguna' => $this->input->post('input_username_staf'),
 			'password_pengguna' => password_hash($this->input->post('input_password_staf'), PASSWORD_ARGON2I),
 			'level_pengguna' => '1',
-            'status_pengguna' => '1',      
+            'status_pengguna' => '1',
 		);
-		
+
 		$result = $this->pengguna_model->insert($object);
 
 		$object2 = array(
 			'id_jabatan' => $this->input->post('input_jabatan_staf'),
-			'id_seksi' => $this->input->post('input_seksi_kasi'),
+			'id_seksi' => $this->input->post('input_seksi_staf'),
 			'id_pengguna' => $result
 
 		);
@@ -109,4 +109,6 @@ class Data_Staf extends CI_Controller {
 			}
 		}
 	}
+
+
 }
