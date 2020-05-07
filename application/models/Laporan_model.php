@@ -20,6 +20,14 @@ class Laporan_model extends CI_Model {
         
     }
 
+    public function select_where_join_pengguna($where)
+    {
+        $this->db->join('pengguna', 'laporan.id_pengguna = pengguna.id_pengguna', 'left');
+        $this->db->where('laporan.id_pengguna', $where);
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }
+
     public function select_where3($where1, $where2, $where3)
     {
         $this->db->where('bulan_laporan', $where1);
@@ -28,12 +36,22 @@ class Laporan_model extends CI_Model {
         return $this->db->get($this->context['tabel'])->result();
         
     }
+
+    public function select_where_join_laporan_staf($where)
+    {
+        $this->db->select('pengguna.nama_pengguna, staf.id_seksi, laporan.*');
+        $this->db->join('staf', 'pengguna.id_pengguna = staf.id_pengguna', 'left');
+        $this->db->join('laporan', 'pengguna.id_pengguna = laporan.id_pengguna', 'right');       
+        $this->db->where('id_seksi', $where);
+        return $this->db->get('pengguna')->result();
+
+    }
     
     public function insert($object)
     {
         return $this->db->insert($this->context['tabel'], $object);
         
     }
-}
 
+}
 /* End of file Laporan_model.php */

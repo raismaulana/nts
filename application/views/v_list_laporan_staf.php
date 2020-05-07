@@ -18,27 +18,23 @@
                 <strong><?= $this->session->flashdata('info')?></strong>
             </div>
             <?php }; ?>
-            <form action="<?= base_url('laporan/insert_laporan'); ?>" method="post">
-                <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-                </div>
-            </form>
+            <p>Laporan staf dari Seksi <b><?php echo $seksi->nama_seksi ?></b></p>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Laporan</th>
-                        <th>Status</th>
+                        <th>No.</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
                         <th>#</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php $i=1; foreach($data_laporan as $row){ ?>
+                <?php $i=1; foreach($data as $row){ ?>
                     <tr>
-                        <td><?= $row->tahun_laporan,"-",$row->bulan_laporan; ?></td>
-                        <td scope="row"><?= $row->status_laporan; ?></td>
-                        <td><a name="edit" id="edit" class="btn btn-dark" href="<?= base_url("kegiatan/$row->id_laporan"); ?>" role="button">Edit</a></td>
+                        <td><?php echo $i; $i++;?></td>
+                        <td><?= $row->nama_pengguna; ?></td>
+                        <td scope="row"><?= $row->nama_jabatan; ?></td>
+                        <td><a name="edit" id="edit" class="btn btn-dark" href="<?= base_url("laporan/staf/$row->id_pengguna"); ?>" role="button">Lihat Laporan</a></td>
                     </tr>
                 <?php } ?>
                 </tbody>

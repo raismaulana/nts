@@ -32,6 +32,13 @@ class Auth extends CI_Controller {
         $this->auth_model->logout();
         
     }
+
+    public function security()
+    {
+        if(!$this->session->userdata('id')){
+            redirect('auth', 'refresh');
+        }
+    }
 }
 
 /* End of file Login.php */

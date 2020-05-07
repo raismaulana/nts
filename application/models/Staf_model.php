@@ -31,7 +31,8 @@ class Staf_model extends CI_Model {
     
     public function insert($object)
     {
-        return $this->db->insert($this->context['tabel'], $object);
+        $this->db->insert($this->context['tabel'], $object);
+        return ($this->db->affected_rows() > 0) ? true : false;
     }
 
     public function update($object, $where)

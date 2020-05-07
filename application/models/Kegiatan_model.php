@@ -18,7 +18,28 @@ class Kegiatan_model extends CI_Model {
         $this->db->where('id_laporan', $where);
         return $this->db->get($this->context['tabel'])->result();
         
+    }
+    
+    public function select_where_join_pengguna($where)
+    {
+        $this->db->join('laporan', 'kegiatan.id_laporan = laporan.id_laporan', 'left');
+        $this->db->join('pengguna', 'laporan.id_pengguna = pengguna.id_pengguna', 'left');
+        $this->db->where('kegiatan.id_laporan', $where);
+        return $this->db->get($this->context['tabel'])->result();
+        
     }    
+
+    public function select_where_kegiatan($where)
+    {
+        $this->db->where('id_kegiatan', $where);
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }
+
+    public function update($id, $data){
+        $this->db->where('id_kegiatan', $id);
+        return $this->db->update($this->context['tabel'], $data);
+    }
 
 }
 

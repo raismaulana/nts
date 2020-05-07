@@ -200,7 +200,7 @@
                                 </div>
 
                                 <div class="table-responsive m-t-4">
-                                    <table id="" class="table table-bordered table-striped">
+                                    <table id="tabel-staf" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Nama Lengkap</th>
@@ -374,7 +374,28 @@
     <!-- bt-switch -->
     <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
     <!-- Javascript -->
-    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //datatables
+            var table = $('#tabel-staf').DataTable({ 
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "<?php echo site_url('Data_staf/get'); ?>"
+                },
+                "sColumns": [
+                    {"data": "nama_pengguna"},
+                    {"data": "alamat_pengguna"},
+                    {"data": "telepon_pengguna"},
+                    {"data": "nik_pengguna"},
+                    {"data": "nip_pengguna"},
+                    {"data": "golongan_pengguna"},
+                    {"data": "#"}
+                ]
+            });
+     
+        });
+    </script>
 </body>
 
 </html>

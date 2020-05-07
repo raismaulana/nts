@@ -10,24 +10,13 @@
     <nav class="nav justify-content-end">
       <a class="nav-link" href="<?= base_url('auth/logout'); ?>">Logout</a>
     </nav>
-
     <div class="container">
+        <p>Nama: <?php foreach($data_laporan as $row){ echo $row->nama_pengguna; break;} ?></p>
         <div class="row">
-            <?php if($this->session->flashdata('info')){ ?>
-                <div class="alert alert-dark" role="alert">
-                <strong><?= $this->session->flashdata('info')?></strong>
-            </div>
-            <?php }; ?>
-            <form action="<?= base_url('laporan/insert_laporan'); ?>" method="post">
-                <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-                </div>
-            </form>
             <table class="table">
                 <thead>
                     <tr>
+                        <th>No.</th>
                         <th>Laporan</th>
                         <th>Status</th>
                         <th>#</th>
@@ -36,9 +25,13 @@
                 <tbody>
                 <?php $i=1; foreach($data_laporan as $row){ ?>
                     <tr>
+                        <td><?php echo $i; $i++;?></td>
                         <td><?= $row->tahun_laporan,"-",$row->bulan_laporan; ?></td>
-                        <td scope="row"><?= $row->status_laporan; ?></td>
-                        <td><a name="edit" id="edit" class="btn btn-dark" href="<?= base_url("kegiatan/$row->id_laporan"); ?>" role="button">Edit</a></td>
+                        <td scope="row"><?php if($row->status_laporan == '0'){echo "On Going";} else if($row->status_kegiatan == '1') {echo "Aprroved";} else {echo "Tertolak";} ?></td>
+                        <td><a name="edit" id="edit" class="btn btn-primary" href="<?= base_url("kegiatan/staf/$row->id_laporan"); ?>" role="button">Lihat Kegiatan</a>
+                        <a name="edit" id="edit" class="btn btn-success" href="<?= base_url("laporan/approve/$row->id_laporan"); ?>" role="button">Approve</a>
+                        <a name="edit" id="edit" class="btn btn-danger" href="<?= base_url("laporan/decline/$row->id_laporan"); ?>" role="button">Decline</a>
+                        </td>
                     </tr>
                 <?php } ?>
                 </tbody>

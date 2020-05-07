@@ -24,7 +24,7 @@ class Auth_model extends CI_Model {
                     $this->session->set_userdata($sess);
                         
                     $lvl = $this->session->userdata('level');
-                    $id = $this->session->userdata('id_global');
+                    $id = $this->session->userdata('id');
     
                     if ($lvl == '1') {
                         //staf
@@ -33,12 +33,30 @@ class Auth_model extends CI_Model {
                         
                     } else if ($lvl == '2') {
                         //kasi
+                        $this->db->select('pengguna.id_pengguna, kasi.id_kasi, kasi.id_seksi');
+                        $this->db->join('kasi', 'pengguna.id_pengguna = kasi.id_pengguna', 'left');
+                        $this->db->where('pengguna.id_pengguna', $id);
+                        $kasi = $this->db->get('pengguna')->row();
+                        $sess_kasi = array(
+                            'id_kasi' => $kasi->id_kasi,
+                            'id_seksi' => $kasi->id_seksi
+                        );
+                        $this->session->set_userdata($sess_kasi);
                         
                         redirect('home','refresh');
                         
                     } else if ($lvl == '3') {
                         //kabid
-                        
+                        $this->db->select('pengguna.id_pengguna, kabid.id_kabid, kabid.id_bidang');
+                        $this->db->join('kabid', 'pengguna.id_pengguna = kabid.id_pengguna', 'left');
+                        $this->db->where('pengguna.id_pengguna', $id);
+                        $kasi = $this->db->get('pengguna')->row();
+                        $sess_kabid = array(
+                            'id_kabid' => $kasi->id_kabid,
+                            'id_bidang' => $kasi->id_bidang
+                        );
+                        $this->session->set_userdata($sess_kabid);
+
                         redirect('home','refresh');
                         
                     } else if ($lvl == '4') {

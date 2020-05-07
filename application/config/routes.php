@@ -55,3 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route["laporan/(:num)"] = "laporan/index/$1";
 $route["kegiatan/(:num)"] = "kegiatan/index/$1";
+$route["laporan/staf"] = "laporan/list_laporan_staf";
+$route["laporan/seksi"] = "laporan/list_laporan_seksi";
+$route["laporan/staf/(:num)"] = "laporan/laporan_staf/$1";
+$route["kegiatan/staf/(:num)"] = "kegiatan/kegiatan_staf/$1";

@@ -28,6 +28,15 @@ class Kasi_model extends CI_Model {
         return $this->db->get($this->context['tabel'])->result();
         
     }
+
+    public function select_join_seksi_pengguna_where($where)
+    {
+        $this->db->join('seksi', 'kasi.id_seksi = seksi.id_seksi', 'left');
+        $this->db->join('pengguna', 'kasi.id_pengguna = pengguna.id_pengguna', 'right');
+        $this->db->where('seksi.id_bidang', $where);
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }
     
     public function insert($object)
     {

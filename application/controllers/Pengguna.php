@@ -11,7 +11,6 @@ class Pengguna extends CI_Controller {
 
         $this->load->model('alamat_model');
         $this->load->model('jabatan_model');
-        $this->load->model('kualifikasi_model');
         $this->load->model('pengguna_model');
         $this->load->model('seksi_model');
         $this->load->model('staf_model');
@@ -23,7 +22,6 @@ class Pengguna extends CI_Controller {
     {
         $context['data_alamat'] = $this->alamat_model->select_join_kabupaten_provinsi();
         $context['data_jabatan'] = $this->jabatan_model->select();
-        $context['data_kualifikasi'] = $this->kualifikasi_model->select_join_pendidikan_jurusan();
         $context['data_pengguna'] = $this->pengguna_model->select();
         $context['data_seksi'] = $this->seksi_model->select();
         $context['data_staf'] = $this->staf_model->select_join_jabatan_pengguna_seksi();
@@ -33,7 +31,6 @@ class Pengguna extends CI_Controller {
     public function insert_pengguna()
     {
         $object = array(
-            'id_kualifikasi' => $this->input->post('kualifikasi'),
             'id_kecamatan' => $this->input->post('kecamatan'),
             'alamat_pengguna' => $this->input->post('alamat'),
             'email_pengguna' => $this->input->post('email'),
@@ -43,6 +40,7 @@ class Pengguna extends CI_Controller {
             'nik_pengguna' => $this->input->post('nik'),
             'nip_pengguna' => $this->input->post('nip'),
             'password_pengguna' => password_hash($this->input->post('password'), PASSWORD_ARGON2I),
+            'pendidikan' => $this->input->post('pendidikan'),
             'status_pengguna' => '1',      
             'tanggal_lahir_pengguna' => $this->input->post('bday'),
             'telepon_pengguna' => $this->input->post('telepon'),
@@ -59,6 +57,28 @@ class Pengguna extends CI_Controller {
         $result = $this->staf_model->insert($object2);
         redirect('pengguna','refresh');
         
+    }
+
+    public function insert()
+    {
+        $object = array(
+            'id_kecamatan' => 1101010,
+            'alamat_pengguna' => 'JAKARTA',
+            'email_pengguna' => 'anonymous@gmail.com',
+            'golongan_pengguna' => null,
+            'level_pengguna' => 4,  
+            'nama_pengguna' => 'Administrator',
+            'nik_pengguna' => '1234567890123456',
+            'nip_pengguna' => null,
+            'password_pengguna' => password_hash('admin', PASSWORD_ARGON2I),
+            'pendidikan' => 'Phd Phsycology',
+            'status_pengguna' => '1',      
+            'tanggal_lahir_pengguna' => '1900-01-01',
+            'telepon_pengguna' => '1234567890',
+            'username_pengguna' => 'administrator'
+        );
+
+        $result = $this->pengguna_model->insert($object);
     }
 
     public function update_staf()

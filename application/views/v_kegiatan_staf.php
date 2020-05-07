@@ -13,16 +13,7 @@
 
     <div class="container">
         <div class="row">
-            <?php if($this->session->flashdata('info')){ ?>
-                <div class="alert alert-dark" role="alert">
-                <strong><?= $this->session->flashdata('info')?></strong>
-            </div>
-            <?php }; ?>
-            <div class="form-group row">
-                <div class="offset-sm-2 col-sm-10">
-                    <a href="<?= base_url('kegiatan/input_kegiatan/'.$this->uri->segment(2)); ?>" class="btn btn-primary">Tambah</a>
-                </div>
-            </div>
+            <p>Nama: <?php foreach($data_kegiatan as $row){ echo $row->nama_pengguna; break;} ?></p>
             <table class="table">
                 <thead>
                     <tr>
@@ -44,7 +35,9 @@
                         <td scope="row"><?= $row->kuantitas_output_kegiatan; ?></td>
                         <td scope="row"><?= $row->waktu_kegiatan; ?></td>
                         <td scope="row"><?php if($row->status_kegiatan == '0'){echo "Waiting";} else if($row->status_kegiatan == '1') {echo "Aprroved";} else {echo "Tertolak";} ?></td>
-                        <td><a name="edit" id="edit" class="btn btn-dark" href="<?= base_url("kegiatan/edit_kegiatan/$row->id_kegiatan"); ?>" role="button">Edit</a></td>
+                        <td><a name="edit" id="edit" class="btn btn-success" href="<?= base_url("kegiatan/approve/$row->id_kegiatan"); ?>" role="button">Approve</a>
+                        <a name="edit" id="edit" class="btn btn-danger" href="<?= base_url("kegiatan/decline/$row->id_kegiatan"); ?>" role="button">Decline</a>
+                        </td>
                     </tr>
                 <?php } ?>
                 </tbody>

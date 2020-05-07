@@ -7,14 +7,12 @@ class Home extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('auth_model');
-        //$this->auth_model->security();
+        $this->auth_model->security();
 
         $this->load->model('bidang_model');
         $this->load->model('jabatan_model');
-        $this->load->model('jurusan_model');
         $this->load->model('kabid_model');
         $this->load->model('kasi_model');
-        $this->load->model('pendidikan_model');
         $this->load->model('pengguna_model');
         $this->load->model('seksi_model');
         $this->load->model('staf_model');
