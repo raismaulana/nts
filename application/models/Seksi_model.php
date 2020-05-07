@@ -36,6 +36,12 @@ class Seksi_model extends CI_Model {
     {
         return $this->db->insert($this->context['tabel'], $object);
     }
+
+    public function select_where()
+    {
+        
+        return $this->db->query("SELECT * FROM `seksi` WHERE NOT id_seksi IN (SELECT id_seksi FROM kasi)")->result();
+    }
     
 
 }

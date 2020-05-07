@@ -273,7 +273,7 @@
                             <div class="card-body">
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Bidang</h4>
+                                        <h4 class="card-title">Daftar Data Kepala Bidang</h4>
                                     </div>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="float-right mr-4"><a href="javascript:void(0);" class="btn waves-effect waves-light btn-primary" data-toggle="modal" data-target="#Modal_Tambah_Kabid"><span class="fa fa-plus"></span> Tambah Data</a></div>

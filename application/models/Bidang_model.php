@@ -23,10 +23,10 @@ class Bidang_model extends CI_Model {
         return $this->db->get($this->context['tabel'])->result();
     }
 
-    public function select_where($where)
+    public function select_where()
     {
-        $this->db->where('id_bidang', $where);
-        return $this->db->get($this->context['tabel'])->row();
+        
+        return $this->db->query("SELECT * FROM `bidang` WHERE NOT id_bidang IN (SELECT id_bidang FROM kabid)")->result();
     }
 }
 
