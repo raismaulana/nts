@@ -402,7 +402,7 @@
                             <form action="<?= base_url('Data_Kasi/update_pengguna'); ?>" method="post">
                                 <form id="form_edit" type="POST" enctype="multipart/form-data">
                                     <div class="modal-body">
-                                        <input type="text" name="edit_id_pengguna" id="edit_id_pengguna">
+                                        <input type="text" name="edit_id_pengguna" id="edit_id_pengguna" hidden>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Nama Lengkap</label>
                                             <div class="col-md-10 controls">

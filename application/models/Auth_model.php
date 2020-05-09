@@ -29,7 +29,7 @@ class Auth_model extends CI_Model {
                     if ($lvl == '1') {
                         //staf
                         
-                        redirect('home','refresh');
+                        redirect('staf/beranda','refresh');
                         
                     } else if ($lvl == '2') {
                         //kasi
@@ -43,7 +43,7 @@ class Auth_model extends CI_Model {
                         );
                         $this->session->set_userdata($sess_kasi);
                         
-                        redirect('home','refresh');
+                        redirect('kasi/beranda_kasi','refresh');
                         
                     } else if ($lvl == '3') {
                         //kabid
@@ -57,7 +57,7 @@ class Auth_model extends CI_Model {
                         );
                         $this->session->set_userdata($sess_kabid);
 
-                        redirect('home','refresh');
+                        redirect('kabid/beranda_kabid','refresh');
                         
                     } else if ($lvl == '4') {
                         //admin

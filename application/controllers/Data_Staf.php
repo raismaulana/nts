@@ -26,8 +26,8 @@ class Data_Staf extends CI_Controller {
 	public function index()
 	{
 		$context['data_alamat'] = $this->alamat_model->select_join_kabupaten_provinsi();
-		$context['data_jabatan'] = $this->jabatan_model->select_where();
-		$context['data_seksi'] = $this->seksi_model->select_where();
+		$context['data_jabatan'] = $this->jabatan_model->select();
+		$context['data_seksi'] = $this->seksi_model->select();
 		$this->load->view('v_data_staf', $context);
 	}
 

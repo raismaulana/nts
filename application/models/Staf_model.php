@@ -18,7 +18,7 @@ class Staf_model extends CI_Model {
     public function select()
     {
         $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna');
-
+        $this->db->where('level_pengguna','1');
         return $this->db->get($this->context['peng'])->result();
 
     }
