@@ -53,7 +53,7 @@
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('v_sidebar')
+        $this->load->view('KABID/v_sidebar_kabid')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
