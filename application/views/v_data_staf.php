@@ -525,7 +525,8 @@
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
-                    "url": "<?php //echo site_url('Data_staf/get'); ?>"
+                    "url": "<?php //echo site_url('Data_staf/get'); 
+                            ?>"
                 },
                 "sColumns": [
                     {"data": "nama_pengguna"},
@@ -541,88 +542,90 @@
         });
     </script> -->
     <script>
+        $(document).ready(function() {
+            ! function(window, document, $) {
+                "use strict";
+                $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+            }(window, document, jQuery);
+            $(".select2").select2({
+                placeholder: "Pilih salah satu"
+            });
 
-    $(document).ready(function() {
-        ! function(window, document, $) {
-            "use strict";
-            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
-        }(window, document, jQuery);
-        $(".select2").select2({
-            placeholder: "Pilih salah satu"
-        });
+            $('#data_staf').on('click', '.item_edit', function() {
+                $.ajax({
+                    url: "<?php echo base_url('Data_staf/get_where'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_pengguna: $(this).data('product_code')
 
-        $('#data_staf').on('click', '.item_edit', function() {
-            $.ajax({
-                url: "<?php echo base_url('Data_staf/get_where'); ?>",
-                type: "POST",
-                dataType: 'JSON',
-                data: {
-                    id_pengguna: $(this).data('product_code')
-
-                },
-                success: function(dataf) {
-                    $('[name="edt_id_pengguna"]').val(dataf[0].id_pengguna);
-                    $('[name="edt_nama_staf"]').val(dataf[0].nama_pengguna);
-                    $('[name="edt_nik_staf"]').val(dataf[0].nik_pengguna);
-                    $('[name="edt_nip_staf"]').val(dataf[0].nip_pengguna);
-                    $('[name="edt_alamat_staf"]').val(dataf[0].alamat_pengguna);
-                    $('[name="edt_email_staf"]').val(dataf[0].email_pengguna);
-                    $('[name="edt_tgl_lahir_staf"]').val(dataf[0].tanggal_lahir_pengguna);
-                    $('[name="edt_no_telp_staf"]').val(dataf[0].telepon_pengguna);
-                    $('[name="edt_pendidikan_staf"]').val(dataf[0].pendidikan);
-                    $('[name="edt_jabatan_staf"]').val(dataf[0].nama_jabatan);
-                    $('[name="edt_seksi_staf"]').val(dataf[0].nama_seksi);
-                    $('[name="edt_username_staf"]').val(dataf[0].username_pengguna);
-
-                    // Set selected
-                    $('#edt_kecamatan_staf').val(dataf[0].id_kecamatan);
-                    $('#edt_kecamatan_staf').select2().trigger('change');
-
-                    $('#edt_gol_staf').val(dataf[0].golongan_pengguna);
-                    $('#edt_gol_staf').select2().trigger('change');
-                }
-            })
-        });
-
-        $('#data_staf').on('click','.item_delete', function(){
-            let product_code = $(this).data('product_code');
-            $('[name="del_id_pengguna"]').val(product_code);
-        })
-
-        $('#tabel_data_staf').DataTable({
-            "ajax": {
-                "url": "http://localhost/nts/data_staf/select_all",
-                "method": "GET"
-            },
-            "columns": [{
-                    "data": "nama_pengguna",
-                    "width": "30%"
-                },
-                {
-                    "data": "telepon_pengguna",
-                    "width": "15%"
-                },
-                {
-                    "data": "nik_pengguna",
-                    "width": "15%"
-                },
-                {
-                    "data": "golongan_pengguna",
-                    "width": "24%"
-                },
-                {
-                    "data": "id_pengguna",
-                    "width": "16%",
-                    render: function(data, type, row) {
-                        return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
-                            '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>';
                     },
-                    "orderable": false
-                }
-            ]
-        });
+                    success: function(dataf) {
+                        $('[name="edt_id_pengguna"]').val(dataf[0].id_pengguna);
+                        $('[name="edt_nama_staf"]').val(dataf[0].nama_pengguna);
+                        $('[name="edt_nik_staf"]').val(dataf[0].nik_pengguna);
+                        $('[name="edt_nip_staf"]').val(dataf[0].nip_pengguna);
+                        $('[name="edt_alamat_staf"]').val(dataf[0].alamat_pengguna);
+                        $('[name="edt_email_staf"]').val(dataf[0].email_pengguna);
+                        $('[name="edt_tgl_lahir_staf"]').val(dataf[0].tanggal_lahir_pengguna);
+                        $('[name="edt_no_telp_staf"]').val(dataf[0].telepon_pengguna);
+                        $('[name="edt_pendidikan_staf"]').val(dataf[0].pendidikan);
+                        $('[name="edt_jabatan_staf"]').val(dataf[0].nama_jabatan);
+                        $('[name="edt_seksi_staf"]').val(dataf[0].nama_seksi);
+                        $('[name="edt_username_staf"]').val(dataf[0].username_pengguna);
 
-    });
+                        // Set selected
+                        $('#edt_kecamatan_staf').val(dataf[0].id_kecamatan);
+                        $('#edt_kecamatan_staf').select2().trigger('change');
+
+                        $('#edt_gol_staf').val(dataf[0].golongan_pengguna);
+                        $('#edt_gol_staf').select2().trigger('change');
+                    }
+                })
+            });
+
+            $('#data_staf').on('click', '.item_delete', function() {
+                let product_code = $(this).data('product_code');
+                $('[name="del_id_pengguna"]').val(product_code);
+            })
+
+            $('#tabel_data_staf').DataTable({
+                "ajax": {
+                    "url": "http://localhost/nts/data_staf/select_all",
+                    "method": "GET"
+                },
+                "columns": [{
+                        "data": "nama_pengguna"
+                    },
+                    {
+                        "data": "telepon_pengguna"
+                    },
+                    {
+                        "data": "nik_pengguna"
+                    },
+                    {
+                        "data": "golongan_pengguna"
+                    },
+                    {
+                        "data": "id_pengguna",
+                        render: function(data, type, row) {
+                            return '<div class="btn-group">' + ' ' +
+                                '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
+                                '<i class="ti-settings"></i>' + ' ' +
+                                '</button>' + ' ' +
+                                '<div class="dropdown-menu">' + ' ' +
+                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + row.id_pengguna + '">Detail</a>' + ' ' +
+                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
+                                '<a class="dropdown-item item_delete" href="javascript:void(0)" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>' + ' ' +
+                                '</div>' + ' ' +
+                                '</div>';
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+
+        });
     </script>
 
 </body>

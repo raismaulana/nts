@@ -262,8 +262,8 @@
                 </div>
                 <!--END MODAL ADD-->
 
-                 <!--MODAL DELETE-->
-                 <div class="modal fade" id="Modal_Hapus" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!--MODAL DELETE-->
+                <div class="modal fade" id="Modal_Hapus" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -515,7 +515,7 @@
                 })
             });
 
-            $('#data_kasi').on('click','.item_delete', function(){
+            $('#data_kasi').on('click', '.item_delete', function() {
                 let product_code = $(this).data('product_code');
                 $('[name="delete_id_pengguna"]').val(product_code);
             })
@@ -526,27 +526,30 @@
                     "method": "GET"
                 },
                 "columns": [{
-                        "data": "nama_pengguna",
-                        "width": "30%"
+                        "data": "nama_pengguna"
                     },
                     {
-                        "data": "telepon_pengguna",
-                        "width": "15%"
+                        "data": "telepon_pengguna"
                     },
                     {
-                        "data": "nik_pengguna",
-                        "width": "15%"
+                        "data": "nik_pengguna"
                     },
                     {
-                        "data": "golongan_pengguna",
-                        "width": "24%"
+                        "data": "golongan_pengguna"
                     },
                     {
                         "data": "id_pengguna",
-                        "width": "16%",
                         render: function(data, type, row) {
-                            return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
-                                '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>';
+                            return '<div class="btn-group">' + ' ' +
+                                '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
+                                '<i class="ti-settings"></i>' + ' ' +
+                                '</button>' + ' ' +
+                                '<div class="dropdown-menu">' + ' ' +
+                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + row.id_pengguna + '">Detail</a>' + ' ' +
+                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
+                                '<a class="dropdown-item item_delete" href="javascript:void(0)" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>' + ' ' +
+                                '</div>' + ' ' +
+                                '</div>';
                         },
                         "orderable": false
                     }

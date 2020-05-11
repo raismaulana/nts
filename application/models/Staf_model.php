@@ -23,6 +23,17 @@ class Staf_model extends CI_Model {
 
     }
 
+    public function select_join_seksi()
+    {
+        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,seksi.nama_seksi');
+        $this->db->where('level_pengguna','1');
+        $this->db->join('staf', 'pengguna.id_pengguna = staf.id_pengguna');
+        $this->db->join('seksi', 'seksi.id_seksi = staf.id_seksi');
+        
+        return $this->db->get($this->context['peng'])->result();
+
+    }
+
     public function select_join_jabatan_pengguna_seksi($where)
     {
         $this->db->select();
@@ -40,11 +51,6 @@ class Staf_model extends CI_Model {
         return ($this->db->affected_rows() > 0) ? true : false;
     }
 
-    // public function update($object, $where)
-    // {
-    //     return $this->db->update($this->context['tabel'], $object, "id_staf = $where");
-    //
-    // }
     public function delete($where,$table)
     {
         $this->db->where($where);

@@ -127,11 +127,11 @@
                 <!--END MODAL ADD-->
 
                 <!--MODAL DELETE-->
-                
+
                 <!-- END MODAL DELETE -->
 
                 <!-- MODAL EDIT -->
-                
+
                 <!--END MODAL EDIT-->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -190,7 +190,7 @@
     <!-- <script type="text/javascript">
         $(document).ready(function() {
             //datatables
-            var table = $('#tabel-data-staf').DataTable({ 
+            var table = $('#tabel-data-staf').DataTable({
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
@@ -206,7 +206,7 @@
                     {"data": "#"}
                 ]
             });
-     
+
         });
     </script> -->
     <script>

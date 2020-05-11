@@ -13,6 +13,13 @@ class Laporan_model extends CI_Model {
         );
     }
 
+    public function select_check($id)
+    {
+        return $this->db->query("SELECT * FROM laporan WHERE id_laporan = ( SELECT MAX(id_laporan) FROM laporan WHERE id_pengguna = $id)")->row();
+        ;
+        
+    }
+
     public function select_where($where)
     {
         $this->db->where('id_pengguna', $where);
@@ -49,8 +56,8 @@ class Laporan_model extends CI_Model {
     
     public function insert($object)
     {
-        return $this->db->insert($this->context['tabel'], $object);
-        
+        $this->db->insert($this->context['tabel'], $object);
+        return $this->db->insert_id();
     }
 
 }
