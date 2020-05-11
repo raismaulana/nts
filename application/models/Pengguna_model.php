@@ -35,7 +35,10 @@ class Pengguna_model extends CI_Model {
 
     public function update($object, $where)
     {
-        return $this->db->update($this->context['tabel'], $object, "id_pengguna = $where");
+        $this->db->where($where);
+        
+        return $this->db->update($this->context['tabel'], $object);
+        
     }
 
     public function check_username($username)
