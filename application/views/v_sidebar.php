@@ -6,7 +6,7 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url() . 'Home' ?>" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dasbor </span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url() . 'Pencatatan' ?>" aria-expanded="false"><i class="ti-pencil-alt"></i><span class="hide-menu">Data Kegiatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Harian Staf</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url() . 'Data_kegiatan_staf' ?>" aria-expanded="false"><i class="ti-pencil-alt"></i><span class="hide-menu">Data Kegiatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Harian Staf</span></a>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">Data Pegawai</span></a>
                             <ul aria-expanded="false" class="collapse">
