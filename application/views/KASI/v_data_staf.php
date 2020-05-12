@@ -47,13 +47,13 @@
         <!-- ============================================================== -->
         <!-- Navbar -->
         <?php
-        $this->load->view('navbar')
+        $this->load->view('KASI/navbar')
         ?>
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('v_sidebar')
+        $this->load->view('KASI/v_sidebar_kasi')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -126,6 +126,90 @@
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
+
+                <!-- MODAL DETAIL -->
+                <div class="modal fade" id="Modal_Detail" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Staf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <label class="col-md-2"><b>Nama Lengkap</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nama"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Seksi</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_seksi"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Jabatan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_jabatan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIK</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nik"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIP</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nip"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Alamat</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_alamat"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Email</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_email"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Golongan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_golongan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Tanggal Lahir</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_tanggal"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>No.Telp</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_telp"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Pendidikan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_pendidikan"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END MODAL DETAIL-->
 
                 <!-- MODAL ADD -->
                 <div class="modal fade" id="Modal_Tambah" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -285,7 +369,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="<?= base_url('Data_Staf/delete_pengguna'); ?>" method="post">
+                            <form action="<?= base_url('KASI/Data_Staf/delete_pengguna'); ?>" method="post">
                                 <form id="form_hapus" type="POST" enctype="multipart/form-data">
                                     <div class="modal-body">
 
@@ -551,6 +635,30 @@
             placeholder: "Pilih salah satu"
         });
 
+        $('#data_staf').on('click', '.item_detail', function() {
+            $.ajax({
+                url: "<?php echo base_url('KASI/Data_Staf/get_detail'); ?>",
+                type: "POST",
+                dataType: 'JSON',
+                data: {
+                    id_pengguna: $(this).data('product_code')
+                },
+                success: function(data) {
+                    $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
+                    $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
+                    $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
+                    $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
+                    $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
+                    $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
+                    $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
+                    $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
+                    $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
+                    $(".detail_jabatan").html("<b>: </b>" + data[0].nama_jabatan);
+                    $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+                }
+            })
+        });
+
         $('#data_staf').on('click', '.item_edit', function() {
             $.ajax({
                 url: "<?php echo base_url('KASI/Data_staf/get_where'); ?>",
@@ -596,26 +704,29 @@
             },
             "columns": [{
                     "data": "nama_pengguna",
-                    "width": "30%"
                 },
                 {
                     "data": "telepon_pengguna",
-                    "width": "15%"
                 },
                 {
                     "data": "nik_pengguna",
-                    "width": "15%"
                 },
                 {
                     "data": "golongan_pengguna",
-                    "width": "24%"
                 },
                 {
                     "data": "id_pengguna",
-                    "width": "16%",
                     render: function(data, type, row) {
-                        return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
-                            '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>';
+                      return '<div class="btn-group">' + ' ' +
+                          '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
+                          '<i class="ti-settings"></i>' + ' ' +
+                          '</button>' + ' ' +
+                          '<div class="dropdown-menu">' + ' ' +
+                          '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + row.id_pengguna + '">Detail</a>' + ' ' +
+                          '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
+                          '<a class="dropdown-item item_delete" href="javascript:void(0)" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>' + ' ' +
+                          '</div>' + ' ' +
+                          '</div>';
                     },
                     "orderable": false
                 }
