@@ -104,6 +104,13 @@ class Data_Staf extends CI_Controller {
 		echo json_encode($dataf);
 	}
 
+	public function get_detail()
+	{
+		$data = $this->staf_model->select_detail($this->input->post('id_pengguna'));
+
+		echo json_encode($data);
+	}
+
 	public function get()
 	{
 		header('Content-Type: application/json');
@@ -128,4 +135,20 @@ class Data_Staf extends CI_Controller {
 			echo json_encode(['error' => true, 'message' => 'failed retrieved data']);
 		}
 	}
+
+	public function delete_pengguna()
+	{
+		$where = array(
+			'id_pengguna' => $this->input->post('del_id_pengguna')
+		);
+
+		//hapus di tabel staf dulu
+		if ($this->staf_model->delete($where, 'staf')) {
+			if ($this->staf_model->delete($where, 'pengguna')) {
+
+				redirect('KASI/data_staf', 'refresh');
+			}
+		}
+	}
+
 }
