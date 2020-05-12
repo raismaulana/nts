@@ -47,7 +47,7 @@
         <!-- ============================================================== -->
         <!-- Navbar -->
         <?php
-        $this->load->view('navbar')
+        $this->load->view('KABID/navbar')
         ?>
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
@@ -77,7 +77,7 @@
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Data Pegawai</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Staf</a></a></li>
                                 <li class="breadcrumb-item active">Data Staf</li>
                             </ol>
                         </div>
@@ -124,15 +124,89 @@
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
 
-                <!--END MODAL ADD-->
+                <!-- MODAL DETAIL -->
+                <div class="modal fade" id="Modal_Detail" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Staf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
 
-                <!--MODAL DELETE-->
-
-                <!-- END MODAL DELETE -->
-
-                <!-- MODAL EDIT -->
-
-                <!--END MODAL EDIT-->
+                            <div class="modal-body">
+                                <div class="row">
+                                    <label class="col-md-2"><b>Nama Lengkap</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nama"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Seksi</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_seksi"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Jabatan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_jabatan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIK</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nik"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIP</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nip"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Alamat</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_alamat"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Email</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_email"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Golongan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_golongan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Tanggal Lahir</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_tanggal"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>No.Telp</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_telp"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Pendidikan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_pendidikan"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END MODAL DETAIL-->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -187,73 +261,69 @@
     <!-- Select2 -->
     <script src="<?php echo base_url() . 'assets/node_modules/select2/dist/js/select2.full.min.js' ?>" type="text/javascript"></script>
     <!-- Javascript -->
-    <!-- <script type="text/javascript">
+    
+    <script>
         $(document).ready(function() {
-            //datatables
-            var table = $('#tabel-data-staf').DataTable({
-                "processing": true,
-                "serverSide": true,
+            ! function(window, document, $) {
+                "use strict";
+                $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+            }(window, document, jQuery);
+            $(".select2").select2({
+                placeholder: "Pilih salah satu"
+            });
+
+            $('#data_staf').on('click', '.item_detail', function() {
+                $.ajax({
+                    url: "<?php echo base_url('KABID/Data_Staf/get_detail'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_pengguna: $(this).data('product_code')
+                    },
+                    success: function(data) {
+                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
+                        $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
+                        $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
+                        $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
+                        $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
+                        $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
+                        $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
+                        $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
+                        $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
+                        $(".detail_jabatan").html("<b>: </b>" + data[0].nama_jabatan);
+                        $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+                    }
+                })
+            });
+
+            $('#tabel_data_staf').DataTable({
                 "ajax": {
-                    "url": "<?php //echo site_url('Data_staf/get'); ?>"
+                    "url": "http://localhost/nts/kabid/data_staf/select_all",
+                    "method": "GET"
                 },
-                "sColumns": [
-                    {"data": "nama_pengguna"},
-                    {"data": "alamat_pengguna"},
-                    {"data": "telepon_pengguna"},
-                    {"data": "nik_pengguna"},
-                    {"data": "nip_pengguna"},
-                    {"data": "golongan_pengguna"},
-                    {"data": "#"}
+                "columns": [{
+                        "data": "nama_pengguna"
+                    },
+                    {
+                        "data": "telepon_pengguna"
+                    },
+                    {
+                        "data": "nik_pengguna"
+                    },
+                    {
+                        "data": "golongan_pengguna"
+                    },
+                    {
+                        "data": "id_pengguna",
+                        render: function(data, type, row) {
+                        return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Detail" class="btn btn-info btn-sm item_detail" data-product_code="' + row.id_pengguna + '">Detail</a>';
+                    },
+                        "orderable": false
+                    }
                 ]
             });
 
         });
-    </script> -->
-    <script>
-
-    $(document).ready(function() {
-        ! function(window, document, $) {
-            "use strict";
-            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
-        }(window, document, jQuery);
-        $(".select2").select2({
-            placeholder: "Pilih salah satu"
-        });
-
-        $('#tabel_data_staf').DataTable({
-            "ajax": {
-                "url": "http://localhost/nts/data_staf/select_all",
-                "method": "GET"
-            },
-            "columns": [{
-                    "data": "nama_pengguna",
-                    "width": "30%"
-                },
-                {
-                    "data": "telepon_pengguna",
-                    "width": "15%"
-                },
-                {
-                    "data": "nik_pengguna",
-                    "width": "15%"
-                },
-                {
-                    "data": "golongan_pengguna",
-                    "width": "24%"
-                },
-                {
-                    "data": "id_pengguna",
-                    "width": "16%",
-                    render: function(data, type, row) {
-                        return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
-                            '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>';
-                    },
-                    "orderable": false
-                }
-            ]
-        });
-
-    });
     </script>
 
 </body>

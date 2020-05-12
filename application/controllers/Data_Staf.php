@@ -106,6 +106,13 @@ class Data_Staf extends CI_Controller {
 		echo json_encode($dataf);
 	}
 
+	public function get_detail()
+	{
+		$data = $this->staf_model->select_detail($this->input->post('id_pengguna'));
+
+		echo json_encode($data);
+	}
+
 	public function get()
 	{
 		header('Content-Type: application/json');

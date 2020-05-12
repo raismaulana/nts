@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Data_staf extends CI_Controller {
+class Data_Staf extends CI_Controller {
 
+	
 	public function __construct()
 	{
 		parent::__construct();
         $this->load->model('auth_model');
-		
 		$this->load->model('pengguna_model');
 		$this->load->model('staf_model');
 		$this->load->model('alamat_model');
@@ -19,14 +19,14 @@ class Data_staf extends CI_Controller {
 
 		$this->load->helper('form');
 	}
-
+	
 
 	public function index()
 	{
 		$context['data_alamat'] = $this->alamat_model->select_join_kabupaten_provinsi();
 		$context['data_jabatan'] = $this->jabatan_model->select();
 		$context['data_seksi'] = $this->seksi_model->select();
-		$this->load->view('KABID/v_kabid_data_staf',$context);
+		$this->load->view('KABID/v_kabid_data_staf', $context);
 	}
 
 	public function select_all()
@@ -46,6 +46,13 @@ class Data_staf extends CI_Controller {
 		echo json_encode($dataf);
 	}
 
+	public function get_detail()
+	{
+		$data = $this->staf_model->select_detail($this->input->post('id_pengguna'));
+
+		echo json_encode($data);
+	}
+
 	public function get()
 	{
 		header('Content-Type: application/json');
@@ -53,7 +60,7 @@ class Data_staf extends CI_Controller {
         $this->datatables->from('pengguna');
 		$this->datatables->where('level_pengguna', '1');
 		$this->datatables->unset_column('id_pengguna');
-		$this->datatables->add_column('#', '<a data-id="$1" style="margin:2px;" class="btn-detail btn-edit btn btn-info btn-xs"> Detail</a>'.' <a data-id="$1" style="margin:2px;" class="btn-edit btn btn-primary btn-xs"> Edit</a>'.' <a data-id="$1" style="margin:2px;" class="btn-delete btn btn-danger btn-xs ">Delete</a>', 'id_pengguna');
+		$this->datatables->add_column('#', '<a data-id="$1" style="margin:2px;" class="btn-detail btn-edit btn btn-info btn-xs"> Detail</a>');
 		
 
         echo $this->datatables->generate();

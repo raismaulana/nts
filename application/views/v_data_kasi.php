@@ -127,6 +127,84 @@
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
 
+                <!-- MODAL DETAIL -->
+                <div class="modal fade" id="Modal_Detail" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data KASI</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <label class="col-md-2"><b>Nama Lengkap</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nama"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Seksi</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_seksi"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIK</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nik"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIP</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nip"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Alamat</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_alamat"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Email</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_email"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Golongan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_golongan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Tanggal Lahir</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_tanggal"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>No.Telp</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_telp"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Pendidikan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_pendidikan"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END MODAL DETAIL-->
+
                 <!-- MODAL ADD -->
                 <div class="modal fade" id="Modal_Tambah" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
@@ -482,6 +560,29 @@
             }(window, document, jQuery);
             $(".select2").select2({
                 placeholder: "Pilih salah satu"
+            });
+
+            $('#data_kasi').on('click', '.item_detail', function() {
+                $.ajax({
+                    url: "<?php echo base_url('Data_Kasi/get_detail'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_pengguna: $(this).data('product_code')
+                    },
+                    success: function(data) {
+                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
+                        $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
+                        $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
+                        $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
+                        $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
+                        $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
+                        $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
+                        $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
+                        $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
+                        $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+                    }
+                })
             });
 
             $('#data_kasi').on('click', '.item_edit', function() {
