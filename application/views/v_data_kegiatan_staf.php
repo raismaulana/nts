@@ -214,7 +214,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="<?= base_url('Data_kegiatan_staf/insert'); ?>" method="post">
+                            <form action="<?= base_url('Data_kegiatan_staf/insert'); ?>" method="post" >
                                 <form id="form_tambah" type="POST" enctype="multipart/form-data">
                                     <div class="modal-body">
                                         <div class="form-group row">
@@ -543,7 +543,7 @@
                         $('[name="edit_tgl_mulai"]').val(data[0].tanggal_kegiatan);
                         $('[name="edit_tgl_selesai"]').val(data[0].tanggal_selesai_kegiatan);
 
-                        // Set selected 
+                        // Set selected
                         $('#edit_status').val(data[0].status_kegiatan);
                         $('#edit_status').select2().trigger('change');
 
