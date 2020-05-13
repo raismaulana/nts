@@ -286,7 +286,7 @@
 
             $('#table_data_kegiatan').DataTable({
                 "ajax": {
-                    "url": "http://localhost/nts/KASI/data_kegiatan_staf/select_all",
+                    "url": "http://localhost/nts/KASI/Kegiatan_staf/select_all",
                     "method": "GET"
                 },
                 "columns": [{
@@ -319,14 +319,7 @@
                     {
                         "data": "id_kegiatan",
                         render: function(data, type, row) {
-                            return '<div class="btn-group">' + ' ' +
-                                '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
-                                '<i class="ti-settings"></i>' + ' ' +
-                                '</button>' + ' ' +
-                                '<div class="dropdown-menu">' + ' ' +
-                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + row.id_kegiatan + '">Detail</a>' + ' ' +
-                                '</div>' + ' ' +
-                                '</div>';
+                            return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Detail" class="btn btn-info btn-sm item_detail" data-product_code="' + row.id_kegiatan + '">Detail</a>';
                         },
                         "orderable": false
                     }
@@ -338,7 +331,7 @@
 
             $('#data_kegiatan').on('click', '.item_detail', function() {
                 $.ajax({
-                    url: "<?php echo base_url('KASI/Data_kegiatan_staf/get_detail'); ?>",
+                    url: "<?php echo base_url('KASI/Kegiatan_staf/get_detail'); ?>",
                     type: "POST",
                     dataType: 'JSON',
                     data: {
@@ -368,36 +361,6 @@
                     }
                 })
             });
-
-            $('#data_kegiatan').on('click', '.item_edit', function() {
-                $.ajax({
-                    url: "<?php echo base_url('KASI/Data_kegiatan_staf/get_detail'); ?>",
-                    type: "POST",
-                    dataType: 'JSON',
-                    data: {
-                        id_kegiatan: $(this).data('product_code')
-                    },
-                    success: function(data) {
-
-                        $('[name="edit_id_kegiatan"]').val(data[0].id_kegiatan);
-                        $('[name="edit_nama_pengguna"]').val(data[0].nama_pengguna);
-                        $('[name="edit_aktivitas"]').val(data[0].aktivitas_kegiatan);
-                        $('[name="edit_kuantitas"]').val(data[0].kuantitas_output_kegiatan);
-                        $('[name="edit_tgl_mulai"]').val(data[0].tanggal_kegiatan);
-                        $('[name="edit_tgl_selesai"]').val(data[0].tanggal_selesai_kegiatan);
-
-                        // Set selected
-                        $('#edit_status').val(data[0].status_kegiatan);
-                        $('#edit_status').select2().trigger('change');
-
-                    }
-                })
-            });
-
-            $('#data_kegiatan').on('click', '.item_delete', function() {
-                let product_code = $(this).data('product_code');
-                $('[name="del_id_kegiatan"]').val(product_code);
-            })
         });
     </script>
 
