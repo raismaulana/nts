@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/logo.png' ?>">
-    <title>Data Kegiatan Harian Staf</title>
+    <title>Data Kegiatan Staf</title>
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
@@ -47,13 +47,13 @@
         <!-- ============================================================== -->
         <!-- Navbar -->
         <?php
-        $this->load->view('KABID/navbar')
+        $this->load->view('staf/navbar')
         ?>
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('KABID/v_sidebar_kabid')
+        $this->load->view('staf/View_sidebar')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -71,14 +71,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Kegiatan Harian Staf</h4>
+                        <h4 class="text-themecolor">Data Kegiatan Harian</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Staf</a></li>
-                                <li class="breadcrumb-item active">Data Kegiatan Harian Staf</li>
+                                <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
+                                <li class="breadcrumb-item active">Data Kegiatan Harian</li>
                             </ol>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Kegiatan Staf</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Kegiatan Harian Staf</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -203,6 +203,160 @@
                     </div>
                 </div>
                 <!--END MODAL DETAIL-->
+
+                <!-- MODAL ADD -->
+                <div class="modal fade" id="Modal_Tambah" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kegiatan Harian Staf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="<?= base_url('staf/Kegiatan_staf/insert'); ?>" method="post">
+                                <form id="form_tambah" type="POST" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Nama Staf</label>
+                                            <div class="col-md-10 controls">
+                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="input_id_pengguna" id="input_id_pengguna" required data-validation-required-message="Harap pilih nama staf">
+                                                    <option></option>
+                                                    <?php foreach ($pengguna as $row) { ?>
+                                                        <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna, " ( Seksi ", $row->nama_seksi, " ) "; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Aktivitas Harian</label>
+                                            <div class="col-md-10 controls">
+                                                <textarea name="input_aktivitas" id="input_aktivitas" rows="4" class="form-control" placeholder="Tulis uraian kegiatan yang dilakukan oleh staf" required data-validation-required-message="Harap isi uraian aktivitas staf"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Kuantitas Hasil</label>
+                                            <div class="col-md-10 controls">
+                                                <textarea name="input_kuantitas" id="input_kuantitas" row="4" class="form-control" placeholder="Tulis hasil yang telah didapatkan dalam aktivitas tersebut" required data-validation-required-message="Harap isi kuantitas hasil yang telah dicapai"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Tanggal Mulai Kegiatan</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="datetime-local" name="input_tgl_mulai" id="input_tgl_mulai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tanggal mulai kegiatan anda">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Tanggal Selesai Kegiatan</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="datetime-local" name="input_tgl_selesai" id="input_tgl_selesai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tangal selesai kegatan anda">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-info">Kirim</button>
+                                        <button type="reset" class="btn btn-inverse">Batal</button>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--END MODAL ADD-->
+
+                <!--MODAL DELETE-->
+                <div class="modal fade" id="Modal_Hapus" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Hapus Data Kegiatan Harian Staf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="<?= base_url('staf/Kegiatan_staf/delete'); ?>" method="post">
+                                <form id="form_hapus" type="POST" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <label><strong>Apakah anda yakin akan menghapus data kegiatan dari staf tersebut?</strong></label>
+                                        <input type="text" name="del_id_kegiatan" id="del_id_kegiatan" hidden>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-info">Kirim</button>
+                                        <button type="reset" class="btn btn-inverse">Batal</button>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MODAL DELETE -->
+
+                <!-- MODAL EDIT -->
+                <div class="modal fade" id="Modal_Edit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kegiatan Harian Staf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="<?= base_url('staf/kegiatan_staf/update'); ?>" method="post">
+                                <form id="form_edit" type="POST" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <input type="text" class="form-control" name="edit_id_kegiatan" id="edit_id_kegiatan" hidden>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Nama Staf</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="text" class="form-control" name="edit_nama_pengguna" id="edit_nama_pengguna" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Aktivitas Harian</label>
+                                            <div class="col-md-10 controls">
+                                                <textarea name="edit_aktivitas" id="edit_aktivitas" rows="4" class="form-control" placeholder="Tulis uraian kegiatan yang dilakukan oleh staf" required data-validation-required-message="Harap isi uraian aktivitas staf"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Kuantitas Hasil</label>
+                                            <div class="col-md-10 controls">
+                                                <textarea name="edit_kuantitas" id="edit_kuantitas" row="4" class="form-control" placeholder="Tulis hasil yang telah didapatkan dalam aktivitas tersebut" required data-validation-required-message="Harap isi kuantitas hasil yang telah dicapai"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Tanggal Mulai Kegiatan</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="datetime-local" name="edit_tgl_mulai" id="edit_tgl_mulai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tanggal mulai kegiatan anda">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Tanggal Selesai Kegiatan</label>
+                                            <div class="col-md-10 controls">
+                                                <input type="datetime-local" name="edit_tgl_selesai" id="edit_tgl_selesai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tangal selesai kegatan anda">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Status</label>
+                                            <div class="col-md-10 controls">
+                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="edit_status" id="edit_status" required data-validation-required-message="Harap pilih nama staf">
+                                                    <option></option>
+                                                    <option value="0">Menunggu</option>
+                                                    <option value="1">Diterima</option>
+                                                    <option value="2">Ditolak</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-info">Kirim</button>
+                                        <button type="reset" class="btn btn-inverse">Batal</button>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--END MODAL EDIT-->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -287,7 +441,7 @@
 
             $('#table_data_kegiatan').DataTable({
                 "ajax": {
-                    "url": "http://localhost/nts/kabid/Kegiatan_staf/select_all",
+                    "url": "http://localhost/nts/staf/Kegiatan_staf/select_all",
                     "method": "GET"
                 },
                 "columns": [{
@@ -320,7 +474,16 @@
                     {
                         "data": "id_kegiatan",
                         render: function(data, type, row) {
-                            return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Detail" class="btn btn-info btn-sm item_detail" data-product_code="' + row.id_kegiatan + '">Detail</a>';
+                            return '<div class="btn-group">' + ' ' +
+                                '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
+                                '<i class="ti-settings"></i>' + ' ' +
+                                '</button>' + ' ' +
+                                '<div class="dropdown-menu">' + ' ' +
+                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + row.id_kegiatan + '">Detail</a>' + ' ' +
+                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-product_code="' + row.id_kegiatan + '">Edit</a>' + ' ' +
+                                '<a class="dropdown-item item_delete" href="javascript:void(0)" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_kegiatan + '">Hapus</a>' + ' ' +
+                                '</div>' + ' ' +
+                                '</div>';
                         },
                         "orderable": false
                     }
@@ -332,7 +495,7 @@
 
             $('#data_kegiatan').on('click', '.item_detail', function() {
                 $.ajax({
-                    url: "<?php echo base_url('KABID/Kegiatan_staf/get_detail'); ?>",
+                    url: "<?php echo base_url('staf/Kegiatan_staf/get_detail'); ?>",
                     type: "POST",
                     dataType: 'JSON',
                     data: {
@@ -362,6 +525,36 @@
                     }
                 })
             });
+
+            $('#data_kegiatan').on('click', '.item_edit', function() {
+                $.ajax({
+                    url: "<?php echo base_url('staf/Kegiatan_staf/get_detail'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_kegiatan: $(this).data('product_code')
+                    },
+                    success: function(data) {
+
+                        $('[name="edit_id_kegiatan"]').val(data[0].id_kegiatan);
+                        $('[name="edit_nama_pengguna"]').val(data[0].nama_pengguna);
+                        $('[name="edit_aktivitas"]').val(data[0].aktivitas_kegiatan);
+                        $('[name="edit_kuantitas"]').val(data[0].kuantitas_output_kegiatan);
+                        $('[name="edit_tgl_mulai"]').val(data[0].tanggal_kegiatan);
+                        $('[name="edit_tgl_selesai"]').val(data[0].tanggal_selesai_kegiatan);
+
+                        // Set selected 
+                        $('#edit_status').val(data[0].status_kegiatan);
+                        $('#edit_status').select2().trigger('change');
+
+                    }
+                })
+            });
+
+            $('#data_kegiatan').on('click', '.item_delete', function() {
+                let product_code = $(this).data('product_code');
+                $('[name="del_id_kegiatan"]').val(product_code);
+            })
         });
     </script>
 

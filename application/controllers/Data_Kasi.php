@@ -92,6 +92,14 @@ class Data_Kasi extends CI_Controller {
 		echo json_encode($dataf);
 	}
 
+	public function get_detail()
+	{
+		$data = $this->kasi_model->select_detail($this->input->post('id_pengguna'));
+
+		echo json_encode($data);
+	}
+
+
 	public function delete_pengguna()
 	{
 		$where = array(

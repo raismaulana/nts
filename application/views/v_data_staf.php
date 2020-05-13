@@ -45,110 +45,10 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon -->
-                        <b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-sidoarjo.png" style="width: 55px; height: 55px;" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo icon -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-sidoarjo.png" style="width: 55px; height: 55px;" alt="homepage" class="light-logo" />
-                        </b>&nbsp;&nbsp;
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-                            <!-- dark Logo text -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo text -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" class="light-logo" alt="homepage" /></span> </a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav mr-auto">
-                        <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
-                        <!-- ============================================================== -->
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- User profile and search -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- ============================================================== -->
-                        <!-- User Profile -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="mdi mdi-account-circle mdi-24px"></span> &nbsp;<span class="hidden-md-down">Mark &nbsp;<i class="ti-angle-down"></i></span> </a>
-                            <div class="dropdown-menu dropdown-menu-right animated flipInY">
-                                <!-- text-->
-                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> Profil Saya</a>
-                                <!-- text-->
-                                <div class="dropdown-divider"></div>
-                                <!-- text-->
-                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Pengaturan Akun</a>
-                                <!-- text-->
-                                <div class="dropdown-divider"></div>
-                                <!-- text-->
-                                <a href="login.html" class="dropdown-item"><i class="ti-power-off"></i> Keluar</a>
-                                <!-- text-->
-                            </div>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- End User Profile -->
-                        <!-- ============================================================== -->
-                        <!-- Notification -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="ti-bell"></i>
-                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
-                                <ul>
-                                    <li>
-                                        <div class="drop-title">Pemberitahuan</div>
-                                    </li>
-                                    <li>
-                                        <div class="message-center">
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)">
-                                                <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)">
-                                                <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- End Notification -->
-                        <!-- ============================================================== -->
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
+        <!-- Navbar -->
+        <?php
+        $this->load->view('navbar')
+        ?>
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -226,6 +126,90 @@
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
+
+                <!-- MODAL DETAIL -->
+                <div class="modal fade" id="Modal_Detail" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Staf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <label class="col-md-2"><b>Nama Lengkap</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nama"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Seksi</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_seksi"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Jabatan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_jabatan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIK</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nik"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIP</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nip"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Alamat</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_alamat"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Email</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_email"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Golongan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_golongan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Tanggal Lahir</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_tanggal"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>No.Telp</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_telp"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Pendidikan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_pendidikan"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END MODAL DETAIL-->
 
                 <!-- MODAL ADD -->
                 <div class="modal fade" id="Modal_Tambah" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -419,7 +403,7 @@
                             <form action="<?= base_url('Data_Staf/update_pengguna'); ?>" method="post">
                                 <form id="form_edit" type="POST" enctype="multipart/form-data">
                                     <div class="modal-body">
-                                        <input type="text" name="edt_id_pengguna" id="edt_id_pengguna">
+                                        <input type="text" name="edt_id_pengguna" id="edt_id_pengguna" hidden>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Nama Lengkap</label>
                                             <div class="col-md-10 controls">
@@ -625,7 +609,8 @@
                 "processing": true,
                 "serverSide": true,
                 "ajax": {
-                    "url": "<?php //echo site_url('Data_staf/get'); ?>"
+                    "url": "<?php //echo site_url('Data_staf/get'); 
+                            ?>"
                 },
                 "sColumns": [
                     {"data": "nama_pengguna"},
@@ -641,88 +626,114 @@
         });
     </script> -->
     <script>
+        $(document).ready(function() {
+            ! function(window, document, $) {
+                "use strict";
+                $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+            }(window, document, jQuery);
+            $(".select2").select2({
+                placeholder: "Pilih salah satu"
+            });
 
-    $(document).ready(function() {
-        ! function(window, document, $) {
-            "use strict";
-            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
-        }(window, document, jQuery);
-        $(".select2").select2({
-            placeholder: "Pilih salah satu"
-        });
-
-        $('#data_staf').on('click', '.item_edit', function() {
-            $.ajax({
-                url: "<?php echo base_url('Data_staf/get_where'); ?>",
-                type: "POST",
-                dataType: 'JSON',
-                data: {
-                    id_pengguna: $(this).data('product_code')
-
-                },
-                success: function(dataf) {
-                    $('[name="edt_id_pengguna"]').val(dataf[0].id_pengguna);
-                    $('[name="edt_nama_staf"]').val(dataf[0].nama_pengguna);
-                    $('[name="edt_nik_staf"]').val(dataf[0].nik_pengguna);
-                    $('[name="edt_nip_staf"]').val(dataf[0].nip_pengguna);
-                    $('[name="edt_alamat_staf"]').val(dataf[0].alamat_pengguna);
-                    $('[name="edt_email_staf"]').val(dataf[0].email_pengguna);
-                    $('[name="edt_tgl_lahir_staf"]').val(dataf[0].tanggal_lahir_pengguna);
-                    $('[name="edt_no_telp_staf"]').val(dataf[0].telepon_pengguna);
-                    $('[name="edt_pendidikan_staf"]').val(dataf[0].pendidikan);
-                    $('[name="edt_jabatan_staf"]').val(dataf[0].nama_jabatan);
-                    $('[name="edt_seksi_staf"]').val(dataf[0].nama_seksi);
-                    $('[name="edt_username_staf"]').val(dataf[0].username_pengguna);
-
-                    // Set selected
-                    $('#edt_kecamatan_staf').val(dataf[0].id_kecamatan);
-                    $('#edt_kecamatan_staf').select2().trigger('change');
-
-                    $('#edt_gol_staf').val(dataf[0].golongan_pengguna);
-                    $('#edt_gol_staf').select2().trigger('change');
-                }
-            })
-        });
-
-        $('#data_staf').on('click','.item_delete', function(){
-            let product_code = $(this).data('product_code');
-            $('[name="del_id_pengguna"]').val(product_code);
-        })
-
-        $('#tabel_data_staf').DataTable({
-            "ajax": {
-                "url": "http://localhost/nts/data_staf/select_all",
-                "method": "GET"
-            },
-            "columns": [{
-                    "data": "nama_pengguna",
-                    "width": "30%"
-                },
-                {
-                    "data": "telepon_pengguna",
-                    "width": "15%"
-                },
-                {
-                    "data": "nik_pengguna",
-                    "width": "15%"
-                },
-                {
-                    "data": "golongan_pengguna",
-                    "width": "24%"
-                },
-                {
-                    "data": "id_pengguna",
-                    "width": "16%",
-                    render: function(data, type, row) {
-                        return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Edit" class="btn btn-info btn-sm item_edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
-                            '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>';
+            $('#data_staf').on('click', '.item_detail', function() {
+                $.ajax({
+                    url: "<?php echo base_url('Data_Staf/get_detail'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_pengguna: $(this).data('product_code')
                     },
-                    "orderable": false
-                }
-            ]
-        });
+                    success: function(data) {
+                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
+                        $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
+                        $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
+                        $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
+                        $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
+                        $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
+                        $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
+                        $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
+                        $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
+                        $(".detail_jabatan").html("<b>: </b>" + data[0].nama_jabatan);
+                        $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+                    }
+                })
+            });
 
-    });
+            $('#data_staf').on('click', '.item_edit', function() {
+                $.ajax({
+                    url: "<?php echo base_url('Data_staf/get_where'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_pengguna: $(this).data('product_code')
+
+                    },
+                    success: function(dataf) {
+                        $('[name="edt_id_pengguna"]').val(dataf[0].id_pengguna);
+                        $('[name="edt_nama_staf"]').val(dataf[0].nama_pengguna);
+                        $('[name="edt_nik_staf"]').val(dataf[0].nik_pengguna);
+                        $('[name="edt_nip_staf"]').val(dataf[0].nip_pengguna);
+                        $('[name="edt_alamat_staf"]').val(dataf[0].alamat_pengguna);
+                        $('[name="edt_email_staf"]').val(dataf[0].email_pengguna);
+                        $('[name="edt_tgl_lahir_staf"]').val(dataf[0].tanggal_lahir_pengguna);
+                        $('[name="edt_no_telp_staf"]').val(dataf[0].telepon_pengguna);
+                        $('[name="edt_pendidikan_staf"]').val(dataf[0].pendidikan);
+                        $('[name="edt_jabatan_staf"]').val(dataf[0].nama_jabatan);
+                        $('[name="edt_seksi_staf"]').val(dataf[0].nama_seksi);
+                        $('[name="edt_username_staf"]').val(dataf[0].username_pengguna);
+
+                        // Set selected
+                        $('#edt_kecamatan_staf').val(dataf[0].id_kecamatan);
+                        $('#edt_kecamatan_staf').select2().trigger('change');
+
+                        $('#edt_gol_staf').val(dataf[0].golongan_pengguna);
+                        $('#edt_gol_staf').select2().trigger('change');
+                    }
+                })
+            });
+
+            $('#data_staf').on('click', '.item_delete', function() {
+                let product_code = $(this).data('product_code');
+                $('[name="del_id_pengguna"]').val(product_code);
+            })
+
+            $('#tabel_data_staf').DataTable({
+                "ajax": {
+                    "url": "http://localhost/nts/data_staf/select_all",
+                    "method": "GET"
+                },
+                "columns": [{
+                        "data": "nama_pengguna"
+                    },
+                    {
+                        "data": "telepon_pengguna"
+                    },
+                    {
+                        "data": "nik_pengguna"
+                    },
+                    {
+                        "data": "golongan_pengguna"
+                    },
+                    {
+                        "data": "id_pengguna",
+                        render: function(data, type, row) {
+                            return '<div class="btn-group">' + ' ' +
+                                '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
+                                '<i class="ti-settings"></i>' + ' ' +
+                                '</button>' + ' ' +
+                                '<div class="dropdown-menu">' + ' ' +
+                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + row.id_pengguna + '">Detail</a>' + ' ' +
+                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-product_code="' + row.id_pengguna + '">Edit</a>' + ' ' +
+                                '<a class="dropdown-item item_delete" href="javascript:void(0)" data-toggle="modal" data-target="#Modal_Hapus" data-product_code="' + row.id_pengguna + '">Hapus</a>' + ' ' +
+                                '</div>' + ' ' +
+                                '</div>';
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+
+        });
     </script>
 
 </body>

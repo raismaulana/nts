@@ -26,8 +26,8 @@ class Data_Staf extends CI_Controller {
 	public function index()
 	{
 		$context['data_alamat'] = $this->alamat_model->select_join_kabupaten_provinsi();
-		$context['data_jabatan'] = $this->jabatan_model->select_where();
-		$context['data_seksi'] = $this->seksi_model->select_where();
+		$context['data_jabatan'] = $this->jabatan_model->select();
+		$context['data_seksi'] = $this->seksi_model->select();
 		$this->load->view('v_data_staf', $context);
 	}
 
@@ -104,6 +104,13 @@ class Data_Staf extends CI_Controller {
 		$dataf = $this->staf_model->select_join_jabatan_pengguna_seksi($this->input->post('id_pengguna'));
 
 		echo json_encode($dataf);
+	}
+
+	public function get_detail()
+	{
+		$data = $this->staf_model->select_detail($this->input->post('id_pengguna'));
+
+		echo json_encode($data);
 	}
 
 	public function get()
