@@ -9,12 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/favicon.png'?>">
-    <title>Data Diri Staf</title>
-    <!-- Page CSS -->
-    <link href="<?php echo base_url() .'assets/dist/css/pages/contact-app-page.css'?>" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/logo.png' ?>">
+    <title>Data Staf</title>
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
+    <!-- Bootstrap Switch -->
+    <link href="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.css' ?>" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="<?php echo base_url('assets/node_modules/select2/dist/css/select2.min.css') ?>" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
-    <link href="<?php echo base_url() .'assets/dist/css/style.min.css'?>" rel="stylesheet">
+    <link href="<?php echo base_url() . 'assets/dist/css/style.min.css' ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,14 +28,14 @@
 <![endif]-->
 </head>
 
-<body class="skin-blue fixed-layout">
+<body class="fixed-layout skin-megna-dark mini-sidebar">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Elite admin</p>
+            <p class="loader__label">Pencatatan Data Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -40,106 +45,15 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon -->
-                        <b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-sidoarjo.png" style="width: 55px; height: 55px;" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo icon -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-sidoarjo.png" style="width: 55px; height: 55px;" alt="homepage" class="light-logo" />
-                        </b>&nbsp;&nbsp;
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-                            <!-- dark Logo text -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo text -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-tulisan.png" style="height: 40px;" class="light-logo" alt="homepage" /></span> </a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav mr-auto">
-                        <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
-                        <!-- ============================================================== -->
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- User profile and search -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- ============================================================== -->
-                        <!-- User Profile -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="mdi mdi-account-circle mdi-24px"></span> &nbsp;<span class="hidden-md-down">Mark &nbsp;<i class="ti-angle-down"></i></span> </a>
-                            <div class="dropdown-menu dropdown-menu-right animated flipInY">
-                                <!-- text-->
-                                <a href="login.html" class="dropdown-item"><i class="ti-power-off"></i> Keluar</a>
-                                <!-- text-->
-                            </div>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- End User Profile -->
-                        <!-- ============================================================== -->
-                        <!-- Notification -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="ti-bell"></i>
-                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
-                                <ul>
-                                    <li>
-                                        <div class="drop-title">Pemberitahuan</div>
-                                    </li>
-                                    <li>
-                                        <div class="message-center">
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)">
-                                                <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)">
-                                                <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- End Notification -->
-                        <!-- ============================================================== -->
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
+        <!-- Navbar -->
+        <?php
+        $this->load->view('staf/navbar')
+        ?>
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('Staf/View_sidebar')
+        $this->load->view('staf/View_sidebar')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -157,13 +71,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Detail Data Diri</h4>
+                        <h4 class="text-themecolor">Data Staf</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
-                                <li class="breadcrumb-item active">Detail Data Diri</li>
+                                <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Data Pegawai</a></li> -->
+                                <li class="breadcrumb-item active">Data Staf</li>
                             </ol>
                         </div>
                     </div>
@@ -174,101 +89,127 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <!-- Row -->
                 <div class="row">
                     <div class="col-12">
+                        <!-- Column -->
                         <div class="card">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs profile-tab" role="tablist">
-                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Profil</a> </li>
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="home" role="tabpanel">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Nama Lengkap</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>NIK</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>NIP</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Alamat</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Email</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Golongan</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Tanggal Lahir</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div> 
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>No.Telp</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Jabatan</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div> 
-                                        <hr>  
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Seksi</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Bidang</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>     
+                            <div class="card-body">
+                                <div class="row show-grid">
+                                    <div class="col-xs-12 col-md-8">
+                                        <h4 class="card-title">Daftar Data Staf</h4>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive m-t-4">
+                                    <table id="tabel_data_staf" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th> Nama Lengkap</th>
+                                                <th> No.Telp </th>
+                                                <th> NIK </th>
+                                                <th> Golongan </th>
+                                                <th> # </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="data_staf">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+
+                <!-- MODAL DETAIL -->
+                <div class="modal fade" id="Modal_Detail" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Staf</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <label class="col-md-2"><b>Nama Lengkap</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nama"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Seksi</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_seksi"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Jabatan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_jabatan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIK</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nik"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>NIP</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_nip"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Alamat</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_alamat"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Email</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_email"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Golongan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_golongan"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Tanggal Lahir</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_tanggal"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>No.Telp</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_telp"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2"><b>Pendidikan</b></label>
+                                    <div class="col-md-10">
+                                        <p class="detail_pendidikan"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
                 </div>
-                <!-- Row -->
+                <!--END MODAL DETAIL-->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -294,21 +235,96 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url() .'assets/node_modules/jquery/jquery-3.2.1.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/jquery/jquery-3.2.1.min.js' ?>"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url() .'assets/node_modules/popper/popper.min.js'?>"></script>
-    <script src="<?php echo base_url() .'assets/node_modules/bootstrap/dist/js/bootstrap.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/popper/popper.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap/dist/js/bootstrap.min.js' ?>"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url() .'assets/dist/js/perfect-scrollbar.jquery.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/perfect-scrollbar.jquery.min.js' ?>"></script>
     <!--Wave Effects -->
-    <script src="<?php echo base_url() .'assets/dist/js/waves.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/waves.js' ?>"></script>
     <!--Menu sidebar -->
-    <script src="<?php echo base_url() .'assets/dist/js/sidebarmenu.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/sidebarmenu.js' ?>"></script>
     <!--stickey kit -->
-    <script src="<?php echo base_url() .'assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js'?>"></script>
-    <script src="<?php echo base_url() .'assets/node_modules/sparkline/jquery.sparkline.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/sparkline/jquery.sparkline.min.js' ?>"></script>
     <!--Custom JavaScript -->
-    <script src="<?php echo base_url() .'assets/dist/js/custom.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/custom.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/pages/validation.js' ?>"></script>
+    <!-- This is data table -->
+    <script src="<?php echo base_url() . 'assets/node_modules/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js' ?>"></script>
+    <!-- Sweetalert 2 -->
+    <script src="<?php echo base_url() . 'assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
+    <!-- bt-switch -->
+    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
+    <!-- Select2 -->
+    <script src="<?php echo base_url() . 'assets/node_modules/select2/dist/js/select2.full.min.js' ?>" type="text/javascript"></script>
+    <!-- Javascript -->
+    <script>
+        $(document).ready(function() {
+            ! function(window, document, $) {
+                "use strict";
+                $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+            }(window, document, jQuery);
+            $(".select2").select2({
+                placeholder: "Pilih salah satu"
+            });
+
+            $('#data_staf').on('click', '.item_detail', function() {
+                $.ajax({
+                    url: "<?php echo base_url('staf/Data_Staf/get_detail'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_pengguna: $(this).data('product_code')
+                    },
+                    success: function(data) {
+                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
+                        $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
+                        $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
+                        $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
+                        $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
+                        $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
+                        $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
+                        $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
+                        $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
+                        $(".detail_jabatan").html("<b>: </b>" + data[0].nama_jabatan);
+                        $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+                    }
+                })
+            });
+
+            $('#tabel_data_staf').DataTable({
+                "ajax": {
+                    "url": "http://localhost/nts/staf/data_staf/select_all",
+                    "method": "GET"
+                },
+                "columns": [{
+                        "data": "nama_pengguna"
+                    },
+                    {
+                        "data": "telepon_pengguna"
+                    },
+                    {
+                        "data": "nik_pengguna"
+                    },
+                    {
+                        "data": "golongan_pengguna"
+                    },
+                    {
+                        "data": "id_pengguna",
+                        render: function(data, type, row) {
+                            return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Detail" class="btn btn-info btn-sm item_detail" data-product_code="' + row.id_pengguna + '">Detail</a>';
+                        },
+                        "orderable": false
+                    }
+                ]
+            });
+
+        });
+    </script>
+
 </body>
 
 </html>
