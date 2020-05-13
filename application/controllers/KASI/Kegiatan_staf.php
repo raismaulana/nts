@@ -1,11 +1,37 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kegiatan_staf extends CI_Controller {
+class Kegiatan_staf extends CI_Controller
+{
 
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->load->model('kegiatan_model');
+		$this->load->model('laporan_model');
+		$this->load->model('staf_model');
+	}
 
 	public function index()
 	{
-		$this->load->view('KASI/v_kegiatan_staf');
+		$context['pengguna'] = $this->staf_model->select_join_seksi();
+		$this->load->view('KASI/v_kegiatan_staf', $context);
+	}
+
+	public function select_all()
+	{
+		$data = array(
+			'data' =>  $this->kegiatan_model->select()
+		);
+
+		echo json_encode($data);
+	}
+
+	public function get_detail()
+	{
+		$data = $this->kegiatan_model->select_where_join_pengguna($this->input->post('id_kegiatan'));
+
+		echo json_encode($data);
 	}
 }
