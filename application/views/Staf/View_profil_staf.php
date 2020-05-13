@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/logo.png'?>">
-    <title>Profile KABID</title>
+    <title>Profile Staf</title>
     <!-- Page CSS -->
     <link href="<?php echo base_url() .'assets/dist/css/pages/contact-app-page.css'?>" rel="stylesheet">
     <!-- Custom CSS -->
@@ -30,7 +30,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Profile KABID</p>
+            <p class="loader__label">Profile Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -40,12 +40,12 @@
         <!-- ============================================================== -->
         <!-- Navbar -->
         <?php
-        $this->load->view('KABID/navbar')
+        $this->load->view('Staf/navbar')
         ?>
         <!-- ============================================================== -->
         <!-- Sidebar -->
         <?php
-        $this->load->view('KABID/v_sidebar_kabid')
+        $this->load->view('Staf/View_sidebar')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->

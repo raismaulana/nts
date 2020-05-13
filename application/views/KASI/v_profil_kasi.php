@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/favicon.png'?>">
-    <title>Profil</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/logo.png'?>">
+    <title>Profil KASI</title>
     <!-- Page CSS -->
     <link href="<?php echo base_url() .'assets/dist/css/pages/contact-app-page.css'?>" rel="stylesheet">
     <!-- Custom CSS -->
@@ -23,7 +23,7 @@
 <![endif]-->
 </head>
 
-<body class="skin-blue fixed-layout">
+<body class="fixed-layout skin-megna-dark mini-sidebar">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
