@@ -44,7 +44,7 @@
                     <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="mdi mdi-account-circle mdi-24px"></span> &nbsp;<span class="hidden-md-down">Halo, <?php echo $this->session->userdata('username'); ?> &nbsp;<i class="ti-angle-down"></i></span> </a>
                     <div class="dropdown-menu dropdown-menu-right animated flipInY">
                         <!-- text-->
-                        <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> Profil Saya</a>
+                        <a href="<?php echo base_url("KASI/Profil_kasi");?>" class="dropdown-item"><i class="ti-user"></i> Profil Saya</a>
                         <!-- text-->
                         <div class="dropdown-divider"></div>
                         <!-- text-->

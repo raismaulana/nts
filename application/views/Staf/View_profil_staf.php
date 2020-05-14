@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/favicon.png'?>">
-    <title>Data Kegiatan Harian Staf</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/logo.png'?>">
+    <title>Profile Staf</title>
     <!-- Page CSS -->
     <link href="<?php echo base_url() .'assets/dist/css/pages/contact-app-page.css'?>" rel="stylesheet">
     <!-- Custom CSS -->
@@ -23,14 +23,14 @@
 <![endif]-->
 </head>
 
-<body class="skin-blue fixed-layout">
+<body class="fixed-layout skin-megna-dark mini-sidebar">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Data Kegiatan Harian Staf</p>
+            <p class="loader__label">Profile Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -40,12 +40,12 @@
         <!-- ============================================================== -->
         <!-- Navbar -->
         <?php
-        $this->load->view('KASI/navbar')
+        $this->load->view('Staf/navbar')
         ?>
         <!-- ============================================================== -->
         <!-- Sidebar -->
         <?php
-        $this->load->view('KASI/v_sidebar_kasi')
+        $this->load->view('Staf/View_sidebar')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -63,13 +63,13 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Kegiatan Harian Staf</h4>
+                        <h4 class="text-themecolor">Detail Profil</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Data Kegiatan Harian Staf</a></li>
-                                <li class="breadcrumb-item active">Detail Data Kegiatan Harian Staf</li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
+                                <li class="breadcrumb-item active">Detail Profil</li>
                             </ol>
                         </div>
                     </div>
@@ -85,69 +85,78 @@
                     <div class="col-12">
                         <div class="card">
                             <!-- Nav tabs -->
-                            <!-- <ul class="nav nav-tabs profile-tab" role="tablist">
-                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Data Kegiatan Harian Staf</a> </li>
-                            </ul> -->
+                            <ul class="nav nav-tabs profile-tab" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Profil</a> </li>
+                            </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home" role="tabpanel">
                                     <div class="card-body">
-                                        <h4 class="card-title">Kegiatan Harian Staf</h4>
-                                        <br>
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Nama</strong>
-                                                <p class="text-muted"></p>
+                                            <div class="col-md-3 col-xs-6"> <strong>Nama Lengkap</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>NIK</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>NIP</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Alamat</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Email</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Golongan</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>Tanggal Lahir</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6"> <strong>No.Telp</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6"> <strong>Jabatan</strong>
-                                                <p class="text-muted"></p>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6"> <strong>Seksi</strong>
-                                                <p class="text-muted"></p>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Aktivitas Kegiatan</strong>
-                                                <p class="text-muted"></p>
+                                            <div class="col-md-3 col-xs-6"> <strong>Bidang</strong>
+                                                <p class="text-muted">Johnathan Deo nardo</p>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Kuantitas Hasil</strong>
-                                                <p class="text-muted"></p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Tanggal Mulai Kegiatan</strong>
-                                                <p class="text-muted"></p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Tanggal Selesai Kegiatan</strong>
-                                                <p class="text-muted"></p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Durasi</strong>
-                                                <p class="text-muted"></p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Status</strong>
-                                                <p class="text-muted"></p>
-                                            </div>
-                                        </div>
-                                        <hr>
                                     </div>
                                 </div>
                             </div>
@@ -155,6 +164,7 @@
                     </div>
                     <!-- Column -->
                 </div>
+                
                 <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
