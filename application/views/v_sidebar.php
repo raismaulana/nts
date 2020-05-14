@@ -15,7 +15,7 @@
                                 <li><a href="<?php echo base_url() . 'Data_Kabid' ?>">Data KABID</a></li>
                             </ul>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-doc"></i><span class="hide-menu">Laporan Kegiatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Harian Staf</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url() . 'Laporan_kegiatan_staf' ?>" aria-expanded="false"><i class="icon-doc"></i><span class="hide-menu">Laporan Kegiatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Harian Staf</span></a>
                         </li>
                     </ul>
                 </nav>

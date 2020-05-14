@@ -105,7 +105,7 @@ class Data_kegiatan_staf extends CI_Controller
 			'tanggal_kegiatan' => $this->input->post('edit_tgl_mulai'),
 			'tanggal_selesai_kegiatan' => $this->input->post('edit_tgl_selesai'),
 			'tanggal_update_kegiatan' => date('Y-m-d H:i'),
-			'waktu_kegiatan' => $this->kegiatan_model->durasi($this->input->post('edit_tgl_mulai'), $this->input->post('edot_tgl_selesai'))
+			'waktu_kegiatan' => $this->kegiatan_model->durasi($this->input->post('edit_tgl_mulai'), $this->input->post('edit_tgl_selesai'))
 		);
 
 		$this->kegiatan_model->update($this->input->post('edit_id_kegiatan'),$data);
