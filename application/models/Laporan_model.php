@@ -16,7 +16,18 @@ class Laporan_model extends CI_Model {
     public function select_check($id)
     {
         return $this->db->query("SELECT * FROM laporan WHERE id_laporan = ( SELECT MAX(id_laporan) FROM laporan WHERE id_pengguna = $id)")->row();
-        ;
+        
+        
+    }
+
+    public function select_join_banyak()
+    {
+        $this->db->select('pengguna.nama_pengguna, seksi.nama_seksi, laporan.*');
+        $this->db->join('pengguna', 'pengguna.id_pengguna = laporan.id_pengguna');
+        $this->db->join('staf', 'staf.id_pengguna = pengguna.id_pengguna');
+        $this->db->join('seksi', 'seksi.id_seksi = staf.id_seksi');
+        
+        return $this->db->get($this->context['tabel'])->result();
         
     }
 
@@ -52,6 +63,13 @@ class Laporan_model extends CI_Model {
         $this->db->where('id_seksi', $where);
         return $this->db->get('pengguna')->result();
 
+    }
+
+    public function update($where, $data)
+    {
+        $this->db->where('id_laporan', $where);
+        return $this->db->update($this->context['tabel'], $data);
+    
     }
     
     public function insert($object)

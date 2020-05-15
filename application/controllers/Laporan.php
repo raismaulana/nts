@@ -15,6 +15,18 @@ class Laporan extends CI_Controller {
 
     }
 
+    public function update()
+    {
+        $data = array('status_laporan' => $this->input->post('edit_status_laporan')
+        );
+
+        $hasil = $this->laporan_model->update($this->input->post('edit_id_laporan'),$data);
+
+        
+        redirect('laporan_kegiatan_staf','refresh');
+        
+    }
+
 //STAF STAF STAF STAF
 
     public function index()
