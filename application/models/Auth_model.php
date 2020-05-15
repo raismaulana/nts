@@ -29,7 +29,7 @@ class Auth_model extends CI_Model {
                     if ($lvl == '1') {
                         //staf
                         
-                        redirect('staf/beranda','refresh');
+                        redirect('Staf/Beranda','refresh');
                         
                     } else if ($lvl == '2') {
                         //kasi
