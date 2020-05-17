@@ -81,88 +81,63 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs profile-tab" role="tablist">
-                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Profil</a> </li>
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="home" role="tabpanel">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Nama Lengkap</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>NIK</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>NIP</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Alamat</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Email</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Golongan</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Tanggal Lahir</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>No.Telp</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Jabatan</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Seksi</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6"> <strong>Bidang</strong>
-                                                <p class="text-muted">Johnathan Deo nardo</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="section" id="about">
+                <div class="container">
+                    <div class="card" data-aos="fade-up" data-aos-offset="10">
+                    <div class="row">  
+                        <div class="col-lg-9 col-md-12">
+                        <div class="card-body">
+                            <div class="h4 mt-0 title">Data Diri</div>
+                           <br>
+                            <div class="row">
+                            <div class="col-sm-4"><strong class="text-uppercase">Nama Lengkap :</strong></div>
+                            <div class="col-sm-8"></div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">Seksi:</strong></div>
+                            <div class="col-sm-8"></div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">Jabatan:</strong></div>
+                            <div class="col-sm-8">+1718-111-0011</div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">NIK:</strong></div>
+                            <div class="col-sm-8"></div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">NIP:</strong></div>
+                            <div class="col-sm-8"></div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">Alamat:</strong></div>
+                            <div class="col-sm-8"><</div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+                            <div class="col-sm-8"></div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">Golongan:</strong></div>
+                            <div class="col-sm-8">English, German, French</div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">Tanggal Lahir:</strong></div>
+                            <div class="col-sm-8"></div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">No. Telp:</strong></div>
+                            <div class="col-sm-8"></div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">Pendidikan:</strong></div>
+                            <div class="col-sm-8"></div>
                             </div>
                         </div>
+                        </div>
                     </div>
-                    <!-- Column -->
+                    </div>
+                </div>
                 </div>
                 <!-- Row -->
                 <!-- ============================================================== -->
