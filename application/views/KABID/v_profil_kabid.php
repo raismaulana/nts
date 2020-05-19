@@ -90,48 +90,44 @@
                             <div class="h4 mt-0 title">Data Diri</div>
                            <br>
                             <div class="row">
-                            <div class="col-sm-4"><strong class="text-uppercase">Nama Lengkap :</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">Nama Lengkap </strong></div>
+                            <div class="col-sm-8">: <?php echo $nama_pengguna; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Seksi:</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">Bidang</strong></div>
+                            <div class="col-sm-8">: <?php echo $nama_bidang; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Jabatan:</strong></div>
-                            <div class="col-sm-8">+1718-111-0011</div>
+                            <div class="col-sm-4"><strong class="text-uppercase">NIK</strong></div>
+                            <div class="col-sm-8">: <?php echo $nik_pengguna; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">NIK:</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">NIP</strong></div>
+                            <div class="col-sm-8">: <?php echo $nip_pengguna; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">NIP:</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">Alamat</strong></div>
+                            <div class="col-sm-8">: <?php echo $alamat_pengguna; ?>, <?php echo $nama_kecamatan; ?>, <?php echo $nama_kabupaten; ?>, <?php echo $nama_provinsi; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Alamat:</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">Email</strong></div>
+                            <div class="col-sm-8">: <?php echo $email_pengguna; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">Golongan</strong></div>
+                            <div class="col-sm-8">: <?php echo $golongan_pengguna; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Golongan:</strong></div>
-                            <div class="col-sm-8">English, German, French</div>
+                            <div class="col-sm-4"><strong class="text-uppercase">Tanggal Lahir</strong></div>
+                            <div class="col-sm-8">: <?php echo $tanggal_lahir_pengguna; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Tanggal Lahir:</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">No. Telp</strong></div>
+                            <div class="col-sm-8">: <?php echo $telepon_pengguna; ?></div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">No. Telp:</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Pendidikan:</strong></div>
-                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4"><strong class="text-uppercase">Pendidikan</strong></div>
+                            <div class="col-sm-8">: <?php echo $pendidikan; ?></div>
                             </div>
                         </div>
                         </div>

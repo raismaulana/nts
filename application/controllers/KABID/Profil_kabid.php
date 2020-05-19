@@ -1,12 +1,19 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Profil_kabid extends CI_Controller{
+class Profil_kabid extends CI_Controller
+{
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('kabid_model');
+    }
 
     public function index()
     {
-        $this->load->view('KABID/v_profil_kabid');
-        
-    }
+        $data = $this->kabid_model->select_detail($this->session->userdata('id'));
 
+        $this->load->view('KABID/v_profil_kabid',$data);
+    }
 }

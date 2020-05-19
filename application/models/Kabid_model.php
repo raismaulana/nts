@@ -42,7 +42,7 @@ class Kabid_model extends CI_Model {
         $this->db->join('kabupaten', 'kabupaten.id_kabupaten = kecamatan.id_kabupaten');
         $this->db->join('provinsi', 'provinsi.id_provinsi = kabupaten.id_provinsi');
   
-        return $this->db->get($this->context['peng'])->result();
+        return $this->db->get($this->context['peng'])->row();
     }
     
     public function insert($object)
