@@ -6,7 +6,6 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url().'KABID/Beranda_kabid'?>" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Beranda </span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url().'KABID/Data_kabid'?>" aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">KABID</span></a>
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url().'KABID/Data_kasi'?>" aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">KASI</span></a>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">Staf</span></a>

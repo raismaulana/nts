@@ -95,13 +95,13 @@
                                             <p class="text-muted">DATA KEGIATAN STAF</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-primary">148</h2>
+                                            <h2 class="counter text-primary"><?php echo $total_kegiatan; ?></h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%; height: 6px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo $persen_t . "%; height: 6px;"; ?>" aria-valuenow="<?php echo $total_kegiatan; ?>" aria-valuemin="0" aria-valuemax="<?php echo $total_kegiatan; ?>"></div>
                                     </div>
                                 </div>
                             </div>
@@ -119,13 +119,13 @@
                                             <p class="text-muted">DITERIMA</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-cyan">68</h2>
+                                            <h2 class="counter text-cyan"><?php echo $diterima; ?></h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress">
-                                        <div class="progress-bar bg-cyan" role="progressbar" style="width: 68%; height: 6px;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-cyan" role="progressbar" style="width: <?php echo $persen_de . "%; height: 6px;"; ?>" aria-valuenow="<?php echo $diterima; ?>" aria-valuemin="0" aria-valuemax="<?php echo $total_kegiatan; ?>"></div>
                                     </div>
                                 </div>
                             </div>
@@ -143,13 +143,13 @@
                                             <p class="text-muted">MENUNGGU</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-purple">22</h2>
+                                            <h2 class="counter text-purple"><?php echo $menunggu; ?></h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress">
-                                        <div class="progress-bar bg-purple" role="progressbar" style="width: 22%; height: 6px;" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-purple" role="progressbar" style="width: <?php echo $persen_m . "%; height: 6px;"; ?>" aria-valuenow="<?php echo $menunggu; ?>" aria-valuemin="0" aria-valuemax="<?php echo $total_kegiatan; ?>"></div>
                                     </div>
                                 </div>
                             </div>
@@ -167,13 +167,13 @@
                                             <p class="text-muted">DITOLAK</p>
                                         </div>
                                         <div class="ml-auto">
-                                            <h2 class="counter text-success">10</h2>
+                                            <h2 class="counter text-success"><?php echo $ditolak; ?></h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 10%; height: 6px;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $persen_do . "%; height: 6px;"; ?>" aria-valuenow="<?php echo $ditolak; ?>" aria-valuemin="0" aria-valuemax="<?php echo $total_kegiatan; ?>"></div>
                                     </div>
                                 </div>
                             </div>
@@ -187,54 +187,24 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-md-9">
+                    <div>
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Data Laporan Kegiatan Harian Staf Terakhir</h5>
                             </div>
                             <div class="table-responsive m-t-4">
                                 <table id="table_data_terakhir" class="table table-striped" data-page-size="8">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Staf</th>
+                                            <th>Aktivitas Kegiatan</th>
+                                            <th>Kuantitas Hasil</th>
+                                            <th>Tanggal Mulai Kegiatan</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
                                 </table>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Progres Laporan Staf</h5>
-                            </div>
-                            <ul class="country-state">
-                                <h5 class="m-t-30">Pilih Bidang</h5>
-                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                    <option>Pilih salah satu bidang</option>
-                                    <option value="AK">ARA</option>
-                                    <option value="HI">BARA</option>
-                                    <option value="HI">CBAR</option>
-                                    <option value="HI">DCBA</option>
-                                    <option value="HI">ERA</option>
-                                    <option value="HI">FBAR</option>
-                                </select>
-                                <h5 class="m-t-30">Pilih Seksi</h5>
-                                <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                    <option>Pilih salah satu seksi</option>
-                                    <option value="AK">ARA</option>
-                                    <option value="HI">BARA</option>
-                                    <option value="HI">CBAR</option>
-                                    <option value="HI">DCBA</option>
-                                    <option value="HI">ERA</option>
-                                    <option value="HI">FBAR</option>
-                                </select>
-                                <div class="chart easy-pie-chart-2" data-percent="75"> <span class="percent">75</span>
-                                    <h4>Diterima</h4>
-                                </div>
-                                <div class="chart easy-pie-chart-1" data-percent="65"> <span class="percent">75</span>
-                                    <h4>Menunggu</h4>
-                                </div>
-                                <div class="chart easy-pie-chart-3" data-percent="25"> <span class="percent">75</span>
-                                    <h4>Ditolak</h4>
-                                </div>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -291,50 +261,58 @@
     <!--Custom JavaScript -->
     <script src="<?php echo base_url('assets/js/custom.min.js'); ?>"></script>
     <script>
-        var dataset = [
-            ["A", "B", "C", "D", "E", "F"],
-            ["D", "S", "W", "O", "D", "S"],
-            ["R", "X", "E", "L", "E", "D"],
-            ["W", "Y", "K", "S", "W", "P"],
-            ["G", "J", "O", "T", "Z", "F"]
-        ];
         $(document).ready(function() {
-            $(".select2").select2();
-            $('#table_data_terakhir').DataTable({
-                data: dataset,
-                columns: [{
-                        title: "Tanggal"
-                    },
-                    {
-                        title: "Nama"
-                    },
-                    {
-                        title: "Uraian"
-                    },
-                    {
-                        title: "Kuantitan Hasil"
-                    },
-                    {
-                        title: "Jabatan"
-                    },
-                    {
-                        title: "Status"
+            
+            function format_date(date) {
+                function appendLeadingZeroes(n) {
+                    if (n <= 9) {
+                        return "0" + n;
                     }
-                    /*Format untuk data dari server nantinya dengan tipe data array $datas = array("data" => $data);
-                    ajax: {
-                        "url": "http://localhost/",
-                        "method": "GET"
+                    return n
+                }
+                const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+                var b = new Date(date);
+
+                var a = appendLeadingZeroes(b.getDate()) + "-" + months[b.getMonth()] + "-" + b.getFullYear() + "  " + appendLeadingZeroes(b.getHours()) + ":" + appendLeadingZeroes(b.getMinutes())
+
+                return a;
+            }
+            $('#table_data_terakhir').DataTable({
+                "ajax": {
+                    "url": "http://localhost/nts/data_kegiatan_staf/select_all",
+                    "method": "GET"
+                },
+                "columns": [{
+                        "data": "nama_pengguna"
                     },
-                    columns: [{
-                            "data": "tanggal",
-                            "width": "10%"
-                        },
-                        {
-                            "data": "nama",
-                            "width": "40%"
+                    {
+                        "data": "aktivitas_kegiatan"
+                    },
+                    {
+                        "data": "kuantitas_output_kegiatan"
+                    },
+                    {
+                        "data": "tanggal_kegiatan",
+                        render: function(data, type, row) {
+                            return format_date(row.tanggal_kegiatan);
                         }
-                    ]
-                    */
+                    },
+                    {
+                        "data": "status_kegiatan",
+                        render: function(data, type, row) {
+                            if (row.status_kegiatan == 0) {
+                                return 'Menunggu';
+                            } else if (row.status_kegiatan == 1) {
+                                return 'Diterima';
+                            } else {
+                                return 'Ditolak';
+                            }
+                        }
+                    }
+                ],
+                "order": [
+                    [3, 'desc']
                 ]
             });
         });

@@ -17,7 +17,23 @@ class Kegiatan_model extends CI_Model {
     {
         $this->db->select('kegiatan.id_kegiatan, pengguna.nama_pengguna, kegiatan.aktivitas_kegiatan, kegiatan.kuantitas_output_kegiatan, kegiatan.tanggal_kegiatan, kegiatan.status_kegiatan');
         $this->db->join('laporan', 'laporan.id_laporan = kegiatan.id_laporan');
-        $this->db->join('pengguna', 'pengguna.id_pengguna = laporan.id_pengguna');        
+        $this->db->join('pengguna', 'pengguna.id_pengguna = laporan.id_pengguna');
+        $this->db->order_by('kegiatan.tanggal_kegiatan', 'desc');
+        
+        
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }
+
+    public function select_sort($where)
+    {
+        $this->db->select('kegiatan.id_kegiatan, pengguna.nama_pengguna, kegiatan.aktivitas_kegiatan, kegiatan.kuantitas_output_kegiatan, kegiatan.tanggal_kegiatan, kegiatan.status_kegiatan');
+        $this->db->join('laporan', 'laporan.id_laporan = kegiatan.id_laporan');
+        $this->db->join('pengguna', 'pengguna.id_pengguna = laporan.id_pengguna');
+        $this->db->join('staf', 'staf.id_pengguna = pengguna.id_pengguna');
+        $this->db->join('seksi', 'seksi.id_seksi = staf.id_seksi');
+        $this->db->order_by('kegiatan.tanggal_kegiatan', 'desc');
+        $this->db->where($where);
         
         return $this->db->get($this->context['tabel'])->result();
         
@@ -45,6 +61,27 @@ class Kegiatan_model extends CI_Model {
     {
         $this->db->where('id_laporan', $where);
         return $this->db->get($this->context['tabel'])->result();
+        
+    }
+
+    public function select_where_custom($where)
+    {
+        $this->db->select();
+        $this->db->join('laporan', 'laporan.id_laporan = kegiatan.id_laporan');
+        $this->db->join('pengguna', 'pengguna.id_pengguna = laporan.id_pengguna');
+        $this->db->join('staf', 'staf.id_pengguna = pengguna.id_pengguna');
+        $this->db->join('seksi', 'seksi.id_seksi = staf.id_seksi');
+        $this->db->where($where);
+        
+        return $this->db->get($this->context['tabel'])->num_rows();
+        
+    }
+
+    public function select_where_default($where)
+    {
+        $this->db->where($where);
+        
+        return $this->db->get($this->context['tabel'])->num_rows();
         
     }
     

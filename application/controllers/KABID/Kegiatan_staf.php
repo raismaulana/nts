@@ -21,7 +21,7 @@ class Kegiatan_staf extends CI_Controller
 	public function select_all()
 	{
 		$data = array(
-			'data' =>  $this->kegiatan_model->select()
+			'data' =>  $this->kegiatan_model->select_sort($where = array('seksi.id_bidang' => $this->session->userdata('id_bidang') ))
 		);
 
 		echo json_encode($data);

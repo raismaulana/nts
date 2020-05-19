@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
     public function __construct()
     {
@@ -16,13 +17,40 @@ class Home extends CI_Controller {
         $this->load->model('pengguna_model');
         $this->load->model('seksi_model');
         $this->load->model('staf_model');
-
+        $this->load->model('kegiatan_model');
     }
-    
+
 
     public function index()
     {
-        $this->load->view('home', FALSE);
+        $a = $this->kegiatan_model->select_where_default($where = array('status_kegiatan' => 0));
+        $b = $this->kegiatan_model->select_where_default($where = array('status_kegiatan' => 1));
+        $c = $this->kegiatan_model->select_where_default($where = array('status_kegiatan' => 2));
+        $d = $a + $b + $c;
+        $e =  0;
+		$f = 0;
+		$g = 0;
+		$h = 0;
+		if ($d == 0) {
+			$e =  0;	$f = 0;	$g = 0;
+		} else {
+			$e = ($d / $d) * 100;
+			$f = ($a / $d) * 100;
+			$g = ($b / $d) * 100;
+			$h = ($c / $d) * 100;
+		}
+		
+		$context = array(
+			'total_kegiatan' => $d,
+			'menunggu' => $a,
+			'diterima' => $b,
+			'ditolak' => $c,
+			'persen_t' => $e,
+			'persen_m' => $f,
+			'persen_de' => $g,
+			'persen_do' => $h
+		);
+        $this->load->view('home', $context);
     }
 
     public function insert_bidang()
@@ -32,22 +60,20 @@ class Home extends CI_Controller {
         );
 
         $result = $this->bidang_model->insert($object);
-        
-        redirect('home','refresh');
-        
+
+        redirect('home', 'refresh');
     }
 
     public function insert_seksi()
     {
         $object = array(
             'id_bidang' => $this->input->post('bidang'),
-            'nama_seksi' => $this->input->post('nama')            
+            'nama_seksi' => $this->input->post('nama')
         );
 
         $result = $this->seksi_model->insert($object);
-        
-        redirect('home','refresh');
-        
+
+        redirect('home', 'refresh');
     }
 
     public function insert_jabatan()
@@ -59,8 +85,7 @@ class Home extends CI_Controller {
 
         $result = $this->jabatan_model->insert($object);
 
-        redirect('home','refresh');
-        
+        redirect('home', 'refresh');
     }
 
     public function insert_pendidikan()
@@ -71,8 +96,7 @@ class Home extends CI_Controller {
 
         $result = $this->pendidikan_model->insert($object);
 
-        redirect('home','refresh');
-        
+        redirect('home', 'refresh');
     }
 
     public function insert_jurusan()
@@ -84,8 +108,7 @@ class Home extends CI_Controller {
 
         $result = $this->jurusan_model->insert($object);
 
-        redirect('home','refresh');
-        
+        redirect('home', 'refresh');
     }
 
     public function insert_pengguna()
@@ -95,22 +118,20 @@ class Home extends CI_Controller {
             'alamat_pengguna' => $this->input->post('alamat'),
             'email_pengguna' => $this->input->post('email'),
             'golongan_pengguna' => $this->input->post('golongan'),
-            'level_pengguna' => $this->input->post('level'),  
+            'level_pengguna' => $this->input->post('level'),
             'nama_pengguna' => $this->input->post('nama'),
             'nik_pengguna' => $this->input->post('nik'),
             'nip_pengguna' => $this->input->post('nip'),
             'password_pengguna' => $this->input->post('password'),
-            'status_pengguna' => '1',      
+            'status_pengguna' => '1',
             'tanggal_lahir_pengguna' => $this->input->post('bday'),
             'telepon_pengguna' => $this->input->post('telepon'),
             'username_pengguna' => $this->input->post('username')
         );
 
-        $result = $this->pengguna_model->insert($object);        
-        
-        redirect('home','refresh');
-        
+        $result = $this->pengguna_model->insert($object);
 
+        redirect('home', 'refresh');
     }
 
     public function insert_kabid()
@@ -122,8 +143,7 @@ class Home extends CI_Controller {
 
         $result = $this->kabid_model->insert($object);
 
-        redirect('home','refresh');
-        
+        redirect('home', 'refresh');
     }
 
     public function insert_kasi()
@@ -135,8 +155,7 @@ class Home extends CI_Controller {
 
         $result = $this->kasi_model->insert($object);
 
-        redirect('home','refresh');
-        
+        redirect('home', 'refresh');
     }
 
     public function insert_staf()
@@ -148,11 +167,8 @@ class Home extends CI_Controller {
 
         $result = $this->staf_model->insert($object);
 
-        redirect('home','refresh');
-        
+        redirect('home', 'refresh');
     }
-
 }
 
 /* End of file Home.php */
-
