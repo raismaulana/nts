@@ -119,6 +119,10 @@ class Kegiatan_model extends CI_Model {
         
     }
 
+    public function get_where_array($arrayWhere) {
+        return $this->db->get_where($this->context['tabel'], $arrayWhere);
+    }
+
 }
 
 /* End of file Kegiatan_model.php */
