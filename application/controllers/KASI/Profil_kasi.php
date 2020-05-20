@@ -18,8 +18,15 @@ class Profil_kasi extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	 public function __construct() {
+		 parent::__construct();
+		 $this->load->model('kasi_model');
+		 
+	 }
 	public function index()
 	{
-		$this->load->view('KASI/v_profil_kasi');
+		$data = $this->kasi_model->select_detail($this->session->userdata('id'));
+		$this->load->view('KASI/v_profil_kasi',$data);
 	}
 }

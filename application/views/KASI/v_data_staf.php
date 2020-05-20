@@ -323,17 +323,6 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Seksi</label>
-                                            <div class="col-md-10 controls">
-                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="input_seksi_staf" id="input_seksi_staf" required data-validation-required-message="Harap pilih bidang yang dikepalai oleh Staf">
-                                                    <option></option>
-                                                    <?php foreach ($data_seksi as $row) { ?>
-                                                        <option value="<?php echo $row->id_seksi; ?>"><?= $row->nama_seksi; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Username</label>
                                             <div class="col-md-10 controls">
                                                 <input type="text" name="input_username_staf" id="input_username_staf" class="form-control" placeholder='' required data-validation-required-message="Harap isi username dari Staf">
@@ -507,36 +496,6 @@
 
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Jabatan</label>
-                                            <div class="col-md-10 controls">
-                                                <input class="form-control" name="edt_jabatan_staf" id="edt_jabatan_staf" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Seksi</label>
-                                            <div class="col-md-10 controls">
-
-                                                <input class="form-control" name="edt_seksi_staf" id="edt_seksi_staf" readonly>
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Username</label>
-                                            <div class="col-md-10 controls">
-
-                                                <input type="text" name="edt_username_staf" id="edt_username_staf" class="form-control" placeholder='' required data-validation-required-message="Harap isi username dari Staf">
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Password</label>
-                                            <div class="col-md-10 controls">
-
-                                                <input type="password" name="edt_password_staf" id="edt_password_staf" class="form-control" placeholder='' required data-validation-required-message="Harap isi password dari Staf">
-
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-info">Kirim</button>
@@ -678,9 +637,6 @@
                     $('[name="edt_tgl_lahir_staf"]').val(dataf[0].tanggal_lahir_pengguna);
                     $('[name="edt_no_telp_staf"]').val(dataf[0].telepon_pengguna);
                     $('[name="edt_pendidikan_staf"]').val(dataf[0].pendidikan);
-                    $('[name="edt_jabatan_staf"]').val(dataf[0].nama_jabatan);
-                    $('[name="edt_seksi_staf"]').val(dataf[0].nama_seksi);
-                    $('[name="edt_username_staf"]').val(dataf[0].username_pengguna);
 
                     // Set selected
                     $('#edt_kecamatan_staf').val(dataf[0].id_kecamatan);

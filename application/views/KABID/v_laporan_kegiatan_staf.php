@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
-    <title>Kegiatan Staf</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/logo.png' ?>">
+    <title>Data Kegiatan Staf</title>
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
@@ -35,7 +35,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Data Kegiatan Harian Staf</p>
+            <p class="loader__label">Laporan Kegiatan Harian Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -47,13 +47,13 @@
         <!-- ============================================================== -->
         <!-- Navbar -->
         <?php
-        $this->load->view('KASI/navbar')
+        $this->load->view('KABID/navbar')
         ?>
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('KASI/v_sidebar_kasi')
+        $this->load->view('KABID/v_sidebar_kabid')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -71,14 +71,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Kegiatan Harian</h4>
+                        <h4 class="text-themecolor">Kegiatan Kegiatan Harian</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Staf</a></li>
-                                <li class="breadcrumb-item active">Data Kegiatan Harian</li>
+                                <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
+                                <li class="breadcrumb-item active">Data Laporan Kegiatan Harian</li>
                             </ol>
                         </div>
                     </div>
@@ -95,23 +95,22 @@
                             <div class="card-body">
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Kegiatan Harian Staf</h4>
+                                        <h4 class="card-title">Daftar Data Laporan Kegiatan Harian</h4>
                                     </div>
                                 </div>
 
                                 <div class="table-responsive m-t-4">
-                                    <table id="table_data_kegiatan" class="table table-bordered table-striped">
+                                    <table id="table_data_laporan" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Nama Staf</th>
-                                                <th>Aktivitas Kegiatan</th>
-                                                <th>Kuantitas Hasil</th>
-                                                <th>Tanggal Mulai Kegiatan</th>
+                                                <th>Seksi</th>
+                                                <th>Bulan</th>
                                                 <th>Status</th>
                                                 <th>#</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="data_kegiatan">
+                                        <tbody id="data_laporan">
 
                                         </tbody>
                                     </table>
@@ -128,7 +127,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Kegiatan Harian Staf</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data KABID</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -153,91 +152,27 @@
                                         <p class="detail_seksi"></p>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Aktivitas Harian</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_aktivitas"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Kuantitas Hasil</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_kuantitas"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Status</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_status"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Tanggal Mulai Kegiatan</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_tgl_mulai"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Tanggal Selesai Kegiatan</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_tgl_selesai"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Waktu Kegiatan</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_waktu"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Tanggal Update Kegiatan</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_tgl_update"></p>
-                                    </div>
-                                </div>
+                                <table id="table_detail_laporan" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Aktivitas Harian</th>
+                                            <th>Kuantitas Output</th>
+                                            <th>Tanggal</th>
+                                            <th>Durasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detail_laporan">
+
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--END MODAL DETAIL-->
 
-                <!-- MODAL EDIT -->
-                <div class="modal fade" id="Modal_Edit" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kegiatan Staf</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form action="<?= base_url('KASI/Kegiatan_staf/update'); ?>" method="post">
-                                <form id="form_edit" type="POST" enctype="multipart/form-data">
-                                    <div class="modal-body">
-                                        <input type="text" class="form-control" name="edit_id_kegiatan" id="edit_id_kegiatan" hidden>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Status</label>
-                                            <div class="col-md-10 controls">
-                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="edit_status" id="edit_status" required data-validation-required-message="Harap pilih nama staf">
-                                                    <option></option>
-                                                    <option value="0">Menunggu</option>
-                                                    <option value="1">Diterima</option>
-                                                    <option value="2">Ditolak</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-info">Kirim</button>
-                                        <button type="reset" class="btn btn-inverse">Batal</button>
-                                    </div>
-                                </form>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <!--END MODAL EDIT-->
-
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -299,10 +234,6 @@
                 $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
             }(window, document, jQuery);
 
-            $(".select2").select2({
-                placeholder: "Pilih salah satu"
-            });
-
             function format_date(date) {
                 function appendLeadingZeroes(n) {
                     if (n <= 9) {
@@ -319,33 +250,30 @@
                 return a;
             }
 
+            $('#table_data_laporan').DataTable({
 
-            $('#table_data_kegiatan').DataTable({
                 "ajax": {
-                    "url": "http://localhost/nts/KASI/Kegiatan_staf/select_all",
+                    "url": "http://localhost/nts/KABID/laporan_kegiatan_staf/select_all",
                     "method": "GET"
                 },
                 "columns": [{
                         "data": "nama_pengguna"
                     },
                     {
-                        "data": "aktivitas_kegiatan"
+                        "data": "nama_seksi"
                     },
                     {
-                        "data": "kuantitas_output_kegiatan"
-                    },
-                    {
-                        "data": "tanggal_kegiatan",
-                        render: function(data,type,row){
-                            return format_date(row.tanggal_kegiatan);
+                        "data": null,
+                        render: function(data, type, full) {
+                            return full['bulan_laporan'] + ", " + full['tahun_laporan'];
                         }
                     },
                     {
-                        "data": "status_kegiatan",
+                        "data": "status_laporan",
                         render: function(data, type, row) {
-                            if (row.status_kegiatan == 0) {
-                                return 'Menunggu';
-                            } else if (row.status_kegiatan == 1) {
+                            if (row.status_laporan == 0) {
+                                return 'Dalam Proses';
+                            } else if (row.status_laporan == 1) {
                                 return 'Diterima';
                             } else {
                                 return 'Ditolak';
@@ -360,8 +288,7 @@
                                 '<i class="ti-settings"></i>' + ' ' +
                                 '</button>' + ' ' +
                                 '<div class="dropdown-menu">' + ' ' +
-                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + full.id_kegiatan + '">Detail</a>' + ' ' +
-                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-status="' + full.status_kegiatan + '" data-product_code="' + full.id_kegiatan + '">Edit</a>' + ' ' +
+                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + full.id_laporan + '">Detail</a>' + ' ' +
                                 '</div>' + ' ' +
                                 '</div>';
                         },
@@ -369,50 +296,33 @@
                     }
                 ],
                 "order": [
-                    [3, 'desc']
+                    [2, 'desc']
                 ]
+
             });
 
-            $('#data_kegiatan').on('click', '.item_detail', function() {
+            $('#data_laporan').on('click', '.item_detail', function() {
                 $.ajax({
-                    url: "<?php echo base_url('KASI/Kegiatan_staf/get_detail'); ?>",
+                    url: "<?php echo base_url('Laporan_kegiatan_staf/get_detail'); ?>",
                     type: "POST",
                     dataType: 'JSON',
                     data: {
-                        id_kegiatan: $(this).data('product_code')
+                        id_laporan: $(this).data('product_code')
                     },
                     success: function(data) {
 
-                        var status;
+                        $(".detail_nama").html("<b>: </b>" + data.biodata[0].nama_pengguna);
+                        $(".detail_jabatan").html("<b>: </b>" + data.biodata[0].nama_jabatan);
+                        $(".detail_seksi").html("<b>: </b>" + data.biodata[0].nama_seksi);
 
-                        if (data[0].status_kegiatan == 0) {
-                            status = 'Menunggu';
-                        } else if (data[0].status_kegiatan == 1) {
-                            status = 'Diterima';
-                        } else {
-                            status = 'Ditolak';
+                        var trHTML = '';
+                        for (var f = 0; f < data.kegiatan.length; f++) {
+                            trHTML += '<tr><td>' + data.kegiatan[f].aktivitas_kegiatan + '</td><td>' + data.kegiatan[f].kuantitas_output_kegiatan + '</td><td>' + format_date(data.kegiatan[f].tanggal_kegiatan) + '</td><td>' + data.kegiatan[f].waktu_kegiatan + '</td></tr>';
                         }
-                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
-                        $(".detail_jabatan").html("<b>: </b>" + data[0].nama_jabatan);
-                        $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
-                        $(".detail_aktivitas").html("<b>: </b>" + data[0].aktivitas_kegiatan);
-                        $(".detail_kuantitas").html("<b>: </b>" + data[0].kuantitas_output_kegiatan);
-                        $(".detail_status").html("<b>: </b>" + status);
-                        $(".detail_tgl_mulai").html("<b>: </b>" + format_date(data[0].tanggal_kegiatan));
-                        $(".detail_tgl_selesai").html("<b>: </b>" + format_date(data[0].tanggal_selesai_kegiatan));
-                        $(".detail_waktu").html("<b>: </b>" + data[0].waktu_kegiatan);
-                        $(".detail_tgl_update").html("<b>: </b>" + data[0].tanggal_update_kegiatan);
+
+                        $('#detail_laporan').html(trHTML);
                     }
                 })
-            });
-
-            $('#data_kegiatan').on('click', '.item_edit', function() {
-                
-                $('[name="edit_id_kegiatan"]').val($(this).data('product_code'));
-
-                // Set selected 
-                $('#edit_status').val($(this).data('status'));
-                $('#edit_status').select2().trigger('change');
 
             });
 

@@ -21,7 +21,7 @@ class Kegiatan_staf extends CI_Controller
 	public function select_all()
 	{
 		$data = array(
-			'data' =>  $this->kegiatan_model->select()
+			'data' => $this->kegiatan_model->select_sort($where = array('staf.id_staf' => $this->session->userdata('id_staf')))
 		);
 
 		echo json_encode($data);
@@ -29,12 +29,16 @@ class Kegiatan_staf extends CI_Controller
 
 	public function insert()
 	{
-		$cek = $this->laporan_model->select_check($this->input->post('input_id_pengguna'));
+		$cek = $this->laporan_model->select_check(
+		$this->session->userdata('id')
+		);
 
 		if ($cek == null || $cek->bulan_laporan !== date('m')) {
 
 			$insert_laporan = array(
-				'id_pengguna' => $this->input->post('input_id_pengguna'),
+				'id_pengguna' => 
+				$this->session->userdata('id')
+				,
 				'bulan_laporan' => date('m'),
 				'tahun_laporan' => date('Y'),
 				'status_laporan' => '0'
@@ -84,7 +88,6 @@ class Kegiatan_staf extends CI_Controller
 		$data = array(
 			'aktivitas_kegiatan' => $this->input->post('edit_aktivitas'),
 			'kuantitas_output_kegiatan' => $this->input->post('edit_kuantitas'),
-			'status_kegiatan' => $this->input->post('edit_status'),
 			'tanggal_kegiatan' => $this->input->post('edit_tgl_mulai'),
 			'tanggal_selesai_kegiatan' => $this->input->post('edit_tgl_selesai'),
 			'tanggal_update_kegiatan' => date('Y-m-d H:i'),

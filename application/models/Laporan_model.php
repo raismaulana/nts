@@ -30,6 +30,18 @@ class Laporan_model extends CI_Model {
         return $this->db->get($this->context['tabel'])->result();
         
     }
+    public function select_join_banyak2($where)
+    {
+        $this->db->select('pengguna.nama_pengguna, seksi.nama_seksi, laporan.*');
+        $this->db->join('pengguna', 'pengguna.id_pengguna = laporan.id_pengguna');
+        $this->db->join('staf', 'staf.id_pengguna = pengguna.id_pengguna');
+        $this->db->join('seksi', 'seksi.id_seksi = staf.id_seksi');
+        $this->db->where($where);
+        
+        
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }
 
     public function select_where($where)
     {

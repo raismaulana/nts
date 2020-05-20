@@ -1,12 +1,13 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Data_Staf extends CI_Controller {
+class Data_Staf extends CI_Controller
+{
 
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('auth_model');
+		$this->load->model('auth_model');
 
 		$this->load->model('pengguna_model');
 		$this->load->model('staf_model');
@@ -25,8 +26,7 @@ class Data_Staf extends CI_Controller {
 	{
 		$context['data_alamat'] = $this->alamat_model->select_join_kabupaten_provinsi();
 		$context['data_jabatan'] = $this->jabatan_model->select();
-		$context['data_seksi'] = $this->seksi_model->select();
-		$this->load->view('KASI/v_data_staf',$context);
+		$this->load->view('KASI/v_data_staf', $context);
 	}
 
 	public function insert_pengguna()
@@ -45,14 +45,14 @@ class Data_Staf extends CI_Controller {
 			'username_pengguna' => $this->input->post('input_username_staf'),
 			'password_pengguna' => password_hash($this->input->post('input_password_staf'), PASSWORD_ARGON2I),
 			'level_pengguna' => '1',
-						'status_pengguna' => '1',
+			'status_pengguna' => '1',
 		);
 
 		$result = $this->pengguna_model->insert($object);
 
 		$object2 = array(
 			'id_jabatan' => $this->input->post('input_jabatan_staf'),
-			'id_seksi' => $this->input->post('input_seksi_staf'),
+			'id_seksi' => $this->session->userdata('id_seksi'),
 			'id_pengguna' => $result
 
 		);
@@ -73,9 +73,8 @@ class Data_Staf extends CI_Controller {
 			'golongan_pengguna' => $this->input->post('edt_gol_staf'),
 			'tanggal_lahir_pengguna' => $this->input->post('edt_tgl_lahir_staf'),
 			'telepon_pengguna' => $this->input->post('edt_no_telp_staf'),
-			'pendidikan' => $this->input->post('edt_pendidikan_staf'),
-			'username_pengguna' => $this->input->post('edt_username_staf'),
-			'password_pengguna' => password_hash($this->input->post('edt_password_staf'), PASSWORD_ARGON2I)
+			'pendidikan' => $this->input->post('edt_pendidikan_staf')
+			
 		);
 
 		$where = array(
@@ -89,7 +88,10 @@ class Data_Staf extends CI_Controller {
 
 	public function select_all()
 	{
-		$data = $this->staf_model->select();
+		$data = $this->staf_model->select2($where = array(
+			'staf.id_seksi' => $this->session->userdata('id_seksi'),
+			'pengguna.level_pengguna', '1'
+		));
 		$datas = array(
 			'data' => $data
 		);
@@ -114,20 +116,20 @@ class Data_Staf extends CI_Controller {
 	public function get()
 	{
 		header('Content-Type: application/json');
-        $this->datatables->select('id_pengguna, nama_pengguna, alamat_pengguna, telepon_pengguna, nik_pengguna, nip_pengguna, golongan_pengguna');
-        $this->datatables->from('pengguna');
+		$this->datatables->select('id_pengguna, nama_pengguna, alamat_pengguna, telepon_pengguna, nik_pengguna, nip_pengguna, golongan_pengguna');
+		$this->datatables->from('pengguna');
 		$this->datatables->where('level_pengguna', '1');
 		$this->datatables->unset_column('id_pengguna');
-		$this->datatables->add_column('#', '<a data-id="$1" style="margin:2px;" class="btn-detail btn-edit btn btn-info btn-xs"> Detail</a>'.' <a data-id="$1" style="margin:2px;" class="btn-edit btn btn-primary btn-xs"> Edit</a>'.' <a data-id="$1" style="margin:2px;" class="btn-delete btn btn-danger btn-xs ">Delete</a>', 'id_pengguna');
+		$this->datatables->add_column('#', '<a data-id="$1" style="margin:2px;" class="btn-detail btn-edit btn btn-info btn-xs"> Detail</a>' . ' <a data-id="$1" style="margin:2px;" class="btn-edit btn btn-primary btn-xs"> Edit</a>' . ' <a data-id="$1" style="margin:2px;" class="btn-delete btn btn-danger btn-xs ">Delete</a>', 'id_pengguna');
 
 
-        echo $this->datatables->generate();
+		echo $this->datatables->generate();
 	}
 
 	public function getId($id)
 	{
 		$dataStaf = $this->pengguna_model->select_where($id);
-		if($dataStaf->num_rows()) {
+		if ($dataStaf->num_rows()) {
 			header('Content-Type: application/json');
 			echo json_encode(['error' => false, 'message' => 'success retrieved data', 'data' => $dataStaf->result()]);
 		} else {
@@ -150,5 +152,4 @@ class Data_Staf extends CI_Controller {
 			}
 		}
 	}
-
 }

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/logo.png' ?>">
-    <title>Data Staf</title>
+    <title>Data Kegiatan Staf</title>
     <!-- Datatables CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css' ?>">
@@ -35,7 +35,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Pencatatan Data Staf</p>
+            <p class="loader__label">Laporan Kegiatan Harian Staf</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -47,13 +47,13 @@
         <!-- ============================================================== -->
         <!-- Navbar -->
         <?php
-        $this->load->view('staf/navbar')
+        $this->load->view('Staf/navbar')
         ?>
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <?php
-        $this->load->view('staf/View_sidebar')
+        $this->load->view('Staf/view_sidebar')
         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -71,14 +71,14 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Data Staf</h4>
+                        <h4 class="text-themecolor">Kegiatan Kegiatan Harian</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
-                                <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Data Pegawai</a></li> -->
-                                <li class="breadcrumb-item active">Data Staf</li>
+                                <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Bidang</a></li> -->
+                                <li class="breadcrumb-item active">Data Laporan Kegiatan Harian</li>
                             </ol>
                         </div>
                     </div>
@@ -86,8 +86,7 @@
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
+
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
@@ -96,22 +95,22 @@
                             <div class="card-body">
                                 <div class="row show-grid">
                                     <div class="col-xs-12 col-md-8">
-                                        <h4 class="card-title">Daftar Data Staf</h4>
+                                        <h4 class="card-title">Daftar Data Laporan Kegiatan Harian</h4>
                                     </div>
                                 </div>
 
                                 <div class="table-responsive m-t-4">
-                                    <table id="tabel_data_staf" class="table table-bordered table-striped">
+                                    <table id="table_data_laporan" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th> Nama Lengkap</th>
-                                                <th> No.Telp </th>
-                                                <th> NIK </th>
-                                                <th> Golongan </th>
-                                                <th> # </th>
+                                                <th>Nama Staf</th>
+                                                <th>Seksi</th>
+                                                <th>Bulan</th>
+                                                <th>Status</th>
+                                                <th>#</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="data_staf">
+                                        <tbody id="data_laporan">
 
                                         </tbody>
                                     </table>
@@ -121,7 +120,6 @@
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
                 <!-- ============================================================== -->
 
                 <!-- MODAL DETAIL -->
@@ -129,7 +127,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Detail Data Staf</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Detail Data KABID</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -137,15 +135,9 @@
 
                             <div class="modal-body">
                                 <div class="row">
-                                    <label class="col-md-2"><b>Nama Lengkap</b></label>
+                                    <label class="col-md-2"><b>Nama Staf</b></label>
                                     <div class="col-md-10">
                                         <p class="detail_nama"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Seksi</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_seksi"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -155,58 +147,32 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-md-2"><b>NIK</b></label>
+                                    <label class="col-md-2"><b>Seksi</b></label>
                                     <div class="col-md-10">
-                                        <p class="detail_nik"></p>
+                                        <p class="detail_seksi"></p>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>NIP</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_nip"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Alamat</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_alamat"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Email</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_email"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Golongan</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_golongan"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Tanggal Lahir</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_tanggal"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>No.Telp</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_telp"></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2"><b>Pendidikan</b></label>
-                                    <div class="col-md-10">
-                                        <p class="detail_pendidikan"></p>
-                                    </div>
-                                </div>
+                                <table id="table_detail_laporan" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Aktivitas Harian</th>
+                                            <th>Kuantitas Output</th>
+                                            <th>Tanggal</th>
+                                            <th>Durasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detail_laporan">
+
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--END MODAL DETAIL-->
+
+                <!--END MODAL EDIT-->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -256,70 +222,108 @@
     <script src="<?php echo base_url() . 'assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js' ?>"></script>
     <!-- Sweetalert 2 -->
     <script src="<?php echo base_url() . 'assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js' ?>"></script>
-    <!-- bt-switch -->
-    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
     <!-- Select2 -->
     <script src="<?php echo base_url() . 'assets/node_modules/select2/dist/js/select2.full.min.js' ?>" type="text/javascript"></script>
+    <!-- bt-switch -->
+    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap-switch/bootstrap-switch.min.js' ?>"></script>
     <!-- Javascript -->
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
             ! function(window, document, $) {
                 "use strict";
                 $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
             }(window, document, jQuery);
-            $(".select2").select2({
-                placeholder: "Pilih salah satu"
-            });
 
-            $('#data_staf').on('click', '.item_detail', function() {
-                $.ajax({
-                    url: "<?php echo base_url('staf/Data_Staf/get_detail'); ?>",
-                    type: "POST",
-                    dataType: 'JSON',
-                    data: {
-                        id_pengguna: $(this).data('product_code')
-                    },
-                    success: function(data) {
-                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
-                        $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
-                        $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
-                        $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
-                        $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
-                        $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
-                        $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
-                        $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
-                        $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
-                        $(".detail_jabatan").html("<b>: </b>" + data[0].nama_jabatan);
-                        $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+            function format_date(date) {
+                function appendLeadingZeroes(n) {
+                    if (n <= 9) {
+                        return "0" + n;
                     }
-                })
-            });
+                    return n
+                }
+                const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
-            $('#tabel_data_staf').DataTable({
+                var b = new Date(date);
+
+                var a = appendLeadingZeroes(b.getDate()) + "-" + months[b.getMonth()] + "-" + b.getFullYear() + "  " + appendLeadingZeroes(b.getHours()) + ":" + appendLeadingZeroes(b.getMinutes())
+
+                return a;
+            }
+
+            $('#table_data_laporan').DataTable({
+
                 "ajax": {
-                    "url": "http://localhost/nts/staf/data_staf/select_all",
+                    "url": "http://localhost/nts/Staf/laporan_kegiatan_staf/select_all",
                     "method": "GET"
                 },
                 "columns": [{
                         "data": "nama_pengguna"
                     },
                     {
-                        "data": "telepon_pengguna"
+                        "data": "nama_seksi"
                     },
                     {
-                        "data": "nik_pengguna"
+                        "data": null,
+                        render: function(data, type, full) {
+                            return full['bulan_laporan'] + ", " + full['tahun_laporan'];
+                        }
                     },
                     {
-                        "data": "golongan_pengguna"
-                    },
-                    {
-                        "data": "id_pengguna",
+                        "data": "status_laporan",
                         render: function(data, type, row) {
-                            return '<a href="javascript:void(0);" data-toggle="modal"  data-target="#Modal_Detail" class="btn btn-info btn-sm item_detail" data-product_code="' + row.id_pengguna + '">Detail</a>';
+                            if (row.status_laporan == 0) {
+                                return 'Dalam Proses';
+                            } else if (row.status_laporan == 1) {
+                                return 'Diterima';
+                            } else {
+                                return 'Ditolak';
+                            }
+                        }
+                    },
+                    {
+                        "data": null,
+                        render: function(data, type, full) {
+                            return '<div class="btn-group">' + ' ' +
+                                '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
+                                '<i class="ti-settings"></i>' + ' ' +
+                                '</button>' + ' ' +
+                                '<div class="dropdown-menu">' + ' ' +
+                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + full.id_laporan + '">Detail</a>' + ' ' +
+                                '</div>' + ' ' +
+                                '</div>';
                         },
                         "orderable": false
                     }
+                ],
+                "order": [
+                    [2, 'desc']
                 ]
+
+            });
+
+            $('#data_laporan').on('click', '.item_detail', function() {
+                $.ajax({
+                    url: "<?php echo base_url('Staf/Laporan_kegiatan_staf/get_detail'); ?>",
+                    type: "POST",
+                    dataType: 'JSON',
+                    data: {
+                        id_laporan: $(this).data('product_code')
+                    },
+                    success: function(data) {
+
+                        $(".detail_nama").html("<b>: </b>" + data.biodata[0].nama_pengguna);
+                        $(".detail_jabatan").html("<b>: </b>" + data.biodata[0].nama_jabatan);
+                        $(".detail_seksi").html("<b>: </b>" + data.biodata[0].nama_seksi);
+
+                        var trHTML = '';
+                        for (var f = 0; f < data.kegiatan.length; f++) {
+                            trHTML += '<tr><td>' + data.kegiatan[f].aktivitas_kegiatan + '</td><td>' + data.kegiatan[f].kuantitas_output_kegiatan + '</td><td>' + format_date(data.kegiatan[f].tanggal_kegiatan) + '</td><td>' + data.kegiatan[f].waktu_kegiatan + '</td></tr>';
+                        }
+
+                        $('#detail_laporan').html(trHTML);
+                    }
+                })
+
             });
 
         });

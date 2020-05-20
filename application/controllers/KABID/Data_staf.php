@@ -31,7 +31,10 @@ class Data_Staf extends CI_Controller {
 
 	public function select_all()
 	{
-		$data = $this->staf_model->select();
+		$data = $this->staf_model->select_where($where = array(
+			'pengguna.level_pengguna' => '1',
+			'seksi.id_bidang' => $this->session->userdata('id_bidang')
+		));
 		$datas = array(
 			'data' => $data
 		);

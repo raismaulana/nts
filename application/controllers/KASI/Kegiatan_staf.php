@@ -22,7 +22,7 @@ class Kegiatan_staf extends CI_Controller
 	public function select_all()
 	{
 		$data = array(
-			'data' =>  $this->kegiatan_model->select()
+			'data' =>  $this->kegiatan_model->select_sort($where = array('seksi.id_seksi' => $this->session->userdata('id_seksi') ))
 		);
 
 		echo json_encode($data);
@@ -33,5 +33,17 @@ class Kegiatan_staf extends CI_Controller
 		$data = $this->kegiatan_model->select_where_join_pengguna($this->input->post('id_kegiatan'));
 
 		echo json_encode($data);
+	}
+	public function update()
+	{
+		
+		$data = array(
+			'status_kegiatan' => $this->input->post('edit_status')
+		);
+
+		$this->kegiatan_model->update($this->input->post('edit_id_kegiatan'),$data);
+
+		redirect('KASI/Kegiatan_staf','refresh');
+		
 	}
 }

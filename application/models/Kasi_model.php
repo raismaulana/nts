@@ -22,6 +22,15 @@ class Kasi_model extends CI_Model {
         
     }
 
+    public function select_where($where)
+    {
+        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,pengguna.telepon_pengguna,pengguna.nik_pengguna,pengguna.golongan_pengguna');
+        $this->db->join('kasi', 'kasi.id_pengguna = pengguna.id_pengguna');
+        $this->db->join('seksi', 'seksi.id_seksi = kasi.id_seksi');
+        $this->db->where($where);
+        return $this->db->get($this->context['peng'])->result();
+    }
+
     public function select_join_seksi_pengguna($where)
     {
         $this->db->select();
@@ -51,7 +60,7 @@ class Kasi_model extends CI_Model {
         $this->db->join('kabupaten', 'kabupaten.id_kabupaten = kecamatan.id_kabupaten');
         $this->db->join('provinsi', 'provinsi.id_provinsi = kabupaten.id_provinsi');
   
-        return $this->db->get($this->context['peng'])->result();
+        return $this->db->get($this->context['peng'])->row();
     }
     
     public function insert($object)

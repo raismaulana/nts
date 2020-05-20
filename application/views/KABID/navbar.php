@@ -48,7 +48,7 @@
                         <!-- text-->
                         <div class="dropdown-divider"></div>
                         <!-- text-->
-                        <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Pengaturan Akun</a>
+                        <a href="<?php echo base_url("Setting/load_kabid"); ?>" class="dropdown-item"><i class="ti-settings"></i> Pengaturan Akun</a>
                         <!-- text-->
                         <div class="dropdown-divider"></div>
                         <!-- text-->

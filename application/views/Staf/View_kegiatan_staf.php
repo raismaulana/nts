@@ -218,17 +218,6 @@
                                 <form id="form_tambah" type="POST" enctype="multipart/form-data">
                                     <div class="modal-body">
                                         <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Nama Staf</label>
-                                            <div class="col-md-10 controls">
-                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="input_id_pengguna" id="input_id_pengguna" required data-validation-required-message="Harap pilih nama staf">
-                                                    <option></option>
-                                                    <?php foreach ($pengguna as $row) { ?>
-                                                        <option value="<?php echo $row->id_pengguna; ?>"><?= $row->nama_pengguna, " ( Seksi ", $row->nama_seksi, " ) "; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Aktivitas Harian</label>
                                             <div class="col-md-10 controls">
                                                 <textarea name="input_aktivitas" id="input_aktivitas" rows="4" class="form-control" placeholder="Tulis uraian kegiatan yang dilakukan oleh staf" required data-validation-required-message="Harap isi uraian aktivitas staf"></textarea>
@@ -333,17 +322,6 @@
                                             <label class="col-md-2 col-form-label">Tanggal Selesai Kegiatan</label>
                                             <div class="col-md-10 controls">
                                                 <input type="datetime-local" name="edit_tgl_selesai" id="edit_tgl_selesai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tangal selesai kegatan anda">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-2 col-form-label">Status</label>
-                                            <div class="col-md-10 controls">
-                                                <select class="select2 custom-select col-12" style="width: 100%; height:36px;" name="edit_status" id="edit_status" required data-validation-required-message="Harap pilih nama staf">
-                                                    <option></option>
-                                                    <option value="0">Menunggu</option>
-                                                    <option value="1">Diterima</option>
-                                                    <option value="2">Ditolak</option>
-                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -542,10 +520,6 @@
                         $('[name="edit_kuantitas"]').val(data[0].kuantitas_output_kegiatan);
                         $('[name="edit_tgl_mulai"]').val(data[0].tanggal_kegiatan);
                         $('[name="edit_tgl_selesai"]').val(data[0].tanggal_selesai_kegiatan);
-
-                        // Set selected 
-                        $('#edit_status').val(data[0].status_kegiatan);
-                        $('#edit_status').select2().trigger('change');
 
                     }
                 })

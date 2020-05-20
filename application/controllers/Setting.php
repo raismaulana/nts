@@ -15,6 +15,18 @@ class Setting extends CI_Controller
     {
         $this->load->view('setting_profile');
     }
+    public function load_kabid()
+    {
+        $this->load->view('KABID/setting_profile');
+    }
+    public function load_kasi()
+    {
+        $this->load->view('KASI/setting_profile');
+    }
+    public function load_staf()
+    {
+        $this->load->view('Staf/setting_profile');
+    }
 
     public function update()
     {
@@ -26,6 +38,41 @@ class Setting extends CI_Controller
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
 
         redirect('Home','refresh');
+    }
+
+    public function update_kbid()
+    {
+        $data = array(
+            'username_pengguna' => $this->input->post('edt_username'),
+            'password_pengguna' => $this->input->post('edt_password')
+        );
+
+        $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
+
+        redirect('KABID/Beranda_kabid','refresh');
+    }
+    public function update_kasi()
+    {
+        $data = array(
+            'username_pengguna' => $this->input->post('edt_username'),
+            'password_pengguna' => $this->input->post('edt_password')
+        );
+
+        $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
+
+        redirect('KASI/Beranda_kasi','refresh');
+    }
+
+    public function update_staf()
+    {
+        $data = array(
+            'username_pengguna' => $this->input->post('edt_username'),
+            'password_pengguna' => $this->input->post('edt_password')
+        );
+
+        $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
+
+        redirect('Staf/Beranda','refresh');
     }
 }
 

@@ -9,12 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() .'assets/images/logo.png'?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . 'assets/images/logo.png' ?>">
     <title>Profile Staf</title>
     <!-- Page CSS -->
-    <link href="<?php echo base_url() .'assets/dist/css/pages/contact-app-page.css'?>" rel="stylesheet">
+    <link href="<?php echo base_url() . 'assets/dist/css/pages/contact-app-page.css' ?>" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo base_url() .'assets/dist/css/style.min.css'?>" rel="stylesheet">
+    <link href="<?php echo base_url() . 'assets/dist/css/style.min.css' ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -82,62 +82,62 @@
                 <!-- ============================================================== -->
                 <!-- Row -->
                 <div class="section" id="about">
-                <div class="container">
-                    <div class="card" data-aos="fade-up" data-aos-offset="10">
-                    <div class="row">  
-                        <div class="col-lg-9 col-md-12">
-                        <div class="card-body">
-                            <div class="h4 mt-0 title">Data Diri</div>
-                           <br>
+                    <div class="container">
+                        <div class="card" data-aos="fade-up" data-aos-offset="10">
                             <div class="row">
-                            <div class="col-sm-4"><strong class="text-uppercase">Nama Lengkap :</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Seksi:</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Jabatan:</strong></div>
-                            <div class="col-sm-8">+1718-111-0011</div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">NIK:</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">NIP:</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Alamat:</strong></div>
-                            <div class="col-sm-8"><</div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Golongan:</strong></div>
-                            <div class="col-sm-8">English, German, French</div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Tanggal Lahir:</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">No. Telp:</strong></div>
-                            <div class="col-sm-8"></div>
-                            </div>
-                            <div class="row mt-3">
-                            <div class="col-sm-4"><strong class="text-uppercase">Pendidikan:</strong></div>
-                            <div class="col-sm-8"></div>
+                                <div class="col-lg-9 col-md-12">
+                                    <div class="card-body">
+                                        <div class="h4 mt-0 title">Data Diri</div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Nama Lengkap </strong></div>
+                                            <div class="col-sm-8">: <?php echo $nama_pengguna; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Jabatan</strong></div>
+                                            <div class="col-sm-8">: <?php echo $nama_jabatan; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Seksi</strong></div>
+                                            <div class="col-sm-8">: <?php echo $nama_seksi; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">NIK</strong></div>
+                                            <div class="col-sm-8">: <?php echo $nik_pengguna; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">NIP</strong></div>
+                                            <div class="col-sm-8">: <?php echo $nip_pengguna; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Alamat</strong></div>
+                                            <div class="col-sm-8">: <?php echo $alamat_pengguna; ?>, <?php echo $nama_kecamatan; ?>, <?php echo $nama_kabupaten; ?>, <?php echo $nama_provinsi; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Email</strong></div>
+                                            <div class="col-sm-8">: <?php echo $email_pengguna; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Golongan</strong></div>
+                                            <div class="col-sm-8">: <?php echo $golongan_pengguna; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Tanggal Lahir</strong></div>
+                                            <div class="col-sm-8">: <?php echo $tanggal_lahir_pengguna; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">No. Telp</strong></div>
+                                            <div class="col-sm-8">: <?php echo $telepon_pengguna; ?></div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-sm-4"><strong class="text-uppercase">Pendidikan</strong></div>
+                                            <div class="col-sm-8">: <?php echo $pendidikan; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
                     </div>
-                    </div>
-                </div>
                 </div>
                 <!-- Row -->
                 <!-- ============================================================== -->
@@ -175,22 +175,22 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url() .'assets/node_modules/jquery/jquery-3.2.1.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/jquery/jquery-3.2.1.min.js' ?>"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url() .'assets/node_modules/popper/popper.min.js'?>"></script>
-    <script src="<?php echo base_url() .'assets/node_modules/bootstrap/dist/js/bootstrap.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/popper/popper.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/bootstrap/dist/js/bootstrap.min.js' ?>"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url() .'assets/dist/js/perfect-scrollbar.jquery.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/perfect-scrollbar.jquery.min.js' ?>"></script>
     <!--Wave Effects -->
-    <script src="<?php echo base_url() .'assets/dist/js/waves.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/waves.js' ?>"></script>
     <!--Menu sidebar -->
-    <script src="<?php echo base_url() .'assets/dist/js/sidebarmenu.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/dist/js/sidebarmenu.js' ?>"></script>
     <!--stickey kit -->
-    <script src="<?php echo base_url() .'assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js'?>"></script>
-    <script src="<?php echo base_url() .'assets/node_modules/sparkline/jquery.sparkline.min.js'?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/node_modules/sparkline/jquery.sparkline.min.js' ?>"></script>
     <!--Custom JavaScript -->
-    <script src="<?php echo base_url() .'assets/dist/js/custom.min.js'?>"></script>
-    
+    <script src="<?php echo base_url() . 'assets/dist/js/custom.min.js' ?>"></script>
+
 </body>
 
 </html>

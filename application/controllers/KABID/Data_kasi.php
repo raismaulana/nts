@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Data_Kasi extends CI_Controller {
+class Data_Kasi extends CI_Controller
+{
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('alamat_model');
 		$this->load->model('seksi_model');
@@ -15,16 +17,19 @@ class Data_Kasi extends CI_Controller {
 	{
 		$context['data_alamat'] = $this->alamat_model->select_join_kabupaten_provinsi();
 		$context['data_seksi'] = $this->seksi_model->select_where();
-		$this->load->view('KABID/v_kabid_data_kasi',$context);
+		$this->load->view('KABID/v_kabid_data_kasi', $context);
 	}
 
 	public function select_all()
 	{
-		$data = $this->kasi_model->select();
+		$data = $this->kasi_model->select_where($where = array(
+			'pengguna.level_pengguna' => '2',
+			'seksi.id_bidang' => $this->session->userdata('id_bidang')
+		));
 		$datas = array(
-            "data" => $data
-        );
-        echo json_encode($datas);
+			"data" => $data
+		);
+		echo json_encode($datas);
 	}
 
 	public function get_where()
@@ -41,5 +46,4 @@ class Data_Kasi extends CI_Controller {
 
 		echo json_encode($data);
 	}
-
 }

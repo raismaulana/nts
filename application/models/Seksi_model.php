@@ -17,7 +17,6 @@ class Seksi_model extends CI_Model {
     {
         return $this->db->get($this->context['tabel'])->result();
     }
-
     public function select_join_bidang()
     {
         $this->db->select('seksi.id_seksi, seksi.nama_seksi, seksi.id_bidang, bidang.nama_bidang,');

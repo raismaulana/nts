@@ -8,9 +8,7 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="<?php echo base_url().'staf/Kegiatan_staf'?>" aria-expanded="false"><i class="ti-pencil-alt"></i><span class="hide-menu">Pencatatan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kegiatan Harian</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url().'staf/Data_Staf'?>" aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">Data Pegawai</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-doc"></i><span class="hide-menu">Laporan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kegiatan Harian</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo base_url().'staf/Laporan_kegiatan_staf'?>" aria-expanded="false"><i class="icon-doc"></i><span class="hide-menu">Laporan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kegiatan Harian</span></a>
                         </li>
                     </ul>
                 </nav>
