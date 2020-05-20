@@ -18,17 +18,29 @@ class Export extends CI_Controller {
     }
 
     public function index($id_laporan) {
+        $this->log_model->write($this->session->userdata('id'), "Access Export Excel Laporan $id_laporan");
+
+        //mengambil data laporan berdasarkan id_laporan
+        $laporan = $this->db->get_where('laporan', ['id_laporan' => $id_laporan])->row();
+
+        //security agar hanya pemilik laporan yang bisa melakukan function ini
+        if(!($this->session->userdata('id') == $laporan->id_pengguna)){
+            if($this->session->userdata('level') != '4'){ //selain admin (level = 4) tidak bisa mengakses
+                die('401 Unauthorized');
+            }
+        } 
         //mengambil data berdasarkan id_laporan dan status kegiatan diterima (kode= 1)
         $activities = $this->kegiatan_model->get_where_array([
             'id_laporan' => $id_laporan,
             'status_kegiatan' => '1'
             ])->result();
-        //mengambil data laporan berdasarkan id_laporan
-        $laporan = $this->db->get_where('laporan', ['id_laporan' => $id_laporan])->row();
+
         //mengambil data  pengguna-staf berdasarkan laporan.id_pengguna
         $pengguna = $this->pengguna_model->select_where_join_staf('pengguna.id_pengguna', $laporan->id_pengguna)->row();
+
         //mengambil data kasi-seksi
         $kasi = $this->kasi_model->select_join_seksi_pengguna_where_idseksi($pengguna->id_seksi);
+
         //mengambil data kabid-bidang
         $kabid = $this->kabid_model->select_join_bidang_pengguna_where_idbidang($kasi[0]->id_bidang);
         
@@ -36,7 +48,6 @@ class Export extends CI_Controller {
         $spreadsheet = new Spreadsheet;
         //spreadsheet->getActiveSheet() agar lebih pendek (khusus write data saja biar rapi)
         $sheet = $spreadsheet->getActiveSheet();
-
 
         //pengaturan untuk PAGE saat diprint
         //orientation
