@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Apr 2020 pada 09.42
+-- Waktu pembuatan: 20 Bulan Mei 2020 pada 09.31
 -- Versi server: 10.4.10-MariaDB
 -- Versi PHP: 7.3.12
 
@@ -132,6 +132,16 @@ CREATE TABLE `kabid` (
   `id_pengguna` int(11) DEFAULT NULL,
   `id_bidang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `kabid`
+--
+
+INSERT INTO `kabid` (`id_kabid`, `id_pengguna`, `id_bidang`) VALUES
+(5, 7, 3),
+(6, 8, 2),
+(7, 9, 4),
+(8, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -676,6 +686,24 @@ CREATE TABLE `kasi` (
   `id_pengguna` int(11) DEFAULT NULL,
   `id_seksi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `kasi`
+--
+
+INSERT INTO `kasi` (`id_kasi`, `id_pengguna`, `id_seksi`) VALUES
+(1, 11, 1),
+(2, 12, 10),
+(3, 13, 3),
+(4, 14, 7),
+(5, 15, 11),
+(6, 16, 8),
+(7, 17, 6),
+(8, 18, 9),
+(9, 19, 4),
+(10, 20, 12),
+(11, 21, 5),
+(12, 22, 2);
 
 -- --------------------------------------------------------
 
@@ -7926,10 +7954,20 @@ CREATE TABLE `kegiatan` (
   `aktivitas_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kuantitas_output_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kegiatan` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_kegiatan` date NOT NULL,
-  `tanggal_update_kegiatan` date NOT NULL,
+  `tanggal_kegiatan` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_selesai_kegiatan` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_update_kegiatan` date DEFAULT NULL,
   `waktu_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `kegiatan`
+--
+
+INSERT INTO `kegiatan` (`id_kegiatan`, `id_laporan`, `aktivitas_kegiatan`, `kuantitas_output_kegiatan`, `status_kegiatan`, `tanggal_kegiatan`, `tanggal_selesai_kegiatan`, `tanggal_update_kegiatan`, `waktu_kegiatan`) VALUES
+(2, 3, 'semlekom', '192108', '1', '2020-05-05T10:48', '2020-05-05T13:06', '2020-05-13', '2jam, 18menit'),
+(3, 4, 'Peringatan harlah dinkes', 'banyak yang telah saya dapatkan', '2', '2020-05-08T09:44', '2020-05-08T16:06', NULL, '6jam, 22menit'),
+(4, 3, 'qweoiqhwoidn', 'woi29d2d', '1', '2020-05-04T11:00', '2020-05-05T08:02', NULL, '21jam, 2menit');
 
 -- --------------------------------------------------------
 
@@ -7944,6 +7982,14 @@ CREATE TABLE `laporan` (
   `tahun_laporan` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_laporan` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `laporan`
+--
+
+INSERT INTO `laporan` (`id_laporan`, `id_pengguna`, `bulan_laporan`, `tahun_laporan`, `status_laporan`) VALUES
+(3, 23, '05', '2020', '1'),
+(4, 24, '05', '2020', '1');
 
 -- --------------------------------------------------------
 
@@ -7968,7 +8014,7 @@ CREATE TABLE `pengguna` (
   `id_kecamatan` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat_pengguna` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_pengguna` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `golongan_pengguna` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `golongan_pengguna` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `level_pengguna` int(11) NOT NULL,
   `nama_pengguna` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nik_pengguna` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -7980,6 +8026,31 @@ CREATE TABLE `pengguna` (
   `telepon_pengguna` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username_pengguna` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `pengguna`
+--
+
+INSERT INTO `pengguna` (`id_pengguna`, `id_kecamatan`, `alamat_pengguna`, `email_pengguna`, `golongan_pengguna`, `level_pengguna`, `nama_pengguna`, `nik_pengguna`, `nip_pengguna`, `password_pengguna`, `status_pengguna`, `tanggal_lahir_pengguna`, `pendidikan`, `telepon_pengguna`, `username_pengguna`) VALUES
+(6, '1101010', 'JAKARTA', 'anonymous@gmail.com', NULL, 4, 'Administrator', '1234567890123456', NULL, '$argon2i$v=19$m=65536,t=4,p=1$Z21PSmQzUHBRZUFhZDgzVA$YLMmripFLAGejkNs+Ub+6SDGVItoBElz9HKHVFV4kTA', '1', '1900-01-01', 'Phd Phsycology', '1234567890', 'administrator'),
+(7, '3521030', 'Jl. Abisatya No.1', 'abisatya@gmail.com', 'Pembina Utama (Gol. IV e)', 3, 'Abisatya', '3501111031309991', '199810101992381081', '$argon2i$v=19$m=65536,t=4,p=1$VkI3clJ6MHJrTmxHTWliSA$n+XdrtkrkFG+A3d+0RMIS+8082pqgSkdDhbUIrH5bSs', '1', '2013-06-18', 'S2 Manajement', '081392059923', 'Abisatya'),
+(8, '3206190', 'Jl. Abyaz No.99', 'abyaz@gmail.com', 'Pembina Utama (Gol. IV e)', 3, 'Abyaz', '3310988185989843', '199900813198400111', '$argon2i$v=19$m=65536,t=4,p=1$ZDJaaHFYenpoa0EvVVBJUg$unTAF4pw1LSfm8Kr4fMn5gLq5wwqxbWlDYOV0ftEbus', '1', '2018-06-13', 'S3 Listrik', '081195860003', 'Abyaz'),
+(9, '1105181', 'Jl. Adanu No.20', 'adanu@gmail.com', 'Pembina Tingkat I (Gol. IV b)', 3, 'Adanu', '3390919274738820', '199822784891001102', '$argon2i$v=19$m=65536,t=4,p=1$S05EdE9VTDJ2RVZhVHBXNg$nKAz9A5HZHfcH77A3ObkGZtHkYl0XQuSHrLYzvzFBOM', '1', '2017-06-20', 'S1 Perikanan', '081234481192', 'Adanu'),
+(10, '1311020', 'Jl. Adhinatha No.12', 'adhinatha@gmail.com', 'Pembina Utama Muda (Gol. IV c)', 3, 'Adhinatha', '3910028419712093', '199283018129900119', '$argon2i$v=19$m=65536,t=4,p=1$S09nSDhCdjFYYkpCSEJHZQ$kVn+kDEHcI9JRjRul9kTR0fp/hBGQMyKupimQdXzP7k', '1', '2009-05-13', 'S3 Pemasaran', '082121217783', 'Adhinatha'),
+(11, '3521170', 'Jl. Argani', 'argani@gmail.com', 'Pembina (Gol. IV a)', 2, 'Argani', '4949019238129751', '199301019481230001', '$argon2i$v=19$m=65536,t=4,p=1$cVJtR20yR3lCMkhSU1Y4Ng$foE+iiWxcR4dJUEojoOotpb+en5oSNNYvblDE6GkYPk', '1', '2018-02-06', 'D4 Farmasi', '089983740018', 'Argani'),
+(12, '3309060', 'Jl. Adiwilaga', 'adiwilaga@gmail.com', 'Pembina Utama Muda (Gol. IV c)', 2, 'Adiwilaga', '9993028219971973', '197789018771728391', '$argon2i$v=19$m=65536,t=4,p=1$Nm9MNDR1WXRNSU5uSE1OUw$E/6kHxY448XLYBPARoCDfGrSkjKShH70FKIG7lCXvrw', '1', '2014-08-13', 'D3 Bidan', '088899992748', 'Adiwilaga'),
+(13, '1175040', 'Jl. Bena', 'bena@gmail.com', 'Pembina Utama Muda (Gol. IV c)', 2, 'Bena', '3381199283774572', '196610927197421009', '$argon2i$v=19$m=65536,t=4,p=1$ZkFkU2xHakNnRHhvbi9tUA$bJi++dBU8T+YCvETHdqcKlaBQXFjQBYpOnWABhs29LM', '1', '2020-05-22', 'S1 Komunikasi', '088293881129', 'Bena'),
+(14, '3322031', 'Jl. Byakta', 'byakta@gmail.com', 'Pembina Tingkat I (Gol. IV b)', 2, 'Byakta', '7721093991097474', '198611790208831881', '$argon2i$v=19$m=65536,t=4,p=1$VHJPeERWdkx3Rlg4RWE2Rw$7CvHyC15wzAavLboNbye9lir3h6DhoDXzQQUFHSN9rg', '1', '2009-05-25', 'S2 Theory', '080899203737', 'Byakta'),
+(15, '6202021', 'Jl. Biantara', 'biantara@gmail.com', 'Pengatur Muda(Gol. II a)', 2, 'Biantara', '3949091284781001', '194410290909209232', '$argon2i$v=19$m=65536,t=4,p=1$M05uS25XZ1Z0QnpXa0Zobw$jEk3nlJtzn9J9mortQJkGyeKwgEZkNY/Ue01oL1q6b0', '1', '2020-02-04', 'D4 Dukun', '089293071199', 'Biantara'),
+(16, '1804081', 'Jl. Bryatta', 'bryatta@gmail.com', 'Pembina (Gol. IV a)', 2, 'Bryatta', '8889281109128731', '199909092992831977', '$argon2i$v=19$m=65536,t=4,p=1$TjYwMS9HS3VRbjhZbm05Yw$Rau8qMTPvL0mr4Lsw7H0nyA63TtsnhIBkZwJV0Lzqvc', '1', '2018-02-06', 'S1 Komunikasi', '088888888888', 'Bryatta'),
+(17, '1204011', 'Jl. Bhadrika', 'bhadrika@gmail.com', 'Pembina (Gol. IV a)', 2, 'Bhadrika', '0999992817971239', '199299939381908120', '$argon2i$v=19$m=65536,t=4,p=1$cjBUdGxmdUdhekRrN3V0Wg$HE2GgUeIrFQ5FSNNzi1ET8hEFJcG3deiABMZwsLXiwM', '1', '2018-06-19', 'D4 Farmasi', '087664239900', 'Bhadrika'),
+(18, '1807050', 'Jl. Bahuwirya', 'bahuwirya@gmail.com', 'Pembina Utama Madya (Gol. IV d)', 2, 'Bahuwirya', '8383831080934098', '197728283838209111', '$argon2i$v=19$m=65536,t=4,p=1$b3ByRkc4MTEuQjh6OE9LMg$4G2Thp7n6Uaj5UplCu0KZupbgxVVUSgy9sf0Wy21KQk', '1', '2020-05-09', 'D4 Dukun', '082123747888', 'Bahuwirya'),
+(19, '1307071', 'Jl. Cayapata', 'cayapata@gmail.com', 'Penata Muda (Gol. III a)', 2, 'Cayapata', '7758310921309801', '192991193984101802', '$argon2i$v=19$m=65536,t=4,p=1$ZVJ1cDI4OGRVL1FpalZrcQ$1Xa9pG3zmtpTwbFs3QV0vB8SQpB6aGH5YjAvX32PI4k', '1', '2016-06-21', 'D4 Ikan', '082999381111', 'Cayapata'),
+(20, '3172080', 'Jl. Cakara', 'cakara@gmail.com', 'Penata Muda (Gol. III a)', 2, 'Cakara', '4809129839810111', '194508171029230912', '$argon2i$v=19$m=65536,t=4,p=1$Tjd2eTRCem5sbkZtSk45NQ$xmLC5geEye81jJ+BUP9YFoXgfwDA9eZEJT2OZV0NMU0', '1', '2017-02-25', 'D3 Bidan', '080080800808', 'Cakara'),
+(21, '3206010', 'Jl. Cipta', 'cipta@gmail.com', 'Penata Muda (Gol. III a)', 2, 'Cipta', '2938183019291110', '198301012929210931', '$argon2i$v=19$m=65536,t=4,p=1$WUZYcWtLUGVWOWt2YVBCVA$bmJBd7SOnIoORbHxZnAUj82WuSBgVOCrCQmnYnglMD0', '1', '2012-06-12', 'D4 Farmasi', '089726738191', 'Cipta'),
+(22, '1217020', 'Jl. Cahari', 'cahari@gmail.com', 'Pembina Utama Muda (Gol. IV c)', 2, 'Cahari', '2039191829831092', '196090912993819218', '$argon2i$v=19$m=65536,t=4,p=1$aW1zUXdJMlIxamdjWjJMMA$EJupIucRGpl86zSDfSlyuDm4x4PsIErh79nVZ8zLF6w', '1', '2014-08-19', 'S3 Mancah', '081234880909', 'Cahari'),
+(23, '3172020', 'Jl. Casugraha', 'casugraha@gmail.com', 'Pembina Tingkat I (Gol. IV b)', 1, 'Casugraha', '2919102919829391', '197777982198230111', '$argon2i$v=19$m=65536,t=4,p=1$L3VSRXdjelp6Wi9RMk5PeQ$0K9V80Iu1zlBaukfsrVFGESmhm0PWTsHdrKLl7vswSQ', '1', '2019-04-19', 'SMK Farmasi', '086678902121', 'Casugraha'),
+(24, '1214084', 'Jl. Chalis', 'chalis@gmail.com', '', 1, 'Chalis', '4428381983471011', '', '$argon2i$v=19$m=65536,t=4,p=1$YTJOcTdDL2ZmMmdNeUNRSg$BshCQmZXu/UvchcYIzDBt+Wj8aeSd+wIKRsKSJj8s4M', '1', '2015-06-18', 'D4 Analisis', '084328839900', 'Chalis');
 
 -- --------------------------------------------------------
 
@@ -8074,6 +8145,14 @@ CREATE TABLE `staf` (
   `id_pengguna` int(11) NOT NULL,
   `id_seksi` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `staf`
+--
+
+INSERT INTO `staf` (`id_staf`, `id_jabatan`, `id_pengguna`, `id_seksi`) VALUES
+(1, 2, 23, 1),
+(2, 5, 24, 2);
 
 --
 -- Indexes for dumped tables
@@ -8192,25 +8271,25 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT untuk tabel `kabid`
 --
 ALTER TABLE `kabid`
-  MODIFY `id_kabid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kabid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `kasi`
 --
 ALTER TABLE `kasi`
-  MODIFY `id_kasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `log`
@@ -8222,7 +8301,7 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `seksi`
@@ -8234,7 +8313,7 @@ ALTER TABLE `seksi`
 -- AUTO_INCREMENT untuk tabel `staf`
 --
 ALTER TABLE `staf`
-  MODIFY `id_staf` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_staf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
