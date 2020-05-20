@@ -75,6 +75,16 @@ class Kasi_model extends CI_Model {
         
     }
 
+    public function select_join_seksi_pengguna_where_idseksi($where)
+    {
+        $this->db->select();
+        $this->db->join('seksi', 'kasi.id_seksi = seksi.id_seksi', 'left');
+        $this->db->join('pengguna', 'kasi.id_pengguna = pengguna.id_pengguna', 'right');
+        $this->db->where('kasi.id_seksi', $where);
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }
+
 }
 
 /* End of file Kasi_model.php */

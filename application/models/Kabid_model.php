@@ -57,6 +57,16 @@ class Kabid_model extends CI_Model {
         
     }
 
+    public function select_join_bidang_pengguna_where_idbidang($where)
+    {
+        $this->db->select();
+        $this->db->where('kabid.id_bidang', $where);
+        $this->db->join('bidang', 'kabid.id_bidang = bidang.id_bidang', 'left');
+        $this->db->join('pengguna', 'kabid.id_pengguna = pengguna.id_pengguna', 'right');
+        return $this->db->get($this->context['tabel'])->result();
+        
+    }
+
 }
 
 /* End of file Kabid_model.php */

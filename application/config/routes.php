@@ -59,3 +59,6 @@ $route["laporan/staf"] = "laporan/list_laporan_staf";
 $route["laporan/seksi"] = "laporan/list_laporan_seksi";
 $route["laporan/staf/(:num)"] = "laporan/laporan_staf/$1";
 $route["kegiatan/staf/(:num)"] = "kegiatan/kegiatan_staf/$1";
+
+//route export to excel controller Excel.php
+$route["export/(:num)"] = "export/index/$1";
