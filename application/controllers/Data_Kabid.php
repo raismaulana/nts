@@ -7,6 +7,9 @@ class Data_Kabid extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->auth_model->security();
+		$this->auth_model->can_admin();
+		
 		$this->load->model('alamat_model');
 		$this->load->model('bidang_model');
 		$this->load->model('pengguna_model');
@@ -47,6 +50,10 @@ class Data_Kabid extends CI_Controller
 		);
 
 		$result = $this->kabid_model->insert($object2);
+		
+		$this->log_model->write($this->session->userdata['id'], "Menambahkan pengguna (kabid) id_pengguna $result");
+
+
 		redirect('data_kabid', 'refresh');
 	}
 
@@ -73,6 +80,11 @@ class Data_Kabid extends CI_Controller
 		);
 
 		$result = $this->pengguna_model->update($object, $where);
+
+		
+		$this->log_model->write($this->session->userdata['id'], "Memperbarui data pengguna (kabid) id_kabid ".$this->input->post('edt_id_pengguna'));
+
+
 		redirect('data_kabid', 'refresh');
 	}
 
@@ -109,6 +121,9 @@ class Data_Kabid extends CI_Controller
 		//hapus di tabel kabid dulu
 		if ($this->kabid_model->delete($where, 'kabid')) {
 			if ($this->kabid_model->delete($where, 'pengguna')) {
+
+				
+				$this->log_model->write($this->session->userdata['id'], 'Menghapus data pengguna (kabid) dengan id_pengguna '.$where['id_pengguna']);
 
 				redirect('data_kabid', 'refresh');
 			}

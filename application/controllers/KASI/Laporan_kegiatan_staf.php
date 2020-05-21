@@ -9,6 +9,9 @@ class Laporan_kegiatan_staf extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->auth_model->security();
+		$this->auth_model->can_kasi();
+        
         $this->load->model('laporan_model');
         $this->load->model('kegiatan_model');
         
@@ -45,11 +48,13 @@ class Laporan_kegiatan_staf extends CI_Controller
 
     public function update()
     {
+        $id = $this->input->post('edit_id_laporan');
         $data = array('status_laporan' => $this->input->post('edit_status')
         );
 
-        $hasil = $this->laporan_model->update($this->input->post('edit_id_laporan'),$data);
-
+        $hasil = $this->laporan_model->update($id,$data);
+        
+        $this->log_model->write($this->session->userdata['id'], 'Mengganti status_laporan menjadi '.$data['status_laporan'].' pada id_laporan '.$id);
         
         redirect('KASI/laporan_kegiatan_staf','refresh');
         

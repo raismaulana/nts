@@ -11,6 +11,7 @@ class Export extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->auth_model->security();
         $this->load->model('kegiatan_model');
         $this->load->model('pengguna_model');
         $this->load->model('kasi_model');
@@ -18,7 +19,7 @@ class Export extends CI_Controller {
     }
 
     public function index($id_laporan) {
-        $this->log_model->write($this->session->userdata('id'), "Access Export Excel Laporan $id_laporan");
+        $this->log_model->write($this->session->userdata('id'), "mengakses ekport excel Laporan id = $id_laporan");
 
         //mengambil data laporan berdasarkan id_laporan
         $laporan = $this->db->get_where('laporan', ['id_laporan' => $id_laporan])->row();
@@ -29,6 +30,12 @@ class Export extends CI_Controller {
                 die('401 Unauthorized');
             }
         } 
+        
+        //jika laporan tidak berstatus diterima (status == 1) maka function berhenti
+        if($laporan->status_laporan != 1){
+            die('Laporan belum disetujui');
+        }
+
         //mengambil data berdasarkan id_laporan dan status kegiatan diterima (kode= 1)
         $activities = $this->kegiatan_model->get_where_array([
             'id_laporan' => $id_laporan,

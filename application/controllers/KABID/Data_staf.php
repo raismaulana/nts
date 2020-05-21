@@ -7,7 +7,9 @@ class Data_Staf extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('auth_model');
+		$this->auth_model->security();
+		$this->auth_model->can_kabid();
+		
 		$this->load->model('pengguna_model');
 		$this->load->model('staf_model');
 		$this->load->model('alamat_model');

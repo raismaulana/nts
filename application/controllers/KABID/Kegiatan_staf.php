@@ -6,7 +6,9 @@ class Kegiatan_staf extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-
+        $this->auth_model->security();
+		$this->auth_model->can_kabid();
+		
 		$this->load->model('kegiatan_model');
 		$this->load->model('laporan_model');
 		$this->load->model('staf_model');

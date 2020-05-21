@@ -6,6 +6,8 @@ class Kegiatan_staf extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+        $this->auth_model->security();
+		$this->auth_model->can_staf();
 
 		$this->load->model('kegiatan_model');
 		$this->load->model('laporan_model');
@@ -58,6 +60,9 @@ class Kegiatan_staf extends CI_Controller
 			);
 
 			$hasil = $this->kegiatan_model->insert($insert_kegiatan);
+
+			$this->log_model->write($this->session->userdata['id'], "Mengisi Kegiatan di id_laporan $id_lap");
+
 			redirect('staf/kegiatan_staf', 'refresh');
 		} else {
 			$insert_kegiatan = array(
@@ -71,6 +76,9 @@ class Kegiatan_staf extends CI_Controller
 			);
 
 			$hasil = $this->kegiatan_model->insert($insert_kegiatan);
+
+			$this->log_model->write($this->session->userdata['id'], "Mengisi Kegiatan di id_laporan $id_laporan");
+
 			redirect('staf/kegiatan_staf', 'refresh');
 		}
 	}
@@ -94,7 +102,10 @@ class Kegiatan_staf extends CI_Controller
 			'waktu_kegiatan' => $this->kegiatan_model->durasi($this->input->post('edit_tgl_mulai'), $this->input->post('edot_tgl_selesai'))
 		);
 
-		$this->kegiatan_model->update($this->input->post('edit_id_kegiatan'),$data);
+		$id = $this->input->post('edit_id_kegiatan');
+		$this->kegiatan_model->update($id, $data);
+
+		$this->log_model->write($this->session->userdata['id'], "Memperbarui Kegiatan id_kegiatan $id");
 
 		redirect('staf/kegiatan_staf','refresh');
 		
@@ -102,8 +113,11 @@ class Kegiatan_staf extends CI_Controller
 
 	public function delete()
 	{
-		$this->kegiatan_model->delete($this->input->post('del_id_kegiatan'));
+		$id = $this->input->post('del_id_kegiatan');
+		$this->kegiatan_model->delete($id);
 		
+		$this->log_model->write($this->session->userdata['id'], "Menghapus Kegiatan id_kegiatan $id");
+
 		redirect('staf/kegiatan_staf','refresh');
 		
 	}

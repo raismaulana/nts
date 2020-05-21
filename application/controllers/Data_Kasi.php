@@ -5,6 +5,9 @@ class Data_Kasi extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->auth_model->security();
+		$this->auth_model->can_admin();
+		
 		$this->load->model('alamat_model');
 		$this->load->model('seksi_model');
 		$this->load->model('pengguna_model');
@@ -42,7 +45,9 @@ class Data_Kasi extends CI_Controller {
         $object2 = array(
             'id_seksi' => $this->input->post('input_seksi_kasi'),
             'id_pengguna' => $result
-        );     
+		);     
+		
+		$this->log_model->write($this->session->userdata['id'], "Menambahkan pengguna (kasi) id_pengguna $result");
 
         $result = $this->kasi_model->insert($object2);
         redirect('data_kasi','refresh');
@@ -72,6 +77,9 @@ class Data_Kasi extends CI_Controller {
 		);
 
 		$result = $this->pengguna_model->update($object, $where);
+
+		$this->log_model->write($this->session->userdata['id'], "Memperbarui data pengguna (kasi) id_kabid ".$this->input->post('edt_id_pengguna'));
+
 		redirect('data_kasi', 'refresh');
 	}
 	
@@ -109,6 +117,8 @@ class Data_Kasi extends CI_Controller {
 		//hapus di tabel kasi dulu
 		if ($this->kasi_model->delete($where, 'kasi')) {
 			if ($this->kasi_model->delete($where, 'pengguna')) {
+
+				$this->log_model->write($this->session->userdata['id'], 'Menghapus data pengguna (kasi) dengan id_pengguna '.$where['id_pengguna']);
 
 				redirect('data_kasi', 'refresh');
 			}

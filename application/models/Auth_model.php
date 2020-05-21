@@ -81,17 +81,26 @@ class Auth_model extends CI_Model {
                         redirect('home','refresh');
                         
                     }
+
+                    
+                    $this->log_model->write($this->session->userdata['id'], "Berhasil Login");
                 } else {
                     $this->session->set_flashdata('info', 'Akun tidak aktif');
-				    redirect ('auth');
+                    redirect ('auth');
+                    
+                    $this->log_model->write($this->session->userdata['id'], "Gagal Login (akun tidak aktif)");
                 }
 			} else {
 				$this->session->set_flashdata('info', 'Username atau Password Salah');
-				redirect ('auth');	
+                redirect ('auth');	
+                
+                $this->log_model->write($this->session->userdata['id'], "Gagal Login (Password Salah)");
 			}
 		} else {
 			$this->session->set_flashdata('info', 'Username atau Password Salah');
-			redirect ('auth');
+            redirect ('auth');
+            
+            $this->log_model->write($this->session->userdata['id'], "Gagal Login (Username Salah)");
 		}
     }
 

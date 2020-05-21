@@ -318,15 +318,23 @@
                     {
                         "data": null,
                         render: function(data, type, full) {
-                            return '<div class="btn-group">' + ' ' +
+                            let html = '<div class="btn-group">' + ' ' +
                                 '<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + ' ' +
                                 '<i class="ti-settings"></i>' + ' ' +
                                 '</button>' + ' ' +
                                 '<div class="dropdown-menu">' + ' ' +
                                 '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + full.id_laporan + '">Detail</a>' + ' ' +
-                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-status="' + full.status_laporan + '" data-product_code="' + full.id_laporan + '">Edit</a>' + ' ' +
-                                '</div>' + ' ' +
+                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-status="' + full.status_laporan + '" data-product_code="' + full.id_laporan + '">Edit</a>' + ' ';
+
+                            if (full.status_laporan == 1) {
+                                html += '<a class="dropdown-item" href="<?= base_url();?>export/' + full.id_laporan + '">Export to Excel</a>' + ' ';
+                            } else {
+                                html += '<a class="dropdown-item item_export" href="javascript:void(0)">Export to Excel</a>' + ' ';
+                            }
+
+                            html += '</div>' + ' ' +
                                 '</div>';
+                            return html;
                         },
                         "orderable": false
                     }
@@ -370,6 +378,12 @@
                 $('#edit_status').val($(this).data('status'));
                 $('#edit_status').select2().trigger('change');
 
+
+            });
+
+            $('#data_laporan').on('click', '.item_export', function() {
+
+                alert('Laporan belum disetujui Kasi');
 
             });
 

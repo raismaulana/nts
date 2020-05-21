@@ -18,7 +18,7 @@ class Bidang extends CI_Controller {
     public function index()
     {
         $context['data_bidang'] = $this->bidang_model->select();
-        $context['data_kabid'] = $this->kabid_model->select_join_bidang_pengguna();
+        $context['data_kabid'] = $this->kabid_model->select_bidang_join_pengguna();
         $context['data_pengguna'] = $this->pengguna_model->select();
         $this->load->view('v_bidang', $context);
         

@@ -20,8 +20,11 @@ class Profil_kasi extends CI_Controller {
 	 */
 
 	 public function __construct() {
-		 parent::__construct();
-		 $this->load->model('kasi_model');
+		parent::__construct();
+		$this->auth_model->security();
+		$this->auth_model->can_kasi();
+		
+		$this->load->model('kasi_model');
 		 
 	 }
 	public function index()

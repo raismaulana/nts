@@ -5,6 +5,9 @@ class Profil_staf extends CI_Controller{
 
 	public function __construct() {
 		parent::__construct();
+		$this->auth_model->security();
+		$this->auth_model->can_staf();
+		
 		$this->load->model('staf_model');
 		
 	}

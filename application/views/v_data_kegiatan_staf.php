@@ -243,13 +243,13 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Tanggal Mulai Kegiatan</label>
                                             <div class="col-md-10 controls">
-                                                <input type="datetime-local" name="input_tgl_mulai" id="input_tgl_mulai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tanggal mulai kegiatan anda">
+                                                <input type="datetime-local" name="input_tgl_mulai" id="input_tgl_mulai" class="form-control" placeholder="yyyy-mm-dd" required data-validation-required-message="Harap pilih tanggal mulai kegiatan anda">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Tanggal Selesai Kegiatan</label>
                                             <div class="col-md-10 controls">
-                                                <input type="datetime-local" name="input_tgl_selesai" id="input_tgl_selesai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tangal selesai kegatan anda">
+                                                <input type="datetime-local" name="input_tgl_selesai" id="input_tgl_selesai" class="form-control" placeholder="yyyy-mm-dd" required data-validation-required-message="Harap pilih tangal selesai kegatan anda">
                                             </div>
                                         </div>
                                     </div>

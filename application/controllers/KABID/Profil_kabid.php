@@ -7,6 +7,9 @@ class Profil_kabid extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->auth_model->security();
+		$this->auth_model->can_kabid();
+        
         $this->load->model('kabid_model');
     }
 

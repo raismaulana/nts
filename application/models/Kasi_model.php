@@ -81,6 +81,10 @@ class Kasi_model extends CI_Model {
         $this->db->join('seksi', 'kasi.id_seksi = seksi.id_seksi', 'left');
         $this->db->join('pengguna', 'kasi.id_pengguna = pengguna.id_pengguna', 'right');
         $this->db->where('kasi.id_seksi', $where);
+        $this->db->order_by('id_kasi', 'desc');
+        $this->db->limit(1);
+        
+        
         return $this->db->get($this->context['tabel'])->result();
         
     }

@@ -7955,7 +7955,7 @@ CREATE TABLE `kegiatan` (
   `kuantitas_output_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kegiatan` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_kegiatan` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_selesai_kegiatan` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_selesai_kegiatan` varchar(30) COLLATE utf8mb4_unicode_ci NULL,
   `tanggal_update_kegiatan` date DEFAULT NULL,
   `waktu_kegiatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8001,6 +8001,7 @@ CREATE TABLE `log` (
   `id_log` bigint(20) NOT NULL,
   `id_pengguna` int(11) NOT NULL,
   `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `tanggal_log` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------

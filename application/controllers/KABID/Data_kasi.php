@@ -7,6 +7,9 @@ class Data_Kasi extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->auth_model->security();
+		$this->auth_model->can_kabid();
+		
 		$this->load->model('alamat_model');
 		$this->load->model('seksi_model');
 		$this->load->model('pengguna_model');

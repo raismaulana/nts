@@ -8,6 +8,8 @@ class Setting extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->auth_model->security();
+        
         $this->load->model('pengguna_model');
     }
 
@@ -32,10 +34,12 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => $this->input->post('edt_password')
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
+
+		$this->log_model->write($this->session->userdata['id'], "Memperbarui akun (username/password) id_pengguna ".$this->session->userdata('id'));
 
         redirect('Home','refresh');
     }
@@ -44,10 +48,12 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => $this->input->post('edt_password')
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
+
+        $this->log_model->write($this->session->userdata['id'], "Memperbarui akun (username/password) id_pengguna ".$this->session->userdata('id'));
 
         redirect('KABID/Beranda_kabid','refresh');
     }
@@ -55,10 +61,12 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => $this->input->post('edt_password')
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
+
+        $this->log_model->write($this->session->userdata['id'], "Memperbarui akun (username/password) id_pengguna ".$this->session->userdata('id'));
 
         redirect('KASI/Beranda_kasi','refresh');
     }
@@ -67,10 +75,12 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => $this->input->post('edt_password')
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
+
+        $this->log_model->write($this->session->userdata['id'], "Memperbarui akun (username/password) id_pengguna ".$this->session->userdata('id'));
 
         redirect('Staf/Beranda','refresh');
     }

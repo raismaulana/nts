@@ -29,8 +29,8 @@ class Auth extends CI_Controller {
 
     public function logout()
     {
+        $this->log_model->write($this->session->userdata['id'], "Logout");
         $this->auth_model->logout();
-        
     }
 
     public function security()

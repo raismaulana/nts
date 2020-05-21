@@ -7,7 +7,8 @@ class Data_Staf extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('auth_model');
+        $this->auth_model->security();
+		$this->auth_model->can_kasi();
 
 		$this->load->model('pengguna_model');
 		$this->load->model('staf_model');
@@ -57,7 +58,10 @@ class Data_Staf extends CI_Controller
 
 		);
 
-		$result = $this->staf_model->insert($object2);
+		$result2 = $this->staf_model->insert($object2);
+		
+		$this->log_model->write($this->session->userdata['id'], "Mendaftarkan pengguna (staf) dengan id_pengguna $result");
+
 		redirect('KASI/data_staf', 'refersh');
 	}
 
@@ -83,6 +87,9 @@ class Data_Staf extends CI_Controller
 		);
 
 		$result = $this->pengguna_model->update($object, $where);
+
+		$this->log_model->write($this->session->userdata['id'], 'Menperbarui data pengguna (staf) dengan id_pengguna '.$where['id_pengguna']);
+
 		redirect('KASI/data_staf', 'refresh');
 	}
 
@@ -147,7 +154,9 @@ class Data_Staf extends CI_Controller
 		//hapus di tabel staf dulu
 		if ($this->staf_model->delete($where, 'staf')) {
 			if ($this->staf_model->delete($where, 'pengguna')) {
-
+				
+				$this->log_model->write($this->session->userdata['id'], 'Menghapus data pengguna (staf) dengan id_pengguna '.$where['id_pengguna']);
+				
 				redirect('KASI/data_staf', 'refresh');
 			}
 		}
