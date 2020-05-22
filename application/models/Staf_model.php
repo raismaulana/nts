@@ -17,7 +17,7 @@ class Staf_model extends CI_Model {
 
     public function select()
     {
-        $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna');
+        $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna,status_pengguna');
         $this->db->where('level_pengguna','1');
         return $this->db->get($this->context['peng'])->result();
 
@@ -25,7 +25,7 @@ class Staf_model extends CI_Model {
 
     public function select2($where)
     {
-        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,pengguna.telepon_pengguna,pengguna.nik_pengguna,pengguna.golongan_pengguna');
+        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,pengguna.telepon_pengguna,pengguna.nik_pengguna,pengguna.golongan_pengguna,status_pengguna');
         $this->db->join('staf', 'staf.id_pengguna = pengguna.id_pengguna');
         $this->db->where($where);
         return $this->db->get($this->context['peng'])->result();
@@ -34,7 +34,7 @@ class Staf_model extends CI_Model {
 
     public function select_where($where)
     {
-        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,pengguna.telepon_pengguna,pengguna.nik_pengguna,pengguna.golongan_pengguna');
+        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,pengguna.telepon_pengguna,pengguna.nik_pengguna,pengguna.golongan_pengguna,status_pengguna');
         $this->db->join('staf', 'staf.id_pengguna = pengguna.id_pengguna');
         $this->db->join('seksi', 'seksi.id_seksi = staf.id_seksi');
         $this->db->where($where);

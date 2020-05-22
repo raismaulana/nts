@@ -463,11 +463,11 @@
                         "data": "status_kegiatan",
                         render: function(data, type, row) {
                             if (row.status_kegiatan == 0) {
-                                return 'Menunggu';
+                                return '<span class="badge badge-warning">Menunggu</span>';
                             } else if (row.status_kegiatan == 1) {
-                                return 'Diterima';
+                                return '<span class="badge badge-success">Disetujui</span>';
                             } else {
-                                return 'Ditolak';
+                                return '<span class="badge badge-danger">Ditolak</span>';
                             }
                         }
                     },

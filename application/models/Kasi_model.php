@@ -16,7 +16,7 @@ class Kasi_model extends CI_Model {
 
     public function select()
     {
-        $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna');
+        $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna,status_pengguna');
         $this->db->where('level_pengguna','2');
         return $this->db->get($this->context['peng'])->result();
         
@@ -24,7 +24,7 @@ class Kasi_model extends CI_Model {
 
     public function select_where($where)
     {
-        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,pengguna.telepon_pengguna,pengguna.nik_pengguna,pengguna.golongan_pengguna');
+        $this->db->select('pengguna.id_pengguna,pengguna.nama_pengguna,pengguna.telepon_pengguna,pengguna.nik_pengguna,pengguna.golongan_pengguna,seksi.nama_seksi');
         $this->db->join('kasi', 'kasi.id_pengguna = pengguna.id_pengguna');
         $this->db->join('seksi', 'seksi.id_seksi = kasi.id_seksi');
         $this->db->where($where);

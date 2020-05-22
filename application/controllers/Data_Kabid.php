@@ -59,6 +59,8 @@ class Data_Kabid extends CI_Controller
 
 	public function update_pengguna()
 	{
+		$password = $this->input->post('edt_password_kabid');
+
 		$object = array(
 			'nama_pengguna' => $this->input->post('edt_nama_kabid'),
 			'nik_pengguna' => $this->input->post('edt_nik_kabid'),
@@ -71,8 +73,14 @@ class Data_Kabid extends CI_Controller
 			'telepon_pengguna' => $this->input->post('edt_no_telp_kabid'),
 			'pendidikan' => $this->input->post('edt_pendidikan_kabid'),
 			'username_pengguna' => $this->input->post('edt_username_kabid'),
-			'password_pengguna' => password_hash($this->input->post('edt_password_kabid'), PASSWORD_ARGON2I)
+			'status_pengguna' => $this->input->post('edt_status_kabid'),
 		);
+
+		if (!empty($password)) {
+			$object = array(
+				'password_pengguna' => password_hash($password, PASSWORD_ARGON2I)
+			);
+		}
 
 		$where = array(
 			'id_pengguna' => $this->input->post('edt_id_pengguna')

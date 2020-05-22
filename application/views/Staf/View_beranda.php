@@ -116,7 +116,7 @@
                                     <div class="d-flex no-block align-items-center">
                                         <div>
                                             <h3><i class="icon-check"></i></h3>
-                                            <p class="text-muted">DITERIMA</p>
+                                            <p class="text-muted">DISETUJUI</p>
                                         </div>
                                         <div class="ml-auto">
                                             <h2 class="counter text-cyan"><?php echo $diterima; ?></h2>
@@ -187,7 +187,7 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div>
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Data Laporan Kegiatan Harian Staf Terakhir</h5>
@@ -300,11 +300,11 @@
                         "data": "status_kegiatan",
                         render: function(data, type, row) {
                             if (row.status_kegiatan == 0) {
-                                return 'Menunggu';
+                                return '<span class="badge badge-warning">Menunggu</span>';
                             } else if (row.status_kegiatan == 1) {
-                                return 'Diterima';
+                                return '<span class="badge badge-success">Disetujui</span>';
                             } else {
-                                return 'Ditolak';
+                                return '<span class="badge badge-danger">Ditolak</span>';
                             }
                         }
                     }

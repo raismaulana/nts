@@ -104,6 +104,7 @@
                                                 <th> No.Telp </th>
                                                 <th> NIK </th>
                                                 <th> Golongan </th>
+                                                <th> Status </th>
                                                 <th> # </th>
                                             </tr>
                                         </thead>
@@ -476,7 +477,18 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Password</label>
                                             <div class="col-md-10 controls">
-                                                <input type="password" name="edt_password_kabid" id="edt_password_kabid" class="form-control" placeholder='' required data-validation-required-message="Harap isi password dari KABID">
+                                                <input type="password" name="edt_password_kabid" id="edt_password_kabid" class="form-control" placeholder='' >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label">Status</label>
+                                            <div class="col-md-10 controls">
+
+                                                <select class="select2 form-control custom-select" name="edt_status_kabid" id="edt_status_kabid" style="width: 100%; height:36px;">
+                                                        <option value="1"> Aktif </option>
+                                                        <option value="0"> Tidak Aktif </option>
+                                                </select>
+
                                             </div>
                                         </div>
                                     </div>
@@ -560,16 +572,16 @@
                         id_pengguna: $(this).data('product_code')
                     },
                     success: function(data) {
-                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
-                        $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
-                        $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
-                        $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
-                        $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
-                        $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
-                        $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
-                        $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
-                        $(".detail_bidang").html("<b>: </b>" + data[0].nama_bidang);
-                        $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+                        $(".detail_nama").html("<b>: </b>" + data.nama_pengguna);
+                        $(".detail_nik").html("<b>: </b>" + data.nik_pengguna);
+                        $(".detail_nip").html("<b>: </b>" + data.nip_pengguna);
+                        $(".detail_alamat").html("<b>: </b>" + data.alamat_pengguna + ", " + data.nama_kecamatan + ", " + data.nama_kabupaten + ", " + data.nama_provinsi);
+                        $(".detail_email").html("<b>: </b>" + data.email_pengguna);
+                        $(".detail_tanggal").html("<b>: </b>" + data.tanggal_lahir_pengguna);
+                        $(".detail_telp").html("<b>: </b>" + data.telepon_pengguna);
+                        $(".detail_pendidikan").html("<b>: </b>" + data.pendidikan);
+                        $(".detail_bidang").html("<b>: </b>" + data.nama_bidang);
+                        $(".detail_golongan").html("<b>: </b>" + data.golongan_pengguna);
                     }
                 })
             });
@@ -601,6 +613,9 @@
 
                         $('#edt_gol_kabid').val(dataf[0].golongan_pengguna);
                         $('#edt_gol_kabid').select2().trigger('change');
+
+                        $('#edt_status_kabid').val(dataf[0].status_pengguna);
+                        $('#edt_status_kabid').select2().trigger('change');
                     }
                 })
             });
@@ -612,7 +627,7 @@
 
             $('#tabel_data_kabid').DataTable({
                 "ajax": {
-                    "url": "http://localhost/nts/data_kabid/select_all",
+                    "url": "<?php echo base_url('data_kabid/select_all'); ?>",
                     "method": "GET"
                 },
                 "columns": [{
@@ -626,6 +641,14 @@
                     },
                     {
                         "data": "golongan_pengguna"
+                    },
+                    {
+                        "data": "status_pengguna",
+                        render: function(data, type, row) {
+                            const status = row.status_pengguna == 1 ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-danger">Tidak Aktif</span>';
+
+                            return status;
+                        }
                     },
                     {
                         "data": "id_pengguna",

@@ -272,11 +272,11 @@
                         "data": "status_laporan",
                         render: function(data, type, row) {
                             if (row.status_laporan == 0) {
-                                return 'Dalam Proses';
+                                return '<span class="badge badge-warning">Menunggu</span>';
                             } else if (row.status_laporan == 1) {
-                                return 'Diterima';
+                                return '<span class="badge badge-success">Disetujui</span>';
                             } else {
-                                return 'Ditolak';
+                                return '<span class="badge badge-danger">Ditolak</span>';
                             }
                         }
                     },
@@ -288,8 +288,7 @@
                                 '<i class="ti-settings"></i>' + ' ' +
                                 '</button>' + ' ' +
                                 '<div class="dropdown-menu">' + ' ' +
-                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + full.id_laporan + '">Detail</a>' + ' ' +
-                                '<a class="dropdown-item item_edit" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Edit" data-status="' + full.status_laporan + '" data-product_code="' + full.id_laporan + '">Edit</a>' + ' ';
+                                '<a class="dropdown-item item_detail" href="javascript:void(0)" data-toggle="modal"  data-target="#Modal_Detail" data-product_code="' + full.id_laporan + '">Detail</a>' + ' ';
 
                             if (full.status_laporan == 1) {
                                 html += '<a class="dropdown-item" href="<?= base_url();?>export/' + full.id_laporan + '">Export to Excel</a>' + ' ';

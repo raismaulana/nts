@@ -232,13 +232,13 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Tanggal Mulai Kegiatan</label>
                                             <div class="col-md-10 controls">
-                                                <input type="datetime-local" name="input_tgl_mulai" id="input_tgl_mulai" class="form-control" placeholder="" value="<?= date('Y-m-d');?>" readonly required data-validation-required-message="Harap pilih tanggal mulai kegiatan anda">
+                                                <input type="text" name="input_tgl_mulai" id="input_tgl_mulai" class="form-control" placeholder="" value="<?= date('Y-m-d');?>" readonly required data-validation-required-message="Harap pilih tanggal mulai kegiatan anda">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Tanggal Selesai Kegiatan</label>
                                             <div class="col-md-10 controls">
-                                                <input type="datetime-local" name="input_tgl_selesai" id="input_tgl_selesai" class="form-control" placeholder="" required data-validation-required-message="Harap pilih tangal selesai kegiatan anda">
+                                                <input type="text" name="input_tgl_selesai" id="input_tgl_selesai" class="form-control" placeholder="">
                                             </div>
                                         </div>
                                     </div>
@@ -441,11 +441,11 @@
                         "data": "status_kegiatan",
                         render: function(data, type, row) {
                             if (row.status_kegiatan == 0) {
-                                return 'Menunggu';
+                                return '<span class="badge badge-warning">Menunggu</span>';
                             } else if (row.status_kegiatan == 1) {
-                                return 'Diterima';
+                                return '<span class="badge badge-success">Disetujui</span>';
                             } else {
-                                return 'Ditolak';
+                                return '<span class="badge badge-danger">Ditolak</span>';
                             }
                         }
                     },

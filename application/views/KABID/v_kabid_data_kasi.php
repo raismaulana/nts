@@ -104,6 +104,7 @@
                                     <table id="tabel_data_kasi" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th> Seksi</th>
                                                 <th> Nama Lengkap</th>
                                                 <th> No.Telp </th>
                                                 <th> NIK </th>
@@ -275,26 +276,29 @@
                         id_pengguna: $(this).data('product_code')
                     },
                     success: function(data) {
-                        $(".detail_nama").html("<b>: </b>" + data[0].nama_pengguna);
-                        $(".detail_nik").html("<b>: </b>" + data[0].nik_pengguna);
-                        $(".detail_nip").html("<b>: </b>" + data[0].nip_pengguna);
-                        $(".detail_alamat").html("<b>: </b>" + data[0].alamat_pengguna + ", " + data[0].nama_kecamatan + ", " + data[0].nama_kabupaten + ", " + data[0].nama_provinsi);
-                        $(".detail_email").html("<b>: </b>" + data[0].email_pengguna);
-                        $(".detail_tanggal").html("<b>: </b>" + data[0].tanggal_lahir_pengguna);
-                        $(".detail_telp").html("<b>: </b>" + data[0].telepon_pengguna);
-                        $(".detail_pendidikan").html("<b>: </b>" + data[0].pendidikan);
-                        $(".detail_seksi").html("<b>: </b>" + data[0].nama_seksi);
-                        $(".detail_golongan").html("<b>: </b>" + data[0].golongan_pengguna);
+                        $(".detail_nama").html("<b>: </b>" + data.nama_pengguna);
+                        $(".detail_nik").html("<b>: </b>" + data.nik_pengguna);
+                        $(".detail_nip").html("<b>: </b>" + data.nip_pengguna);
+                        $(".detail_alamat").html("<b>: </b>" + data.alamat_pengguna + ", " + data.nama_kecamatan + ", " + data.nama_kabupaten + ", " + data.nama_provinsi);
+                        $(".detail_email").html("<b>: </b>" + data.email_pengguna);
+                        $(".detail_tanggal").html("<b>: </b>" + data.tanggal_lahir_pengguna);
+                        $(".detail_telp").html("<b>: </b>" + data.telepon_pengguna);
+                        $(".detail_pendidikan").html("<b>: </b>" + data.pendidikan);
+                        $(".detail_seksi").html("<b>: </b>" + data.nama_seksi);
+                        $(".detail_golongan").html("<b>: </b>" + data.golongan_pengguna);
                     }
                 })
             });
 
             $('#tabel_data_kasi').DataTable({
                 "ajax": {
-                    "url": "http://localhost/nts/kabid/data_kasi/select_all",
+                    "url": "<?php echo base_url('kabid/data_kasi/select_all'); ?>",
                     "method": "GET"
                 },
                 "columns": [{
+                        "data": "nama_seksi"
+                    },
+                    {
                         "data": "nama_pengguna"
                     },
                     {

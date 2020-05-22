@@ -56,6 +56,8 @@ class Data_Kasi extends CI_Controller {
 
 	public function update_pengguna()
 	{
+		$password = $this->input->post('edit_password_kasi');
+
 		$object = array(
 			'nama_pengguna' => $this->input->post('edit_nama_kasi'),
 			'nik_pengguna' => $this->input->post('edit_nik_kasi'),
@@ -68,8 +70,14 @@ class Data_Kasi extends CI_Controller {
 			'telepon_pengguna' => $this->input->post('edit_no_telp_kasi'),
 			'pendidikan' => $this->input->post('edit_pendidikan_kasi'),
 			'username_pengguna' => $this->input->post('edit_username_kasi'),
-			'password_pengguna' => password_hash($this->input->post('edit_password_kasi'), PASSWORD_ARGON2I)
+			'status_pengguna' => $this->input->post('edit_status_kasi'),
 		);
+		
+		if (!empty($password)) {
+			$object = array(
+				'password_pengguna' => password_hash($password, PASSWORD_ARGON2I)
+			);
+		}
 
 		$where = array(
 			'id_pengguna' => $this->input->post('edit_id_pengguna')

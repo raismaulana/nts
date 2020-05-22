@@ -155,7 +155,6 @@ class Export extends CI_Controller {
         //staf
         $sheet->setCellValue("D$rowStafKasi", "$pengguna->nama_jabatan");
         $sheet->setCellValue("D$rowNamaStafKasi", "$pengguna->nama_pengguna");
-        $sheet->setCellValue("D$rowNipStafKasi", "nama staf");
         if (!empty($pengguna->nip_pengguna)){
             $sheet->setCellValue("D$rowNipStafKasi", "NIP. $pengguna->nip_pengguna");
         }

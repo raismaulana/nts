@@ -40,7 +40,8 @@ class Kegiatan_staf extends CI_Controller
 	{
 		$id = $this->input->post('edit_id_kegiatan');
 		$data = array(
-			'status_kegiatan' => $this->input->post('edit_status')
+			'status_kegiatan' => $this->input->post('edit_status'),
+			'tanggal_update_kegiatan' => date('Y-m-d'),
 		);
 
 		$this->kegiatan_model->update($id,$data);

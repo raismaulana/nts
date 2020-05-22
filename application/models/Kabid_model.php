@@ -16,7 +16,7 @@ class Kabid_model extends CI_Model {
 
     public function select()
     {
-        $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna');
+        $this->db->select('id_pengguna,nama_pengguna,telepon_pengguna,nik_pengguna,golongan_pengguna,status_pengguna');
         $this->db->where('level_pengguna','3');
         return $this->db->get($this->context['peng'])->result();
         

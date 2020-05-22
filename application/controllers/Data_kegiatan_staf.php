@@ -69,6 +69,7 @@ class Data_kegiatan_staf extends CI_Controller
 				'status_kegiatan' => 0,
 				'tanggal_kegiatan' => $this->input->post('input_tgl_mulai'),
 				'tanggal_selesai_kegiatan' => $this->input->post('input_tgl_selesai'),
+				'tanggal_update_kegiatan' => date('Y-m-d'),
 				'waktu_kegiatan' => $this->kegiatan_model->durasi($this->input->post('input_tgl_mulai'), $this->input->post('input_tgl_selesai'))
 			);
 
@@ -85,12 +86,13 @@ class Data_kegiatan_staf extends CI_Controller
 				'status_kegiatan' => 0,
 				'tanggal_kegiatan' => $this->input->post('input_tgl_mulai'),
 				'tanggal_selesai_kegiatan' => $this->input->post('input_tgl_selesai'),
+				'tanggal_update_kegiatan' => date('Y-m-d'),
 				'waktu_kegiatan' => $this->kegiatan_model->durasi($this->input->post('input_tgl_mulai'), $this->input->post('input_tgl_selesai'))
 			);
 
 			$hasil = $this->kegiatan_model->insert($insert_kegiatan);
 
-			$this->log_model->write($this->session->userdata['id'], "Mengisi Kegiatan di id_laporan $id_laporan");
+			$this->log_model->write($this->session->userdata['id'], "Mengisi Kegiatan di id_laporan ".$cek->id_laporan);
 
 			redirect('data_kegiatan_staf', 'refresh');
 		}
@@ -112,7 +114,7 @@ class Data_kegiatan_staf extends CI_Controller
 			'status_kegiatan' => $this->input->post('edit_status'),
 			'tanggal_kegiatan' => $this->input->post('edit_tgl_mulai'),
 			'tanggal_selesai_kegiatan' => $this->input->post('edit_tgl_selesai'),
-			'tanggal_update_kegiatan' => date('Y-m-d H:i'),
+			'tanggal_update_kegiatan' => date('Y-m-d'),
 			'waktu_kegiatan' => $this->kegiatan_model->durasi($this->input->post('edit_tgl_mulai'), $this->input->post('edit_tgl_selesai'))
 		);
 

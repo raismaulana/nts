@@ -77,7 +77,8 @@ class Data_Staf extends CI_Controller
 			'golongan_pengguna' => $this->input->post('edt_gol_staf'),
 			'tanggal_lahir_pengguna' => $this->input->post('edt_tgl_lahir_staf'),
 			'telepon_pengguna' => $this->input->post('edt_no_telp_staf'),
-			'pendidikan' => $this->input->post('edt_pendidikan_staf')
+			'pendidikan' => $this->input->post('edt_pendidikan_staf'),
+			'status_pengguna' => $this->input->post('edt_status_staf')
 			
 		);
 
