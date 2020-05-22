@@ -8350,19 +8350,19 @@ ALTER TABLE `kecamatan`
 -- Ketidakleluasaan untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  ADD CONSTRAINT `fk_relationship_11` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id_laporan`);
+  ADD CONSTRAINT `fk_relationship_11` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id_laporan`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
-  ADD CONSTRAINT `fk_relationship_12` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`);
+  ADD CONSTRAINT `fk_relationship_12` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `log`
 --
 ALTER TABLE `log`
-  ADD CONSTRAINT `fk_relationship_7` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`);
+  ADD CONSTRAINT `fk_relationship_7` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `pengguna`
