@@ -8000,7 +8000,7 @@ INSERT INTO `laporan` (`id_laporan`, `id_pengguna`, `bulan_laporan`, `tahun_lapo
 CREATE TABLE `log` (
   `id_log` bigint(20) NOT NULL,
   `id_pengguna` int(11) NOT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_log` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
