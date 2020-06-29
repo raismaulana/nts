@@ -45,7 +45,7 @@ class Data_Staf extends CI_Controller {
 			'telepon_pengguna' => $this->input->post('input_no_telp_staf'),
 			'pendidikan' => $this->input->post('input_pendidikan_staf'),
 			'username_pengguna' => $this->input->post('input_username_staf'),
-			'password_pengguna' => password_hash($this->input->post('input_password_staf'), PASSWORD_ARGON2I),
+			'password_pengguna' => password_hash($this->input->post('input_password_staf'), PASSWORD_DEFAULT),
 			'level_pengguna' => '1',
             'status_pengguna' => '1',
 		);
@@ -87,7 +87,7 @@ class Data_Staf extends CI_Controller {
 
 		if (!empty($password)) {
 			$object = array(
-				'password_pengguna' => password_hash($password, PASSWORD_ARGON2I)
+				'password_pengguna' => password_hash($password, PASSWORD_DEFAULT)
 			);
 		}
 
@@ -174,7 +174,7 @@ class Data_Staf extends CI_Controller {
 				'telepon_pengguna' => $this->input->post('telepon'),
 				'pendidikan' => $this->input->post('pendidikan'),
 				'username_pengguna' => $this->input->post('username'),
-				'password_pengguna' => password_hash($this->input->post('password'), PASSWORD_ARGON2I),
+				'password_pengguna' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 				'level_pengguna' => '1',
 				'status_pengguna' => '1',
 			);
@@ -220,7 +220,7 @@ class Data_Staf extends CI_Controller {
 			'telepon_pengguna' => $this->input->post('telepon'),
 			'pendidikan' => $this->input->post('pendidikan'),
 			'username_pengguna' => $this->input->post('username'),
-			'password_pengguna' => password_hash($this->input->post('password'), PASSWORD_ARGON2I),
+			'password_pengguna' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 			'level_pengguna' => $this->input->post('level'),
 			'status_pengguna' => $this->input->post('status'),
 		);

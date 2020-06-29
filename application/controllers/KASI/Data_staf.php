@@ -44,7 +44,7 @@ class Data_Staf extends CI_Controller
 			'telepon_pengguna' => $this->input->post('input_no_telp_staf'),
 			'pendidikan' => $this->input->post('input_pendidikan_staf'),
 			'username_pengguna' => $this->input->post('input_username_staf'),
-			'password_pengguna' => password_hash($this->input->post('input_password_staf'), PASSWORD_ARGON2I),
+			'password_pengguna' => password_hash($this->input->post('input_password_staf'), PASSWORD_DEFAULT),
 			'level_pengguna' => '1',
 			'status_pengguna' => '1',
 		);

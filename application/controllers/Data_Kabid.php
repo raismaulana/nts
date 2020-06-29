@@ -37,7 +37,7 @@ class Data_Kabid extends CI_Controller
 			'telepon_pengguna' => $this->input->post('input_no_telp_kabid'),
 			'pendidikan' => $this->input->post('input_pendidikan_kabid'),
 			'username_pengguna' => $this->input->post('input_username_kabid'),
-			'password_pengguna' => password_hash($this->input->post('input_password_kabid'), PASSWORD_ARGON2I),
+			'password_pengguna' => password_hash($this->input->post('input_password_kabid'), PASSWORD_DEFAULT),
 			'level_pengguna' => '3',
 			'status_pengguna' => '1',
 		);
@@ -78,7 +78,7 @@ class Data_Kabid extends CI_Controller
 
 		if (!empty($password)) {
 			$object = array(
-				'password_pengguna' => password_hash($password, PASSWORD_ARGON2I)
+				'password_pengguna' => password_hash($password, PASSWORD_DEFAULT)
 			);
 		}
 

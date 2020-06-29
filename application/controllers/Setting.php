@@ -34,7 +34,7 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_DEFAULT)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
@@ -48,7 +48,7 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_DEFAULT)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
@@ -61,7 +61,7 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_DEFAULT)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));
@@ -75,7 +75,7 @@ class Setting extends CI_Controller
     {
         $data = array(
             'username_pengguna' => $this->input->post('edt_username'),
-            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_ARGON2I)
+            'password_pengguna' => password_hash($this->input->post('edt_password'), PASSWORD_DEFAULT)
         );
 
         $hasil = $this->pengguna_model->update($data,$this->session->userdata('id'));

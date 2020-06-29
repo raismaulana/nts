@@ -35,7 +35,7 @@ class Data_Kasi extends CI_Controller {
 			'telepon_pengguna' => $this->input->post('input_no_telp_kasi'),
 			'pendidikan' => $this->input->post('input_pendidikan_kasi'),
 			'username_pengguna' => $this->input->post('input_username_kasi'),
-			'password_pengguna' => password_hash($this->input->post('input_password_kasi'), PASSWORD_ARGON2I),
+			'password_pengguna' => password_hash($this->input->post('input_password_kasi'), PASSWORD_DEFAULT),
 			'level_pengguna' => '2',
             'status_pengguna' => '1',      
         );
@@ -75,7 +75,7 @@ class Data_Kasi extends CI_Controller {
 		
 		if (!empty($password)) {
 			$object = array(
-				'password_pengguna' => password_hash($password, PASSWORD_ARGON2I)
+				'password_pengguna' => password_hash($password, PASSWORD_DEFAULT)
 			);
 		}
 

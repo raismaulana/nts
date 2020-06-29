@@ -39,6 +39,12 @@ class Auth extends CI_Controller {
             redirect('auth', 'refresh');
         }
     }
+
+    public function tes()
+    {
+        $a = password_hash('userbaru', PASSWORD_DEFAULT);
+        echo $a;
+    }
 }
 
 /* End of file Login.php */
